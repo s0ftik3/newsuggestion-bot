@@ -2,5 +2,6 @@ module.exports = {
     "token": process.env.TOKEN,
     "database": process.env.DATABASE,
     "admin": 511695340,
-    "chat": "SuggestFeature"
+    "chat": "SuggestFeature",
+    "chat_link": "@SuggestFeature"
 }

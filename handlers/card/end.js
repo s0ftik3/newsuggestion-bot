@@ -75,7 +75,7 @@ module.exports = () => async (ctx) => {
 
         if (ctx.session.suggestionMedia == undefined) {
 
-            ctx.telegram.sendMessage(config.chat, message, {
+            ctx.telegram.sendMessage(config.chat_link, message, {
                 parse_mode: 'Markdown',
                 reply_markup: Markup.inlineKeyboard([
                     Markup.callbackButton(`👍 0`, `like:${cardId}`),
@@ -95,7 +95,7 @@ module.exports = () => async (ctx) => {
             switch(ctx.session.suggestionMedia.type) {
 
                 case 'photo':
-                    ctx.telegram.sendPhoto(config.chat, ctx.session.suggestionMedia.content[0].file_id, {
+                    ctx.telegram.sendPhoto(config.chat_link, ctx.session.suggestionMedia.content[0].file_id, {
                         parse_mode: 'Markdown',
                         caption: message
                     }).then(data => {
@@ -110,7 +110,7 @@ module.exports = () => async (ctx) => {
                     break;
                 
                 case 'GIF':
-                    ctx.telegram.sendDocument(config.chat, ctx.session.suggestionMedia.content.file_id, {
+                    ctx.telegram.sendDocument(config.chat_link, ctx.session.suggestionMedia.content.file_id, {
                         parse_mode: 'Markdown',
                         caption: message
                     }).then(data => {
@@ -125,7 +125,7 @@ module.exports = () => async (ctx) => {
                     break;
 
                 case 'video':
-                    ctx.telegram.sendVideo(config.chat, ctx.session.suggestionMedia.content.file_id, {
+                    ctx.telegram.sendVideo(config.chat_link, ctx.session.suggestionMedia.content.file_id, {
                         parse_mode: 'Markdown',
                         caption: message
                     }).then(data => {
