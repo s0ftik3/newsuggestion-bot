@@ -1,4 +1,5 @@
 const Card = require('../../database/models/Card');
+const User = require('../../database/models/User');
 const Markup = require('telegraf/markup');
 const config = require('../../config');
 const application = {
@@ -63,6 +64,12 @@ module.exports = () => async (ctx) => {
                 card.save().then(() => console.log(`${ctx.from.id}: new card created.`));
 
             }
+
+            User.find({ id: ctx.from.id }).then(response => {
+
+                User.updateOne({ id: ctx.from.id }, { $set: { suggestionCount: response[0].suggestionCount + 1 } }, () => {});
+
+            });
 
         });
 
