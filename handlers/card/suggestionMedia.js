@@ -1,9 +1,10 @@
 const Markup = require('telegraf/markup');
+const saveFormatting = require('../../scripts/saveFormatting');
 
 module.exports = () => (ctx) => {
     try {
 
-        const suggestionText = ctx.message.text;
+        const suggestionText = saveFormatting(ctx.message.text, ctx.message.entities);
         ctx.session.suggestionText = suggestionText;
 
         ctx.replyWithMarkdown(

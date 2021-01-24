@@ -18,7 +18,7 @@ module.exports = () => async (ctx) => {
         if (ctx.message.text.length > 128) return ctx.reply('Your suggestion\'s title must be less than 128 characters.');
 
         const suggestionTitle = ctx.message.text;
-        const suggestionText = ctx.session.suggestionText.replace(/[\r\n]{3,}/g, '');
+        const suggestionText = ctx.session.suggestionText.replace(/[\r\n]{3,}/g, ' ');
         const suggestionAuthor = (ctx.from.username != undefined) ? `@${ctx.from.username}` : ctx.from.first_name;
         const suggestionPlatform = application[ctx.session.suggestionPlatform];
 
