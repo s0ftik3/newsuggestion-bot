@@ -80,7 +80,8 @@ module.exports = () => async (ctx) => {
                 reply_markup: Markup.inlineKeyboard([
                     Markup.callbackButton(`👍 0`, `like:${cardId}`),
                     Markup.callbackButton(`👎 0`, `dislike:${cardId}`)
-                ], { columns: 2 })
+                ], { columns: 2 }),
+                disable_web_page_preview: true
             }).then(data => {
                 
                 ctx.telegram.pinChatMessage(data.chat.id, data.message_id);
