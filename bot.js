@@ -17,7 +17,9 @@ const {
     handleSuggestionTitle,
     handleSuggestionMedia,
     handleEnd,
-    handleVote
+    handleVote,
+    handleDebug,
+    handleReset
 } = require('./handlers');
 
 const suggestion = new Scene('suggestion');
@@ -32,6 +34,8 @@ bot.use(stage.middleware());
 
 bot.start(handleStart());
 bot.command('suggest', handleStart());
+bot.command('debug', handleDebug());
+bot.command('reset', handleReset());
 bot.action('app', handleChooseApp());
 bot.action('language', handleLanguage());
 bot.action('back', handleStart());

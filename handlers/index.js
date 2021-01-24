@@ -7,5 +7,7 @@ module.exports = {
     handleSuggestionMedia: require('./card/suggestionMedia'),
     handleSuggestionTitle: require('./card/suggestionTitle'),
     handleEnd: require('./card/end'),
-    handleVote: require('./vote/updateMessage')
+    handleVote: require('./vote/updateMessage'),
+    handleDebug: require('./admin/debug'),
+    handleReset: require('./admin/reset')
 }
