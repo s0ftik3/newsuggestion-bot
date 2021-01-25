@@ -80,12 +80,13 @@ module.exports = () => async (ctx) => {
                 reply_markup: Markup.inlineKeyboard([
                     Markup.callbackButton(`👍 0`, `like:${cardId}`),
                     Markup.callbackButton(`👎 0`, `dislike:${cardId}`)
-                ], { columns: 2 }),
-                disable_web_page_preview: true
+                ], { columns: 2 })
             }).then(data => {
                 
                 ctx.telegram.pinChatMessage(data.chat.id, data.message_id);
-                ctx.replyWithMarkdown(`[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published!\n\nTo suggest a new feature, please use the command /suggest.`);    
+                ctx.replyWithMarkdown(`[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published!\n\nTo suggest a new feature, please use the command /suggest.`, {
+                    disable_web_page_preview: true
+                });    
             
                 console.log(`${ctx.from.id}: made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
 
