@@ -16,13 +16,14 @@ const {
     handleSuggestion,
     handleSuggestionTitle,
     handleSuggestionMedia,
-    handleEnd,
+    handlePublishSuggestion,
     handleVote,
     handleDebug,
     handleReset,
     handleCancel
 } = require('./handlers');
 
+// Card creation's stages.
 const suggestion = new Scene('suggestion');
 stage.register(suggestion);
 const suggestionMedia = new Scene('suggestionMedia');
@@ -33,29 +34,38 @@ stage.register(suggestionTitle);
 bot.use(session());
 bot.use(stage.middleware());
 
+// Handle start command.
 bot.start(handleStart());
+
+// Creating new suggestion.
 bot.command('suggest', handleStart());
-bot.command('debug', handleDebug());
-bot.command('reset', handleReset());
 bot.action('app', handleChooseApp());
 bot.action('language', handleLanguage());
 bot.action('back', handleStart());
 bot.action(/platform:\w+/, handleSuggestion());
-bot.action(/\blike:\b\w+/, handleVote());
-bot.action(/\bdislike:\b\w+/, handleVote());
 suggestion.on('text', handleSuggestionMedia());
 suggestionMedia.on('callback_query', handleSuggestionTitle());
 suggestionMedia.on('message', handleSuggestionTitle());
-suggestionTitle.on('text', handleEnd());
+suggestionTitle.on('text', handlePublishSuggestion());
 
 // Support cancel command.
 suggestion.command('cancel', handleCancel());
 suggestionMedia.command('cancel', handleCancel());
 suggestionTitle.command('cancel', handleCancel());
 
+// Handle likes/dislikes.
+bot.action(/\blike:\b\w+/, handleVote());
+bot.action(/\bdislike:\b\w+/, handleVote());
+
+// Admin commands.
+bot.command('debug', handleDebug());
+bot.command('reset', handleReset());
+
+// Handle any callback query.
 bot.on('callback_query', handleCallback());
 
+// Start the bot.
 bot.launch().then(() => {
     console.log('The bot has been started.');
-    connect();
+    connect(); // Connect to the database.
 });
