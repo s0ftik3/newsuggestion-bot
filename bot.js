@@ -16,6 +16,7 @@ const {
     handleSuggestion,
     handleSuggestionTitle,
     handleSuggestionMedia,
+    handleCheckSuggestion,
     handlePublishSuggestion,
     handleVote,
     handleDebug,
