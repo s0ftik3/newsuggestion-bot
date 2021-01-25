@@ -87,7 +87,7 @@ module.exports = () => async (ctx) => {
                 ctx.telegram.pinChatMessage(data.chat.id, data.message_id);
                 ctx.replyWithMarkdown(`[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published!\n\nTo suggest a new feature, please use the command /suggest.`);    
             
-                console.log(`${ctx.from.id}: Made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
+                console.log(`${ctx.from.id}: made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
 
             });
 
@@ -104,7 +104,7 @@ module.exports = () => async (ctx) => {
                         ctx.telegram.pinChatMessage(data.chat.id, data.message_id);
                         ctx.replyWithMarkdown(`[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published!\n\nTo suggest a new feature, please use the command /suggest.`);  
                     
-                        console.log(`${ctx.from.id}: Made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
+                        console.log(`${ctx.from.id}: made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
         
                     });
                     
@@ -119,7 +119,7 @@ module.exports = () => async (ctx) => {
                         ctx.telegram.pinChatMessage(data.chat.id, data.message_id);
                         ctx.replyWithMarkdown(`[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published!\n\nTo suggest a new feature, please use the command /suggest.`);  
                     
-                        console.log(`${ctx.from.id}: Made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
+                        console.log(`${ctx.from.id}: made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
         
                     });
                     
@@ -134,7 +134,7 @@ module.exports = () => async (ctx) => {
                         ctx.telegram.pinChatMessage(data.chat.id, data.message_id);
                         ctx.replyWithMarkdown(`[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published!\n\nTo suggest a new feature, please use the command /suggest.`);  
                     
-                        console.log(`${ctx.from.id}: Made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
+                        console.log(`${ctx.from.id}: made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
         
                     });
                     
