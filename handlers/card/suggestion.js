@@ -8,7 +8,8 @@ module.exports = () => (ctx) => {
             'Please describe your suggestion in English below 👇\n\n' +
             '_For example:_\n' +
             '_An option to translate particular chat messages using the context menu of the app._\n\n' +
-            'To submit a suggestion in another language, please contact our support team: _Settings > Ask a question._', {
+            'To submit a suggestion in another language, please contact our support team: _Settings > Ask a question._\n\n' +
+            'Use /cancel command to start over.', {
             parse_mode: 'Markdown'
         });
 

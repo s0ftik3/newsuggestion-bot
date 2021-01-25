@@ -10,7 +10,8 @@ module.exports = () => (ctx) => {
         ctx.replyWithMarkdown(
             'Please provide a demo screenshot or video of your suggested implementation.\n\n' +
             '*Warning:* your feature suggestion will be public, other users will be able to see all videos and screenshots you attach. Please make sure they don\'t show any private information – or blur/hide anything you don\'t want to share with others.\n\n' +
-            'You may also be interested to see feature implementations suggested by other Telegram users in https://t.me/designers.', {
+            'You may also be interested to see feature implementations suggested by other Telegram users in https://t.me/designers.\n\n' +
+            'Use /cancel command to start over.', {
             reply_markup: Markup.inlineKeyboard([
                 Markup.callbackButton('Skip this step »', 'skip')
             ]),

@@ -19,7 +19,8 @@ const {
     handleEnd,
     handleVote,
     handleDebug,
-    handleReset
+    handleReset,
+    handleCancel
 } = require('./handlers');
 
 const suggestion = new Scene('suggestion');
@@ -46,6 +47,11 @@ suggestion.on('text', handleSuggestionMedia());
 suggestionMedia.on('callback_query', handleSuggestionTitle());
 suggestionMedia.on('message', handleSuggestionTitle());
 suggestionTitle.on('text', handleEnd());
+
+// Support cancel command.
+suggestion.command('cancel', handleCancel());
+suggestionMedia.command('cancel', handleCancel());
+suggestionTitle.command('cancel', handleCancel());
 
 bot.on('callback_query', handleCallback());
 

@@ -9,5 +9,6 @@ module.exports = {
     handleEnd: require('./card/end'),
     handleVote: require('./vote/updateMessage'),
     handleDebug: require('./admin/debug'),
-    handleReset: require('./admin/reset')
+    handleReset: require('./admin/reset'),
+    handleCancel: require('./cancel')
 }

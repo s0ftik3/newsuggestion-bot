@@ -3,7 +3,7 @@ module.exports = () => (ctx) => {
 
         if (ctx.updateType == 'callback_query') {
 
-            ctx.editMessageText('Please enter the title for your feature suggestion (up to 128 characters).');
+            ctx.editMessageText('Please enter the title for your feature suggestion (up to 128 characters).\n\nUse /cancel command to start over.');
             ctx.answerCbQuery();
 
         } else {
@@ -19,7 +19,7 @@ module.exports = () => (ctx) => {
             };
 
             ctx.telegram.editMessageReplyMarkup(ctx.chat.id, ctx.session.prevmsg, {});
-            ctx.replyWithMarkdown('Please enter the title for your feature suggestion (up to 128 characters).');
+            ctx.replyWithMarkdown('Please enter the title for your feature suggestion (up to 128 characters).\n\nUse /cancel command to start over.');
                 
         }
 
