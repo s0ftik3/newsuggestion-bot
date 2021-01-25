@@ -15,8 +15,6 @@ const application = {
 module.exports = () => async (ctx) => {
     try {  
 
-        if (ctx.message.text.length > 128) return ctx.reply('Your suggestion\'s title must be less than 128 characters.');
-
         ctx.editMessageReplyMarkup({});
 
         const suggestionTitle = ctx.session.suggestionTitle;
