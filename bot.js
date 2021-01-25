@@ -37,21 +37,23 @@ bot.use(stage.middleware());
 // Handle start command.
 bot.start(handleStart());
 
-// Creating new suggestion.
+// Creating a new suggestion.
 bot.command('suggest', handleStart());
 bot.action('app', handleChooseApp());
 bot.action('language', handleLanguage());
 bot.action('back', handleStart());
 bot.action(/platform:\w+/, handleSuggestion());
-suggestion.on('text', handleSuggestionMedia());
-suggestionMedia.on('callback_query', handleSuggestionTitle());
-suggestionMedia.on('message', handleSuggestionTitle());
-suggestionTitle.on('text', handlePublishSuggestion());
 
 // Support cancel command.
 suggestion.command('cancel', handleCancel());
 suggestionMedia.command('cancel', handleCancel());
 suggestionTitle.command('cancel', handleCancel());
+
+// Another part of creating a new suggestion.
+suggestion.on('text', handleSuggestionMedia());
+suggestionMedia.on('callback_query', handleSuggestionTitle());
+suggestionMedia.on('message', handleSuggestionTitle());
+suggestionTitle.on('text', handlePublishSuggestion());
 
 // Handle likes/dislikes.
 bot.action(/\blike:\b\w+/, handleVote());
