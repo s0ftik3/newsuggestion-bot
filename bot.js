@@ -42,6 +42,8 @@ bot.command('suggest', handleStart());
 bot.action('app', handleChooseApp());
 bot.action('language', handleLanguage());
 bot.action('back', handleStart());
+bot.action('publish', handlePublishSuggestion());
+bot.action('cancel', handleCancel());
 bot.action(/platform:\w+/, handleSuggestion());
 
 // Support cancel command.
@@ -53,7 +55,7 @@ suggestionTitle.command('cancel', handleCancel());
 suggestion.on('text', handleSuggestionMedia());
 suggestionMedia.on('callback_query', handleSuggestionTitle());
 suggestionMedia.on('message', handleSuggestionTitle());
-suggestionTitle.on('text', handlePublishSuggestion());
+suggestionTitle.on('text', handleCheckSuggestion());
 
 // Handle likes/dislikes.
 bot.action(/\blike:\b\w+/, handleVote());
