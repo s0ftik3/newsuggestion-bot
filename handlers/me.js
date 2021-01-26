@@ -32,7 +32,7 @@ module.exports = () => (ctx) => {
 
             });
 
-            ctx.replyWithMarkdown(`Your cards:\n\n${result.join('\n')}\n\nTotal card(s) suggested: ${response.length}`, { disable_web_page_preview: true });
+            ctx.replyWithMarkdown(`*Your cards:*\n\n${result.join('\n')}\n\n*Total card(s) suggested:* ${response.length}`, { disable_web_page_preview: true });
 
         })        
 
