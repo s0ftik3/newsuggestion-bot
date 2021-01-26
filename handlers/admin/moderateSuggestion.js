@@ -41,7 +41,7 @@ module.exports = () => (ctx) => {
                 const author = response[0].author;
                 const title = response[0].title;
 
-                ctx.telegram.sendMessage(author, `🥳 [Your suggestion](${url}) «${title}» has been published on bugs.telegram.org!`, { parse_mode: 'Markdown', disable_web_page_preview: true });
+                ctx.telegram.sendMessage(author, `🥳 Your suggestion [«${title}»](${url}) has been published on bugs.telegram.org!`, { parse_mode: 'Markdown', disable_web_page_preview: true });
 
             });
 
