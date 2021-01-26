@@ -11,5 +11,7 @@ module.exports = {
     handleVote: require('./vote/updateVote'),
     handleDebug: require('./admin/debug'),
     handleReset: require('./admin/reset'),
-    handleCancel: require('./cancel')
+    handleCancel: require('./cancel'),
+    handleModerateSuggestion: require('./admin/moderateSuggestion'),
+    handleMe: require('./me')
 }

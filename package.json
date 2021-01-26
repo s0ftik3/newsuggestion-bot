@@ -1,6 +1,6 @@
 {
   "name": "newsuggestion-bot",
-  "version": "1.3.2",
+  "version": "2.0.0",
   "description": "A Simple Telegram bot.",
   "main": "index.js",
   "scripts": {

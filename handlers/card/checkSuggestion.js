@@ -9,6 +9,14 @@ const application = {
     'ddapp': 'all'
 };
 
+const attachment = {
+    'text': 'none',
+    'photo': 'photo',
+    'video': 'video',
+    'GIF': 'GIF',
+    'album': 'album'
+};
+
 module.exports = () => (ctx) => {
     try {  
 
@@ -16,6 +24,7 @@ module.exports = () => (ctx) => {
 
         const suggestionTitle = ctx.message.text;
         ctx.session.suggestionTitle = suggestionTitle;
+        const suggestionMedia = attachment[ctx.session.suggestionMedia.type];
         const suggestionText = ctx.session.suggestionText.replace(/[\r\n]{3,}/g, ' ');
         const suggestionAuthor = (ctx.from.username != undefined) ? `@${ctx.from.username}` : ctx.from.first_name;
         const suggestionPlatform = application[ctx.session.suggestionPlatform];
@@ -24,6 +33,7 @@ module.exports = () => (ctx) => {
             `*Title:* ${suggestionTitle.replace(/[\r\n]{1,}/g, ' ')} by ${suggestionAuthor}\n\n` +
             `*Description:*\n${suggestionText}\n\n` +
             `*Platform:* ${suggestionPlatform}\n\n` +
+            `*Attachments:* ${suggestionMedia}\n\n` +
             `*Submit this suggestion?*`;
 
         ctx.replyWithMarkdown(message, {

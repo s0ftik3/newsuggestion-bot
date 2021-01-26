@@ -23,6 +23,21 @@ const cardSchema = new mongoose.Schema({
         required: false,
         default: 0
     },
+    isPublished: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
+    isDeclined: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
+    url: {
+        type: String,
+        required: false,
+        default: null
+    },
     voted: {
         type: Array,
         required: false,

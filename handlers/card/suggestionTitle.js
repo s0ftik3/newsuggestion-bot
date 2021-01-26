@@ -3,6 +3,10 @@ module.exports = () => (ctx) => {
 
         if (ctx.updateType == 'callback_query') {
 
+            ctx.session.suggestionMedia = {
+                type: 'text',
+                content: null
+            };
             ctx.editMessageText('Please enter the title for your feature suggestion (up to 128 characters).\n\nUse /cancel command to start over.');
             ctx.answerCbQuery();
 

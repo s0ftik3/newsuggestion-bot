@@ -1,7 +1,11 @@
 const Card = require('../../database/models/Card');
 const User = require('../../database/models/User');
-const Markup = require('telegraf/markup');
-const config = require('../../config');
+
+const sendMessage = require('../../scripts/sendMessage');
+const sendPhoto = require('../../scripts/sendPhoto');
+const sendVideo = require('../../scripts/sendVideo');
+const sendDocument = require('../../scripts/sendDocument');
+
 const application = {
     'tgdroid': 'Android',
     'tgios': 'iOS',
@@ -37,11 +41,9 @@ module.exports = () => async (ctx) => {
                 cardId = 0;
 
                 const cardData = {
-                    card_id: 0, 
+                    card_id: 0,
                     title: suggestionTitle,
                     author: ctx.from.id,
-                    likes: 0,
-                    dislikes: 0,
                     timestamp: new Date()
                 }
                 const card = new Card(cardData);
@@ -56,8 +58,6 @@ module.exports = () => async (ctx) => {
                     card_id: card_id, 
                     title: suggestionTitle,
                     author: ctx.from.id,
-                    likes: 0,
-                    dislikes: 0,
                     timestamp: new Date()
                 }
                 const card = new Card(cardData);
@@ -73,75 +73,31 @@ module.exports = () => async (ctx) => {
 
         });
 
-        if (ctx.session.suggestionMedia == undefined) {
 
-            ctx.telegram.sendMessage(config.chat_link, message, {
-                parse_mode: 'Markdown',
-                reply_markup: Markup.inlineKeyboard([
-                    Markup.callbackButton(`👍 0`, `like:${cardId}`),
-                    Markup.callbackButton(`👎 0`, `dislike:${cardId}`)
-                ], { columns: 2 })
-            }).then(data => {
+        switch(ctx.session.suggestionMedia.type) {
+
+            case 'text': 
+                sendMessage(ctx, message, cardId);
+
+                break;
+
+            case 'photo':
+                sendPhoto(ctx, message, cardId);
+                ctx.session.suggestionMedia.type = undefined;
                 
-                ctx.telegram.pinChatMessage(data.chat.id, data.message_id);
-                ctx.replyWithMarkdown(`[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published!\n\nTo suggest a new feature, please use the command /suggest.`, {
-                    disable_web_page_preview: true
-                });    
+                break;
             
-                console.log(`${ctx.from.id}: made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
+            case 'GIF':
+                sendDocument(ctx, message, cardId);
+                ctx.session.suggestionMedia.type = undefined;
 
-            });
+                break;
 
-        } else {
+            case 'video':
+                sendVideo(ctx, message, cardId);
+                ctx.session.suggestionMedia.type = undefined;
 
-            switch(ctx.session.suggestionMedia.type) {
-
-                case 'photo':
-                    ctx.telegram.sendPhoto(config.chat_link, ctx.session.suggestionMedia.content[0].file_id, {
-                        parse_mode: 'Markdown',
-                        caption: message
-                    }).then(data => {
-        
-                        ctx.telegram.pinChatMessage(data.chat.id, data.message_id);
-                        ctx.replyWithMarkdown(`[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published!\n\nTo suggest a new feature, please use the command /suggest.`);  
-                    
-                        console.log(`${ctx.from.id}: made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
-        
-                    });
-                    
-                    break;
-                
-                case 'GIF':
-                    ctx.telegram.sendDocument(config.chat_link, ctx.session.suggestionMedia.content.file_id, {
-                        parse_mode: 'Markdown',
-                        caption: message
-                    }).then(data => {
-        
-                        ctx.telegram.pinChatMessage(data.chat.id, data.message_id);
-                        ctx.replyWithMarkdown(`[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published!\n\nTo suggest a new feature, please use the command /suggest.`);  
-                    
-                        console.log(`${ctx.from.id}: made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
-        
-                    });
-                    
-                    break;
-
-                case 'video':
-                    ctx.telegram.sendVideo(config.chat_link, ctx.session.suggestionMedia.content.file_id, {
-                        parse_mode: 'Markdown',
-                        caption: message
-                    }).then(data => {
-        
-                        ctx.telegram.pinChatMessage(data.chat.id, data.message_id);
-                        ctx.replyWithMarkdown(`[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published!\n\nTo suggest a new feature, please use the command /suggest.`);  
-                    
-                        console.log(`${ctx.from.id}: made a suggestion - https://t.me/${config.chat}/${data.message_id}`);
-        
-                    });
-                    
-                    break;
-
-            }
+                break;
 
         }
 

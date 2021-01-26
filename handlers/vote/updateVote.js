@@ -43,7 +43,7 @@ module.exports = () => (ctx) => {
 
             } else {
 
-                if (action != response[0].voted.find(e => e.voted == ctx.from.id).action) return ctx.answerCbQuery('You\'ve already voted!');
+                if (action != response[0].voted.find(e => e.voted == ctx.from.id).action) return ctx.answerCbQuery('Retract your vote first.');
 
                 switch(action) {
 
@@ -59,7 +59,7 @@ module.exports = () => (ctx) => {
                             ], { columns: 2 })
                         );
                         Card.updateOne({ card_id: card }, { $set: { voted: likeArr, likes: response[0].likes - 1 } }, () => {});
-                        ctx.answerCbQuery('You took your vote back.');
+                        ctx.answerCbQuery('You retracted your vote.');
 
                         break;
 
@@ -75,7 +75,7 @@ module.exports = () => (ctx) => {
                             ], { columns: 2 })
                         );
                         Card.updateOne({ card_id: card }, { $set: { voted: dislikeArr, dislikes: response[0].dislikes - 1 } }, () => {});
-                        ctx.answerCbQuery('You took your vote back.');
+                        ctx.answerCbQuery('You retracted your vote.');
 
                         break;
                     

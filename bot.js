@@ -21,7 +21,9 @@ const {
     handleVote,
     handleDebug,
     handleReset,
-    handleCancel
+    handleCancel,
+    handleModerateSuggestion,
+    handleMe
 } = require('./handlers');
 
 // Card creation's stages.
@@ -37,6 +39,7 @@ bot.use(stage.middleware());
 
 // Handle start command.
 bot.start(handleStart());
+bot.command('me', handleMe());
 
 // Creating a new suggestion.
 bot.command('suggest', handleStart());
@@ -68,6 +71,9 @@ bot.command('reset', handleReset());
 
 // Handle any callback query.
 bot.on('callback_query', handleCallback());
+
+// Check admin's respond.
+bot.on('message', handleModerateSuggestion());
 
 // Start the bot.
 bot.launch().then(() => {
