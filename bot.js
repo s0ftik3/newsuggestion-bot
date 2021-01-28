@@ -48,6 +48,7 @@ bot.action('language', handleLanguage());
 bot.action('back', handleStart());
 bot.action('publish', handlePublishSuggestion());
 bot.action('cancel', handleCancel());
+bot.action(/decline:\w+/, handleModerateSuggestion());
 bot.action(/platform:\w+/, handleSuggestion());
 
 // Support cancel command.

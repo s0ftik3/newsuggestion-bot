@@ -13,11 +13,12 @@ const attachment = {
     'text': 'none',
     'photo': 'photo',
     'video': 'video',
+    'document': 'document',
     'GIF': 'GIF',
     'album': 'album'
 };
 
-module.exports = () => (ctx) => {
+module.exports = () => async (ctx) => {
     try {  
 
         if (ctx.message.text.length > 128) return ctx.reply('Your suggestion\'s title must be less than 128 characters.');
@@ -33,10 +34,13 @@ module.exports = () => (ctx) => {
             `*Title:* ${suggestionTitle.replace(/[\r\n]{1,}/g, ' ')} by ${suggestionAuthor}\n\n` +
             `*Description:*\n${suggestionText}\n\n` +
             `*Platform:* ${suggestionPlatform}\n\n` +
-            `*Attachments:* ${suggestionMedia}\n\n` +
-            `*Submit this suggestion?*`;
+            `*Attachments:* ${suggestionMedia}\n\n`;
 
-        ctx.replyWithMarkdown(message, {
+        await ctx.replyWithMarkdown(message, {
+            parse_mode: 'Markdown'
+        });
+
+        ctx.replyWithMarkdown('*Submit this suggestion?*', {
             parse_mode: 'Markdown',
             reply_markup: Markup.inlineKeyboard([
                 Markup.callbackButton('Yes', 'publish'),

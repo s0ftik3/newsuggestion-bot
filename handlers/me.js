@@ -9,30 +9,32 @@ module.exports = () => (ctx) => {
             if (response.length <= 0) return ctx.replyWithMarkdown(`You didn't submit any cards.`);
 
             let result = [];
+            let reversedArr = response.reverse();
+            let k = (response.length > 15) ? 15 : response.length;
 
-            response.forEach(e => {
+            for (let i = 0; i < k; i++) {
 
                 let status;
 
-                if (e.isPublished == false && e.isDeclined == false) {
+                if (reversedArr[i].isPublished == false && reversedArr[i].isDeclined == false) {
 
                     status = 'waiting for approval.';
 
-                } else if (e.isDeclined == true) {
+                } else if (reversedArr[i].isDeclined == true) {
 
                     status = 'declined.';
 
-                } else if (e.isPublished == true) {
+                } else if (reversedArr[i].isPublished == true) {
 
-                    status = `[published.](${e.url})`;
+                    status = `[published](${reversedArr[i].url}).`;
 
                 }
 
-                result.push(`_«${(e.title.length > 64) ? e.title.slice(0, 64) + '...' : e.title}»_ — ${status}`);
+                result.push(`_«${(reversedArr[i].title.length > 64) ? reversedArr[i].title.slice(0, 64) + '...' : reversedArr[i].title}»_ — ${status}`);
 
-            });
+            }
 
-            ctx.replyWithMarkdown(`*Your cards:*\n\n${result.join('\n')}\n\n*Total card(s) suggested:* ${response.length}`, { disable_web_page_preview: true });
+            ctx.replyWithMarkdown(`${(response.length > 15) ? '*Last 15 cards of yours:*\n\n...\n' : '*Your cards:*\n\n'}${result.reverse().join('\n')}\n\n*Total cards suggested:* ${response.length}`, { disable_web_page_preview: true });
 
         })        
 

@@ -19,7 +19,8 @@ module.exports = (ctx, message, cardId) => {
         ctx.telegram.sendMessage(config.admin, `*Card ID:* ${cardId}\n\n_${data.text}_`, {
             parse_mode: 'Markdown',
             reply_markup: Markup.inlineKeyboard([
-                Markup.urlButton(`Check the suggestion`, `https://t.me/${config.chat}/${data.message_id}`),
+                Markup.urlButton(`View the suggestion`, `https://t.me/${config.chat}/${data.message_id}`),
+                Markup.callbackButton('Decline', `decline:${cardId}`)
             ], { columns: 1 })
         });
         console.log(`${ctx.from.id}: made a suggestion - https://t.me/${config.chat}/${data.message_id}`);

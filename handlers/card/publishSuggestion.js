@@ -19,7 +19,7 @@ const application = {
 module.exports = () => async (ctx) => {
     try {  
 
-        ctx.editMessageReplyMarkup({});
+        ctx.deleteMessage();
 
         const suggestionTitle = ctx.session.suggestionTitle;
         const suggestionText = ctx.session.suggestionText.replace(/[\r\n]{3,}/g, ' ');
@@ -93,6 +93,12 @@ module.exports = () => async (ctx) => {
 
                 break;
 
+            case 'document':
+                sendDocument(ctx, message, cardId);
+                ctx.session.suggestionMedia.type = undefined;
+
+                break;
+                
             case 'video':
                 sendVideo(ctx, message, cardId);
                 ctx.session.suggestionMedia.type = undefined;

@@ -14,11 +14,12 @@ module.exports = () => (ctx) => {
 
             if (ctx.message.photo == undefined && 
                 ctx.message.animation == undefined && 
+                ctx.message.document == undefined &&
                 ctx.message.video == undefined) return ctx.replyWithMarkdown('Please send a media.');
 
-            const suggestionMedia = ctx.message.photo || ctx.message.animation || ctx.message.video;
+            const suggestionMedia = ctx.message.photo || ctx.message.animation || ctx.message.video || ctx.message.document;
             ctx.session.suggestionMedia = {
-                type: (ctx.message.photo) ? 'photo' : (ctx.message.animation) ? 'GIF' : 'video',
+                type: (ctx.message.photo) ? 'photo' : (ctx.message.animation) ? 'GIF' : (ctx.message.document) ? 'document' : 'video',
                 content: suggestionMedia
             };
 
