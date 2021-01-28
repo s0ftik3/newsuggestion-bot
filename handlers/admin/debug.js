@@ -24,6 +24,8 @@ module.exports = () => async (ctx) => {
 
         ctx.reply(`Users: ${usersNumber}\nCards: ${cardsNumber}\nDatabase status: ${dbConnectionStatus}\nLatency: ${new Date().getTime() - start_ts}ms`);
 
+        ctx.reply('Card ID: 38');
+        
     } catch (error) {
 
         console.error(error);
