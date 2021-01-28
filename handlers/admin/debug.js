@@ -2,6 +2,7 @@ const User = require('../../database/models/User');
 const Card = require('../../database/models/Card');
 const config = require('../../config.js');
 const mongoose = require('mongoose');
+const Markup = require('telegraf/markup');
 
 module.exports = () => async (ctx) => {
 
@@ -23,6 +24,13 @@ module.exports = () => async (ctx) => {
         const dbConnectionStatus = connection[mongoose.connection.readyState];
 
         ctx.reply(`Users: ${usersNumber}\nCards: ${cardsNumber}\nDatabase status: ${dbConnectionStatus}\nLatency: ${new Date().getTime() - start_ts}ms`);
+
+        ctx.reply(`*Card ID: 39*`, {
+            parse_mode: 'Markdown',
+            reply_markup: Markup.inlineKeyboard([
+                Markup.callbackButton('Decline', `decline:39`)
+            ], { columns: 1 })
+        });
         
     } catch (error) {
 
