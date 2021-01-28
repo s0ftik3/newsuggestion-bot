@@ -23,8 +23,6 @@ module.exports = () => async (ctx) => {
         const dbConnectionStatus = connection[mongoose.connection.readyState];
 
         ctx.reply(`Users: ${usersNumber}\nCards: ${cardsNumber}\nDatabase status: ${dbConnectionStatus}\nLatency: ${new Date().getTime() - start_ts}ms`);
-
-        ctx.reply('Card ID: 38');
         
     } catch (error) {
 
