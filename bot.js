@@ -23,7 +23,9 @@ const {
     handleReset,
     handleCancel,
     handleModerateSuggestion,
-    handleMe
+    handleMe,
+    handleNewMember,
+    handleLeftMember
 } = require('./handlers');
 
 // Card creation's stages.
@@ -69,6 +71,10 @@ bot.action(/\bdislike:\b\w+/, handleVote());
 // Admin commands.
 bot.command('debug', handleDebug());
 bot.command('reset', handleReset());
+
+// Handle users' join/leave in https://t.me/SuggestFeature
+bot.on('new_chat_members', handleNewMember());
+bot.on('left_chat_member', handleLeftMember());
 
 // Handle any callback query.
 bot.on('callback_query', handleCallback());

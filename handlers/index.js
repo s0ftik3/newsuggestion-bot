@@ -13,5 +13,7 @@ module.exports = {
     handleReset: require('./admin/reset'),
     handleCancel: require('./cancel'),
     handleModerateSuggestion: require('./admin/moderateSuggestion'),
-    handleMe: require('./me')
+    handleMe: require('./me'),
+    handleNewMember: require('./newMember'),
+    handleLeftMember: require('./leftMember')
 }
