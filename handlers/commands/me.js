@@ -12,7 +12,7 @@ module.exports = () => (ctx) => {
             
             if (response.length <= 0) return ctx.replyWithMarkdown(`You didn't submit any cards.`);
 
-            if (response.filter(e => e.isPublished == true).length > 0) ctx.replyWithMarkdown('🕑 _Please standby..._').then(data => message_id = data.message_id);
+            if (response.filter(e => e.isPublished == true).length > 0) await ctx.replyWithMarkdown('🕑 _Please standby..._').then(data => message_id = data.message_id);
 
             let result = [];
             let reversedArr = response.reverse();
