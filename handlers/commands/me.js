@@ -51,10 +51,20 @@ module.exports = () => (ctx) => {
             const header = (response.length > 15) ? '*Last 15 cards of yours:*\n\n...\n' : '*Your cards:*\n\n';
             const body = result.reverse().join('\n');
 
-            ctx.telegram.editMessageText(ctx.from.id, message_id, null, `${header}${body}\n\n*Total cards suggested:* ${response.length}`, {
-                parse_mode: 'Markdown',
-                disable_web_page_preview: true
-            });
+            if (response.filter(e => e.isPublished == true).length > 0) {
+
+                ctx.telegram.editMessageText(ctx.from.id, message_id, null, `${header}${body}\n\n*Total cards suggested:* ${response.length}`, {
+                    parse_mode: 'Markdown',
+                    disable_web_page_preview: true
+                });
+
+            } else {
+
+                ctx.replyWithMarkdown(`${header}${body}\n\n*Total cards suggested:* ${response.length}`, {
+                    disable_web_page_preview: true
+                });
+
+            }
 
         })        
 
