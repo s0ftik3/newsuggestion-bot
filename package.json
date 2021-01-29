@@ -1,6 +1,6 @@
 {
   "name": "newsuggestion-bot",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "A Simple Telegram bot.",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,8 @@
   "author": "softik",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
     "mongoose": "^5.11.13",
     "telegraf": "^3.38.0"
   }

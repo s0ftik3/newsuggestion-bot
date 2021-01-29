@@ -1,18 +1,24 @@
 const Card = require('../../database/models/Card');
+const axios = require('axios');
+const cheerio = require('cheerio');
 
 module.exports = () => (ctx) => {
 
     try {
 
-        Card.find({ author: ctx.from.id }).then(response => {
+        let message_id;
+
+        Card.find({ author: ctx.from.id }).then(async response => {
             
             if (response.length <= 0) return ctx.replyWithMarkdown(`You didn't submit any cards.`);
 
+            if (response.filter(e => e.isPublished == true).length > 0) ctx.replyWithMarkdown('🕑 _Please standby..._').then(data => message_id = data.message_id);
+
             let result = [];
             let reversedArr = response.reverse();
-            let k = (response.length > 15) ? 15 : response.length;
+            let suggestions = (response.length > 15) ? 15 : response.length;
 
-            for (let i = 0; i < k; i++) {
+            for (let i = 0; i < suggestions; i++) {
 
                 let status;
 
@@ -26,7 +32,15 @@ module.exports = () => (ctx) => {
 
                 } else if (reversedArr[i].isPublished == true) {
 
-                    status = `[published](${reversedArr[i].url}).`;
+                    await axios(reversedArr[i].url).then(response => {
+
+                        const $ = cheerio.load(response.data);
+                        const likes = $('body').find('span[class="cd-issue-like bt-active-btn"]').find('span[class="value"]').attr('data-value');
+                        const dislikes = $('body').find('span[class="cd-issue-dislike bt-active-btn"]').find('span[class="value"]').attr('data-value');
+
+                        status = `[published](${reversedArr[i].url}). \`(👍 ${(likes == undefined) ? 0 : likes}, 👎 ${(dislikes == undefined) ? 0 : dislikes})\``;
+
+                    });
 
                 }
 
@@ -34,7 +48,13 @@ module.exports = () => (ctx) => {
 
             }
 
-            ctx.replyWithMarkdown(`${(response.length > 15) ? '*Last 15 cards of yours:*\n\n...\n' : '*Your cards:*\n\n'}${result.reverse().join('\n')}\n\n*Total cards suggested:* ${response.length}`, { disable_web_page_preview: true });
+            const header = (response.length > 15) ? '*Last 15 cards of yours:*\n\n...\n' : '*Your cards:*\n\n';
+            const body = result.reverse().join('\n');
+
+            ctx.telegram.editMessageText(ctx.from.id, message_id, null, `${header}${body}\n\n*Total cards suggested:* ${response.length}`, {
+                parse_mode: 'Markdown',
+                disable_web_page_preview: true
+            });
 
         })        
 

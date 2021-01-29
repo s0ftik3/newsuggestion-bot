@@ -4,7 +4,7 @@ const config = require('../config');
 module.exports = (ctx, message, cardId) => {
 
     ctx.telegram.sendMessage('@' + config.chat, message, {
-        parse_mode: 'Markdown',
+        parse_mode: 'HTML',
         reply_markup: Markup.inlineKeyboard([
             Markup.callbackButton(`👍 0`, `like:${cardId}`),
             Markup.callbackButton(`👎 0`, `dislike:${cardId}`)
@@ -16,8 +16,8 @@ module.exports = (ctx, message, cardId) => {
             disable_web_page_preview: true
         });    
     
-        ctx.telegram.sendMessage(config.admin, `*Card ID:* ${cardId}\n\n_${data.text}_`, {
-            parse_mode: 'Markdown',
+        ctx.telegram.sendMessage(config.admin, `<b>Card ID:</b> ${cardId}\n\n<i>${data.text}</i>`, {
+            parse_mode: 'HTML',
             reply_markup: Markup.inlineKeyboard([
                 Markup.urlButton(`View the suggestion`, `https://t.me/${config.chat}/${data.message_id}`),
                 Markup.callbackButton('Decline', `decline:${cardId}`)

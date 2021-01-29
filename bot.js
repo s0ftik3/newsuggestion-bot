@@ -80,7 +80,7 @@ bot.on('left_chat_member', handleLeftMember());
 bot.on('callback_query', handleCallback());
 
 // Check admin's respond.
-bot.on('message', handleModerateSuggestion());
+bot.on('text', handleModerateSuggestion());
 
 // Start the bot.
 bot.launch().then(() => {

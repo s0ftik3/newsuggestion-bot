@@ -31,14 +31,12 @@ module.exports = () => async (ctx) => {
         const suggestionPlatform = application[ctx.session.suggestionPlatform];
 
         const message = 
-            `*Title:* ${suggestionTitle.replace(/[\r\n]{1,}/g, ' ')} by ${suggestionAuthor}\n\n` +
-            `*Description:*\n${suggestionText}\n\n` +
-            `*App:* ${suggestionPlatform}\n\n` +
-            `*Attachments:* ${suggestionMedia}\n\n`;
+            `<b>Title:</b> ${suggestionTitle.replace(/[\r\n]{1,}/g, ' ')} by ${suggestionAuthor}\n\n` +
+            `<b>Description:</b>\n${suggestionText}\n\n` +
+            `<b>App:</b> ${suggestionPlatform}\n\n` +
+            `<b>Attachments:</b> ${suggestionMedia}\n\n`;
 
-        await ctx.replyWithMarkdown(message, {
-            parse_mode: 'Markdown'
-        });
+        await ctx.replyWithHTML(message);
 
         ctx.replyWithMarkdown('*Submit this suggestion?*', {
             parse_mode: 'Markdown',

@@ -27,9 +27,9 @@ module.exports = () => async (ctx) => {
         const suggestionPlatform = application[ctx.session.suggestionPlatform];
 
         const message = 
-            `*${suggestionTitle.replace(/[\r\n]{1,}/g, ' ')}* by *${suggestionAuthor}*\n\n` +
+            `<b>${suggestionTitle.replace(/[\r\n]{1,}/g, ' ')}</b> by <b>${suggestionAuthor}</b>\n\n` +
             `${suggestionText}\n\n` +
-            `*App:* ${suggestionPlatform}\n` +
+            `<b>App:</b> ${suggestionPlatform}\n` +
             `#suggestion`;
 
         let cardId;

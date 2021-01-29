@@ -9,11 +9,11 @@ module.exports = () => (ctx) => {
         ctx.deleteMessage(ctx.update.message.message_id);
 
         const user = `tg://user?id=${ctx.update.message.new_chat_member.id}`;
-        ctx.reply(
+
+        ctx.replyWithMarkdown(
             `Welcome, [${ctx.update.message.new_chat_member.first_name}](${user})!\n\n` +
             `This is a group chat for people who want to suggest new features for Telegram and don't leave them skipped. Read the article before asking something — telegra.ph/Must-Know-01-29\n\n` +
             `You can suggest your feature by using the button below _(for those, who still don't have an access to bugs.telegram.org OR who want to suggest a feature annonymously)_.`, {
-                parse_mode: 'Markdown',
                 reply_markup: Markup.inlineKeyboard([
                     Markup.urlButton('Suggest a feature', 'https://t.me/NewSuggestionBot')
                 ], { columns: 1 }),
