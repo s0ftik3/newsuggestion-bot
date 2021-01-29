@@ -15,5 +15,6 @@ module.exports = {
     handleModerateSuggestion: require('./admin/moderateSuggestion'),
     handleMe: require('./commands/me'),
     handleNewMember: require('./chat/newMember'),
-    handleLeftMember: require('./chat/leftMember')
+    handleLeftMember: require('./chat/leftMember'),
+    handleAllowSendMessages: require('./chat/allowSendMessages')
 }

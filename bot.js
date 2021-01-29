@@ -25,7 +25,8 @@ const {
     handleModerateSuggestion,
     handleMe,
     handleNewMember,
-    handleLeftMember
+    handleLeftMember,
+    handleAllowSendMessages
 } = require('./handlers');
 
 // Card creation's stages.
@@ -52,6 +53,7 @@ bot.action('publish', handlePublishSuggestion());
 bot.action('cancel', handleCancel());
 bot.action(/decline:\w+/, handleModerateSuggestion());
 bot.action(/platform:\w+/, handleSuggestion());
+bot.action(/allow:\w+/, handleAllowSendMessages());
 
 // Support cancel command.
 suggestion.command('cancel', handleCancel());
