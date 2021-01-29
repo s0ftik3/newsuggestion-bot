@@ -1,14 +1,5 @@
 module.exports = () => (ctx) => {
     try {  
-
-        if (ctx.message.media_group_id != undefined) {
-            if (ctx.session.albumDetected == true) return;
-            ctx.scene.leave('suggestionMedia');
-            ctx.scene.enter('suggestionMedia');
-            return ctx.replyWithMarkdown('Please send only one media but not an album.').then(data => {
-                ctx.session.albumDetected = true;
-            });
-        }
         
         if (ctx.updateType == 'callback_query') {
 
@@ -20,6 +11,15 @@ module.exports = () => (ctx) => {
             ctx.answerCbQuery();
 
         } else {
+
+            if (ctx.message.media_group_id != undefined) {
+                if (ctx.session.albumDetected == true) return;
+                ctx.scene.leave('suggestionMedia');
+                ctx.scene.enter('suggestionMedia');
+                return ctx.replyWithMarkdown('Please send only one media but not an album.').then(() => {
+                    ctx.session.albumDetected = true;
+                });
+            }
 
             if (ctx.session.albumDetected == true) ctx.session.albumDetected = undefined;
 
