@@ -1,9 +1,9 @@
 const Markup = require('telegraf/markup');
 const application = {
-    'tgdroid': 'Android',
-    'tgios': 'iOS',
-    'tgdesk': 'Desktop',
-    'tgmac': 'macOS',
+    'tgdroid': 'Telegram for Android',
+    'tgios': 'Telegram for iOS',
+    'tgdesk': 'Telegram Desktop',
+    'tgmac': 'The native macOS app',
     'tgx': 'Telegram X for Android',
     'tgweb': 'Telegram Web',
     'ddapp': 'all'
@@ -33,7 +33,7 @@ module.exports = () => async (ctx) => {
         const message = 
             `*Title:* ${suggestionTitle.replace(/[\r\n]{1,}/g, ' ')} by ${suggestionAuthor}\n\n` +
             `*Description:*\n${suggestionText}\n\n` +
-            `*Platform:* ${suggestionPlatform}\n\n` +
+            `*App:* ${suggestionPlatform}\n\n` +
             `*Attachments:* ${suggestionMedia}\n\n`;
 
         await ctx.replyWithMarkdown(message, {

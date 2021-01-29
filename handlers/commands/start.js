@@ -1,4 +1,4 @@
-const User = require('../database/models/User');
+const User = require('../../database/models/User');
 const Markup = require('telegraf/markup');
 
 module.exports = () => (ctx) => {

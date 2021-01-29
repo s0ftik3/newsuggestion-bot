@@ -1,4 +1,4 @@
-const Card = require('../database/models/Card');
+const Card = require('../../database/models/Card');
 
 module.exports = () => (ctx) => {
 

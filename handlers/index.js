@@ -1,6 +1,6 @@
 module.exports = {
-    handleStart: require('./start'),
-    handleCallback: require('./callback'),
+    handleStart: require('./commands/start'),
+    handleCallback: require('./other/callback'),
     handleChooseApp: require('./card/chooseApp'),
     handleLanguage: require('./card/suggestLanguage'),
     handleSuggestion: require('./card/suggestion'),
@@ -11,9 +11,9 @@ module.exports = {
     handleVote: require('./vote/updateVote'),
     handleDebug: require('./admin/debug'),
     handleReset: require('./admin/reset'),
-    handleCancel: require('./cancel'),
+    handleCancel: require('./commands/cancel'),
     handleModerateSuggestion: require('./admin/moderateSuggestion'),
-    handleMe: require('./me'),
-    handleNewMember: require('./newMember'),
-    handleLeftMember: require('./leftMember')
+    handleMe: require('./commands/me'),
+    handleNewMember: require('./chat/newMember'),
+    handleLeftMember: require('./chat/leftMember')
 }

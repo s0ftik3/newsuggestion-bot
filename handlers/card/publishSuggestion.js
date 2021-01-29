@@ -7,10 +7,10 @@ const sendVideo = require('../../scripts/sendVideo');
 const sendDocument = require('../../scripts/sendDocument');
 
 const application = {
-    'tgdroid': 'Android',
-    'tgios': 'iOS',
-    'tgdesk': 'Desktop',
-    'tgmac': 'macOS',
+    'tgdroid': 'Telegram for Android',
+    'tgios': 'Telegram for iOS',
+    'tgdesk': 'Telegram Desktop',
+    'tgmac': 'The native macOS app',
     'tgx': 'Telegram X for Android',
     'tgweb': 'Telegram Web',
     'ddapp': 'all'
@@ -29,7 +29,7 @@ module.exports = () => async (ctx) => {
         const message = 
             `*${suggestionTitle.replace(/[\r\n]{1,}/g, ' ')}* by *${suggestionAuthor}*\n\n` +
             `${suggestionText}\n\n` +
-            `*Platform:* ${suggestionPlatform}\n` +
+            `*App:* ${suggestionPlatform}\n` +
             `#suggestion`;
 
         let cardId;
