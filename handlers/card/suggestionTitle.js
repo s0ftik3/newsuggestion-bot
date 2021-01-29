@@ -14,11 +14,10 @@ module.exports = () => (ctx) => {
 
             if (ctx.message.media_group_id != undefined) {
                 if (ctx.session.albumDetected == true) return;
+                ctx.session.albumDetected = true;
                 ctx.scene.leave('suggestionMedia');
                 ctx.scene.enter('suggestionMedia');
-                return ctx.replyWithMarkdown('Please send only one media but not an album.').then(() => {
-                    ctx.session.albumDetected = true;
-                });
+                return ctx.replyWithMarkdown('Please send only one media but not an album.');
             }
 
             if (ctx.session.albumDetected == true) ctx.session.albumDetected = undefined;
