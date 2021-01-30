@@ -20,7 +20,7 @@ module.exports = () => async (ctx) => {
 
         const usersNumber = await User.find().then(response => response.length);
         const cardsNumber = await Card.find().then(response => response.length);
-        const lastUser = await User.find().then(response => (response[response.length].username == null) ? response[response.length].firstName : '@' + response[response.length].username);
+        const lastUser = await User.find().then(response => (response[response.length - 1].username == null) ? response[response.length - 1].firstName : '@' + response[response.length - 1].username);
         const dbConnectionStatus = connection[mongoose.connection.readyState];
 
         ctx.replyWithMarkdown(`Users: ${usersNumber} (${lastUser})\nCards: ${cardsNumber}\nDatabase Status: ${dbConnectionStatus} (${new Date().getTime() - start_ts}ms)`);
