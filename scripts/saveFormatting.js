@@ -41,16 +41,16 @@ module.exports = (str, ents) => {
         switch(type) {
             
             case 'bold':
-                string = string.replace(e.string, `*${e.string}*`);
+                string = string.replace(e.string, `<b>${e.string}</b>`);
                 break;
 
             case 'italic':
-                string = string.replace(e.string, `_${e.string}_`);
+                string = string.replace(e.string, `<i>${e.string}</i>`);
 
                 break;
 
             case 'code':
-                string = string.replace(e.string, `\`${e.string}\``);
+                string = string.replace(e.string, `<code>${e.string}</code>`);
 
                 break;
 
