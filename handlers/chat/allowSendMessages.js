@@ -14,8 +14,12 @@ module.exports = () => (ctx) => {
 
             ctx.deleteMessage(ctx.update.callback_query.message.message_id);
             ctx.restrictChatMember(ctx.from.id, {
-                can_send_messages: true
+                can_send_messages: true,
+                can_send_media_messages: true,
+                can_send_other_messages: true,
+                can_add_web_page_previews: true
             });
+            
             ctx.answerCbQuery('Now you can send messages.');
 
         }
