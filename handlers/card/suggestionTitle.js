@@ -12,6 +12,7 @@ module.exports = () => (ctx) => {
 
         } else {
 
+            // The worst kludge ever. Forbids sending albums.
             if (ctx.message.media_group_id != undefined) {
                 if (ctx.session.albumDetected == true) return;
                 ctx.session.albumDetected = true;

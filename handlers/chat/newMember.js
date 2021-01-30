@@ -18,11 +18,11 @@ module.exports = () => (ctx) => {
             `Welcome, [${ctx.update.message.new_chat_member.first_name}](${user})!\nPress on the button below to get an access to send messages.\n\n` +
             `This is a group chat for people who want to suggest new features for Telegram and don't leave them skipped. Read the article before asking something — telegra.ph/Must-Know-01-29\n\n` +
             `You can suggest your feature by using the button below _(for those, who still don't have an access to bugs.telegram.org OR who want to suggest a feature annonymously)_.`, {
-                reply_markup: Markup.inlineKeyboard([
-                    Markup.callbackButton('Allow me to send messages', `allow:${ctx.update.message.new_chat_member.id}`),
-                    Markup.urlButton('Suggest a feature', 'https://t.me/NewSuggestionBot')
-                ], { columns: 1 }),
-                disable_web_page_preview: true
+            reply_markup: Markup.inlineKeyboard([
+                Markup.callbackButton('Allow me to send messages', `allow:${ctx.update.message.new_chat_member.id}`),
+                Markup.urlButton('Suggest a feature', 'https://t.me/NewSuggestionBot')
+            ], { columns: 1 }),
+            disable_web_page_preview: true
         });
 
     } catch (error) {

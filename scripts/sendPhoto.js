@@ -13,9 +13,12 @@ module.exports = (ctx, message, cardId) => {
     }).then(data => {
 
         ctx.telegram.pinChatMessage(data.chat.id, data.message_id);
-        ctx.replyWithMarkdown(`[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published in our group chat!\n\nYou will get notified once your suggestion appears on bugs.telegram.org. Also, if your suggestion is declined, you will see an according message.\n\nTo suggest a new feature, please use the command /suggest.`, {
+        ctx.replyWithMarkdown(
+            `[Your suggestion](https://t.me/${config.chat}/${data.message_id}) has been published in our group chat!\n\n` + 
+            `You will get notified once your suggestion appears on bugs.telegram.org. Also, if your suggestion is declined, you will see an according message.\n\n` + 
+            `To suggest a new feature, please use the command /suggest.`, {
             disable_web_page_preview: true
-        });  
+        });
     
         ctx.telegram.sendMessage(config.admin, `<b>Card ID:</b> ${cardId}\n\n<i>${data.caption}</i>`, {
             parse_mode: 'HTML',

@@ -1,10 +1,10 @@
 module.exports = (str, ents) => {
     
+    if (ents == undefined) return str;
+
     let entities = ents;
     let string = str;
     let toReplace = [];
-
-    if (entities == undefined) return string;
 
     entities.forEach(e => {
         

@@ -15,6 +15,7 @@ module.exports = () => (ctx) => {
                 Markup.callbackButton('The native macOS app', 'platform:tgmac'),
                 Markup.callbackButton('Telegram X for Android', 'platform:tgx'),
                 Markup.callbackButton('Telegram Web', 'platform:tgweb'),
+                Markup.callbackButton('Server side', 'platform:ss'),
                 Markup.callbackButton('It doesn\'t depend on the app', 'platform:ddapp')
             ], { columns: 1 })
         });

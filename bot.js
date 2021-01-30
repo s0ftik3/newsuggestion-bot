@@ -37,6 +37,7 @@ stage.register(suggestionMedia);
 const suggestionTitle = new Scene('suggestionTitle');
 stage.register(suggestionTitle);
 
+// Middlewares
 bot.use(session());
 bot.use(stage.middleware());
 
@@ -73,6 +74,7 @@ bot.action(/\bdislike:\b\w+/, handleVote());
 // Admin commands.
 bot.command('debug', handleDebug());
 bot.command('reset', handleReset());
+bot.on('text', handleModerateSuggestion());
 
 // Handle users' join/leave in https://t.me/SuggestFeature
 bot.on('new_chat_members', handleNewMember());
@@ -80,9 +82,6 @@ bot.on('left_chat_member', handleLeftMember());
 
 // Handle any callback query.
 bot.on('callback_query', handleCallback());
-
-// Check admin's respond.
-bot.on('text', handleModerateSuggestion());
 
 // Start the bot.
 bot.launch().then(() => {

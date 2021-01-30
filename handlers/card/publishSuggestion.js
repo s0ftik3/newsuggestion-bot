@@ -6,15 +6,8 @@ const sendPhoto = require('../../scripts/sendPhoto');
 const sendVideo = require('../../scripts/sendVideo');
 const sendDocument = require('../../scripts/sendDocument');
 
-const application = {
-    'tgdroid': 'Telegram for Android',
-    'tgios': 'Telegram for iOS',
-    'tgdesk': 'Telegram Desktop',
-    'tgmac': 'The native macOS app',
-    'tgx': 'Telegram X for Android',
-    'tgweb': 'Telegram Web',
-    'ddapp': 'all'
-};
+const config = require('../../config');
+const application = config.platforms;
 
 module.exports = () => async (ctx) => {
     try {  

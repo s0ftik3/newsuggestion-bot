@@ -1,22 +1,7 @@
 const Markup = require('telegraf/markup');
-const application = {
-    'tgdroid': 'Telegram for Android',
-    'tgios': 'Telegram for iOS',
-    'tgdesk': 'Telegram Desktop',
-    'tgmac': 'The native macOS app',
-    'tgx': 'Telegram X for Android',
-    'tgweb': 'Telegram Web',
-    'ddapp': 'all'
-};
-
-const attachment = {
-    'text': 'none',
-    'photo': 'photo',
-    'video': 'video',
-    'document': 'document',
-    'GIF': 'GIF',
-    'album': 'album'
-};
+const config = require('../../config');
+const application = config.platforms;
+const attachment = config.types;
 
 module.exports = () => async (ctx) => {
     try {  
