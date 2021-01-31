@@ -10,7 +10,7 @@ module.exports = () => (ctx) => {
         if (url.length <= 0) return ctx.reply('Please provide a link of your suggestion on the platform');
         if (url.match(/https:\/\/bugs.telegram.org\/(.*)/g).length <= 0) return ctx.reply('It doesn\'t look like a suggestion card.');
 
-        axios(url).then(async response => {
+        axios(url).then(response => {
 
             const $ = cheerio.load(response.data);
 
@@ -29,7 +29,7 @@ module.exports = () => (ctx) => {
 
                 const title = $('body').find('span[class="cd-author"]').text().trim();
 
-                await Card.find().then(response => {
+                Card.find().then(response => {
 
                     // Check if there is such a card already.
                     if (response.filter(e => e.url == url).length > 0) return ctx.reply('This card is already in the database and linked to some person.');
@@ -46,6 +46,8 @@ module.exports = () => (ctx) => {
                         }
                         const card = new Card(cardData);
                         card.save().then(() => console.log(`${ctx.from.id}: added new card.`));
+
+                        return ctx.replyWithMarkdown('Your card successfully added to the database! Now, you can check it by /me command.');
         
                     } else {
         
@@ -61,12 +63,12 @@ module.exports = () => (ctx) => {
                         }
                         const card = new Card(cardData);
                         card.save().then(() => console.log(`${ctx.from.id}: added new card.`));
+
+                        return ctx.replyWithMarkdown('Your card successfully added to the database! Now, you can check it by /me command.');
         
                     }
 
                 });
-
-                return ctx.replyWithMarkdown('Your card successfully added to the database! Now, you can check it by /me command.');
 
             }
 
