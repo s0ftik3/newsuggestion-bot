@@ -17,5 +17,6 @@ module.exports = {
     handleNewMember: require('./chat/newMember'),
     handleLeftMember: require('./chat/leftMember'),
     handleAllowSendMessages: require('./chat/allowSendMessages'),
-    handleFindSimilar: require('./card/findSimilar')
+    handleFindSimilar: require('./card/findSimilar'),
+    handleAdd: require('./commands/add')
 }

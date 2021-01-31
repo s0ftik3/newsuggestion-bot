@@ -27,7 +27,8 @@ const {
     handleNewMember,
     handleLeftMember,
     handleAllowSendMessages,
-    handleFindSimilar
+    handleFindSimilar,
+    handleAdd
 } = require('./handlers');
 
 // Card creation's stages.
@@ -57,6 +58,9 @@ bot.action('check', handleCheckSuggestion());
 bot.action(/decline:\w+/, handleModerateSuggestion());
 bot.action(/platform:\w+/, handleSuggestion());
 bot.action(/allow:\w+/, handleAllowSendMessages());
+
+// Add suggestion from the website.
+bot.command('add', handleAdd());
 
 // Support cancel command.
 suggestion.command('cancel', handleCancel());

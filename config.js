@@ -1,5 +1,5 @@
 module.exports = {
-    "version": "2.4.1",
+    "version": "2.5.0",
     "token": process.env.TOKEN,
     "database": process.env.DATABASE,
     "admin": 511695340,
