@@ -4,24 +4,23 @@ const application = config.platforms;
 const attachment = config.types;
 
 module.exports = () => async (ctx) => {
-    try {  
+    try {
 
-        if (ctx.message.text.length > 128) return ctx.reply('Your suggestion\'s title must be less than 128 characters.');
+        ctx.deleteMessage(ctx.update.callback_query.message.message_id - 1);
 
-        const suggestionTitle = ctx.message.text;
-        ctx.session.suggestionTitle = suggestionTitle;
+        const suggestionTitle = ctx.session.suggestionTitle;
         const suggestionMedia = attachment[ctx.session.suggestionMedia.type];
         const suggestionText = ctx.session.suggestionText.replace(/[\r\n]{3,}/g, ' ');
         const suggestionAuthor = (ctx.from.username != undefined) ? `@${ctx.from.username}` : ctx.from.first_name;
         const suggestionPlatform = application[ctx.session.suggestionPlatform];
 
         const message = 
-            `<b>Title:</b> ${suggestionTitle.replace(/[\r\n]{1,}/g, ' ')} by ${suggestionAuthor}\n\n` +
-            `<b>Description:</b>\n${suggestionText}\n\n` +
+            `<b>Title:</b> <code>${suggestionTitle.replace(/[\r\n]{1,}/g, ' ')}</code> by ${suggestionAuthor}\n\n` +
+            `<b>Description:</b>\n<code>${suggestionText}</code>\n\n` +
             `<b>App:</b> ${suggestionPlatform}\n\n` +
             `<b>Attachments:</b> ${suggestionMedia}\n\n`;
 
-        await ctx.replyWithHTML(message);
+        await ctx.editMessageText(message, { parse_mode: 'HTML' });
 
         ctx.replyWithMarkdown('*Submit this suggestion?*', {
             parse_mode: 'Markdown',
@@ -31,7 +30,7 @@ module.exports = () => async (ctx) => {
             ], { columns: 2 })
         });
 
-        ctx.scene.leave('suggestionTitle');
+        ctx.answerCbQuery();
 
     } catch (err) {
 

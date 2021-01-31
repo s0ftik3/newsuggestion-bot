@@ -26,7 +26,8 @@ const {
     handleMe,
     handleNewMember,
     handleLeftMember,
-    handleAllowSendMessages
+    handleAllowSendMessages,
+    handleFindSimilar
 } = require('./handlers');
 
 // Card creation's stages.
@@ -52,6 +53,7 @@ bot.action('language', handleLanguage());
 bot.action('back', handleStart());
 bot.action('publish', handlePublishSuggestion());
 bot.action('cancel', handleCancel());
+bot.action('check', handleCheckSuggestion());
 bot.action(/decline:\w+/, handleModerateSuggestion());
 bot.action(/platform:\w+/, handleSuggestion());
 bot.action(/allow:\w+/, handleAllowSendMessages());
@@ -65,7 +67,7 @@ suggestionTitle.command('cancel', handleCancel());
 suggestion.on('text', handleSuggestionMedia());
 suggestionMedia.on('callback_query', handleSuggestionTitle());
 suggestionMedia.on('message', handleSuggestionTitle());
-suggestionTitle.on('text', handleCheckSuggestion());
+suggestionTitle.on('text', handleFindSimilar());
 
 // Handle likes/dislikes.
 bot.action(/\blike:\b\w+/, handleVote());

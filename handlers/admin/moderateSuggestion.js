@@ -55,7 +55,7 @@ module.exports = () => (ctx) => {
                 const author = response[0].author;
                 const title = response[0].title;
 
-                ctx.telegram.sendMessage(author, `🥳 Your suggestion _«[${title}](${url})»_ has been published on bugs.telegram.org!`, { 
+                ctx.telegram.sendMessage(author, `🥳 Your suggestion [«${title}»](${url}) has been published on bugs.telegram.org!`, { 
                     parse_mode: 'Markdown', 
                     disable_web_page_preview: true 
                 }).then(() => {
@@ -75,7 +75,7 @@ module.exports = () => (ctx) => {
 
                 User.find({ id: author }).then(data => {
 
-                    ctx.telegram.sendMessage('@' + config.chat, `🥳 Suggestion _«[${title}](${url})»_ by ${(data[0].username == null) ? data[0].firstName : '@' + data[0].username} has been published on bugs.telegram.org!`, {
+                    ctx.telegram.sendMessage('@' + config.chat, `🥳 Suggestion [«${title}»](${url}) by ${(data[0].username == null) ? data[0].firstName : '@' + data[0].username} has been published on bugs.telegram.org!`, {
                         parse_mode: 'Markdown', 
                         disable_web_page_preview: true
                     });
