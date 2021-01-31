@@ -8,6 +8,7 @@ module.exports = () => (ctx) => {
         const url = ctx.message.text.replace('/add', '').trim();
 
         if (url.match(/https:\/\/bugs.telegram.org\/(.*)/g).length <= 0) return ctx.reply('It doesn\'t look like a suggestion card.');
+        if (url.length <= 0) return ctx.reply('Please provide a link of your suggestion on the platform');
 
         axios(url).then(async response => {
 
