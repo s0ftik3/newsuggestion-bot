@@ -31,9 +31,10 @@ module.exports = () => (ctx) => {
 
                 await Card.find().then(response => {
 
+                    // Check if there is such a card already.
+                    if (response.filter(e => e.url == url).length > 0) return ctx.reply('This card is already in the database and linked to some person.');
+
                     if (response.length <= 0) {
-        
-                        cardId = 0;
         
                         const cardData = {
                             card_id: 0,
@@ -49,10 +50,9 @@ module.exports = () => (ctx) => {
                     } else {
         
                         const card_id = response.reverse()[0].card_id + 1;
-                        cardId = card_id;
         
                         const cardData = {
-                            card_id: 0,
+                            card_id: card_id,
                             title: title,
                             author: ctx.from.id,
                             url: url,
