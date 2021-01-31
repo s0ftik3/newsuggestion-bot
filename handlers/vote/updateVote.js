@@ -87,7 +87,7 @@ module.exports = () => (ctx) => {
 
     } catch (err) {
 
-        ctx.answerCbQuery('😔 Unfortunately, something went wrong. Please use /suggest command again.');
+        ctx.answerCbQuery('😔 Unfortunately, something went wrong.');
         console.error(err);
 
     }
