@@ -1,5 +1,5 @@
 module.exports = {
-    "version": "2.4.0",
+    "version": "2.4.1",
     "token": process.env.TOKEN,
     "database": process.env.DATABASE,
     "admin": 511695340,
@@ -11,8 +11,7 @@ module.exports = {
         "tgmac": "The native macOS app",
         "tgx": "Telegram X for Android",
         "tgweb": "Telegram Web",
-        "ddapp": "all",
-        "ss": "Server side"
+        "ddapp": "all"
     },
     "types": {
         "text": "none",
