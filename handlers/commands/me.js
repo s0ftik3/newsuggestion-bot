@@ -21,6 +21,7 @@ module.exports = () => (ctx) => {
             for (let i = 0; i < suggestions; i++) {
 
                 let status;
+                let ratio;
 
                 if (reversedArr[i].isPublished == false && reversedArr[i].isDeclined == false) {
 
@@ -38,13 +39,14 @@ module.exports = () => (ctx) => {
                         const likes = $('body').find('span[class="cd-issue-like bt-active-btn"]').find('span[class="value"]').attr('data-value');
                         const dislikes = $('body').find('span[class="cd-issue-dislike bt-active-btn"]').find('span[class="value"]').attr('data-value');
 
-                        status = `[published](${reversedArr[i].url}). \`(👍 ${(likes == undefined) ? 0 : likes}, 👎 ${(dislikes == undefined) ? 0 : dislikes})\``;
+                        status = `[published](${reversedArr[i].url}).`;
+                        ratio = `\`(👍 ${(likes == undefined) ? 0 : likes}, 👎 ${(dislikes == undefined) ? 0 : dislikes})\``;
 
                     });
 
                 }
 
-                result.push(`_«${(reversedArr[i].title.length > 64) ? reversedArr[i].title.slice(0, 64) + '...' : reversedArr[i].title}»_ — ${status}`);
+                result.push(`${ratio} _«${(reversedArr[i].title.length > 64) ? reversedArr[i].title.slice(0, 64) + '...' : reversedArr[i].title}»_ — ${status}`);
 
             }
 
