@@ -11,7 +11,9 @@ module.exports = () => async (ctx) => {
         const action = ctx.match.toString().split(':')[0];
         const card = ctx.match.toString().split(':')[1];
 
-        Card.find({ card_id: card }).then(response => {
+        await Card.find({ card_id: card }).then(response => {
+
+            if (response.length <= 0) return ctx.answerCbQuery(ctx.i18n.t('error.default'));
 
             const isVoted = (response[0].votedPeople.filter(e => e.user == ctx.from.id).length <= 0) ? false : true;
 
@@ -91,7 +93,9 @@ module.exports = () => async (ctx) => {
 
     } catch (err) {
 
-        ctx.answerCbQuery('😔 Unfortunately, something went wrong.');
+        ctx.i18n.locale(ctx.session.user.language);
+
+        ctx.answerCbQuery(ctx.i18n.t('error.default'));
         console.error(err);
 
     }

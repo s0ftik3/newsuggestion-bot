@@ -361,7 +361,7 @@ async function setTitle(data) {
 
 async function submitSuggestion(data) {
 
-    console.log('%s: Canceled the suggestion.', new Date().toUTCString());
+    console.log('%s: Published the suggestion.', new Date().toUTCString());
 
     return await axios({
         method: 'POST',
