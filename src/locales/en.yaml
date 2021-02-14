@@ -1,0 +1,88 @@
+language: 🇬🇧 English
+
+service:
+  greeting: |
+    Hello, *${name}*!
+
+    What would you like to do?
+  changeLang: In order to change interface language, choose one of available languages below.
+  changedLang: You successfully changed interface language!
+  suggestLanguage: |
+    We’re gradually expanding the list of languages available in Settings. You can check the *Translation Platform* to find more languages or help us translate Telegram: translations.telegram.org
+
+    Click _Other languages_ in the left menu to open search. If you don’t find your language there, you can start a custom translation: click _Add a new language_ under the search.
+  noCards: You didn't submit any cards.
+  standby: 🕑 _Please standby..._
+  viewCard: view
+  lastCards: "Last 15 cards"
+  yourCards: "Your cards"
+  totalCards: "Total cards suggested"
+
+newSuggestion:
+  chooseApp: Which app would you like us to improve?
+  description: |
+    Please describe your suggestion in English below 👇
+
+    _For example:_
+    _An option to translate particular chat messages using the context menu of the app._
+
+    To submit a suggestion in another language, please contact our support team: _Settings > Ask a question._
+  media: |
+    Please provide a demo screenshot or video of your suggested implementation. (One photo or video file)
+
+    *Warning:* your feature suggestion will be public, other users will be able to see all videos and screenshots you attach. Please make sure they don't show any private information – or blur/hide anything you don't want to share with others.
+
+    You may also be interested to see feature implementations suggested by other Telegram users in https://t.me/designers.
+  title: Please enter the title for your feature suggestion (up to 128 characters).
+  similar: To avoid repeating suggestions, please check if you see any similar ones below.
+  see_similar: Do you see any similar suggestions?
+  preview: |
+    <b>Title:</b> <code>${title}</code>
+    
+    <b>Description:</b>
+    <code>${description}</code>
+
+    <b>Tags:</b> ${app}
+    <b>Attachments:</b> ${attachments}
+
+    Submit this suggestion?
+  cancel: 👌 OK! Use /new command to make a new suggestion.
+  standby: 🕓 _Your suggestion is submitting on the platform..._
+  queue: 🐌 _Your suggestion has been queued. Wait please..._
+  published: 🥳 Your suggestion [«${title}»](${url}) has been published on the platform!
+  notPublished: 😔 Your suggestion «${title}» hasn't been published.
+  publishedToChat: 🥳 New suggestion <a href="${url}">«${title}»</a> by ${author} has been published on the platform!
+
+suggestion:
+  retractVote: Retract your vote first.
+  retracted: You retracted your vote.
+
+error: 
+  default: 😔 Unfortunately, something went wrong. Please use /new command again.
+  title_too_long: Your suggestion's title must be less than 250 characters.
+  mediaGroup: Do not send albums. Send only one photo or video file.
+  wrongMedia: Unsupported media file. Send only one photo or video file.
+  maxSize: Maximum file size exceeded. Please send media file up to 15Mb.
+  noText: Please send one photo or video file.
+  descritpionWrongLanguage: Description must be in English.
+  titleWrongLanguage: Title must be in English.
+
+button:
+  sFeature: Suggest a feature for the apps
+  sLanguage: Suggest a language
+  language: Change language
+  back: « Back
+  cancel: Cancel
+  submit: Submit
+  yes: "Yes"
+  no: "No"
+  skip: Skip this step »
+
+application:
+  tgdroid: Telegram for Android
+  tgios: Telegram for iOS
+  tgdesk: Telegram Desktop
+  tgmac: The native macOS app
+  tgx: Telegram X for Android
+  tgweb: Telegram Web
+  ddapp: It doesn't depend on the app

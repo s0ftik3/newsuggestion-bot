@@ -1,5 +1,5 @@
 # New Suggestion Bot
-[![release](https://img.shields.io/badge/release-v2.5.1-green.svg?style=flat)]()
+[![release](https://img.shields.io/badge/release-v3.0.0-green.svg?style=flat)]()
 [![license](https://img.shields.io/github/license/s0ftik3/newsuggestion-bot)]()
 [![size](https://img.shields.io/github/languages/code-size/s0ftik3/newsuggestion-bot)]()
 
@@ -9,12 +9,7 @@ Telegram description: Suggest new features for Telegram.
 The bot is created for those people who still don't have an access to create cards on bugs.telegram.org or who want to publish their idea on this platform anonymously. 
 
 ## In progress
-![commands](https://i.ibb.co/hcLjtKH/1.png)
-![start](https://i.ibb.co/dPMnzy4/2.png)
-![app](https://i.ibb.co/B37kST0/3.png)
-![submit](https://i.ibb.co/fGN4JnV/4.png)
-![published](https://i.ibb.co/gvVhWBp/5.png)
-![me](https://i.ibb.co/ngRmKsn/6.png)
+_Coming soon..._
 
 ## Creating your bot
 1) Create your own bot using [Bot Father](https://t.me/BotFather) and copy your brand-new bot's token.

@@ -1,21 +1,27 @@
 {
   "name": "newsuggestion-bot",
-  "version": "2.5.1",
-  "description": "A Simple Telegram bot.",
+  "version": "3.0.0",
+  "description": "A Telegram bot that allows you to create suggestion cards on bugs.telegram.org in-app.",
   "main": "index.js",
+  "repository": "https://github.com/s0ftik3/newsuggestion-bot",
+  "bugs": "https://github.com/s0ftik3/newsuggestion-bot/issues",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [
     "telegram",
-    "bot"
+    "bot",
+    "telegram-bot"
   ],
-  "author": "softik",
+  "author": "Vyacheslav",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",
-    "mongoose": "^5.11.13",
-    "telegraf": "^3.38.0"
+    "form-data": "^3.0.0",
+    "mongoose": "^5.11.15",
+    "puppeteer": "^7.0.4",
+    "telegraf": "^3.38.0",
+    "telegraf-i18n": "^6.6.0"
   }
 }
