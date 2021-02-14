@@ -14,9 +14,9 @@ service:
   noCards: לא שלחת שום כרטיסיות.
   standby: 🕑 _בבקשה תמתין..._
   viewCard: צפה
-  lastCards: "15 הכרטיסיות האחרונות"
-  yourCards: "הכרטיסיות שלך"
-  totalCards: "סה"כ הכרטיסים"
+  lastCards: 15 הכרטיסיות האחרונות
+  yourCards: הכרטיסיות שלך
+  totalCards: סה כ הכרטיסים
 
 newSuggestion:
   chooseApp: איזו אפליקציה היית רוצה שנשפר?

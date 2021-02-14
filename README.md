@@ -9,7 +9,7 @@ Telegram description: Suggest new features for Telegram.
 The bot is created for those people who still don't have an access to create cards on bugs.telegram.org or who want to publish their idea on this platform anonymously. 
 
 ## In progress
-![preview](https://i.ibb.co/DMrgCn8/IMG-0074.gif)
+![preview](https://s2.gifyu.com/images/IMG_0074.gif)
 
 ## Creating your bot
 1) Create your own bot using [Bot Father](https://t.me/BotFather) and copy your brand-new bot's token.

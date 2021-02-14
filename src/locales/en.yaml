@@ -14,9 +14,9 @@ service:
   noCards: You didn't submit any cards.
   standby: 🕑 _Please standby..._
   viewCard: view
-  lastCards: "Last 15 cards"
-  yourCards: "Your cards"
-  totalCards: "Total cards suggested"
+  lastCards: Last 15 cards
+  yourCards: Your cards
+  totalCards: Total cards suggested
 
 newSuggestion:
   chooseApp: Which app would you like us to improve?
