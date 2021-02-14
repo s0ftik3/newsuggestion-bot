@@ -10,13 +10,13 @@ service:
   suggestLanguage: |
     אנו מרחיבים בהדרגה את רשימת השפות הזמינות. אתה יכול לבדוק את *פלטפורמת התרגום* בשביל למצוא שפות נוספות או לעזור לנו לתרגם את הטלגרם: translations.telegram.org
 
-    תלחץ על _Other languages_ in the left menu to open search. If you don’t find your language there, you can start a custom translation: click _Add a new language_ under the search.
+    תלחץ על _שפות אחרות_ בתפריט השמאלי לחיפוש. אם אתה לא מוצא את השפה שלך, אתה יכול ליצור תרגום מותאם אישית: תלחץ על _הוסף שפה חדשה_ מתחת לחיפוש.
   noCards: לא שלחת שום כרטיסיות.
   standby: 🕑 _בבקשה תמתין..._
   viewCard: צפה
   lastCards: 15 הכרטיסיות האחרונות
   yourCards: הכרטיסיות שלך
-  totalCards: סה כ הכרטיסים
+  totalCards: סך הכל כרטיסיות
 
 newSuggestion:
   chooseApp: איזו אפליקציה היית רוצה שנשפר?
