@@ -11,12 +11,6 @@ service:
     אנו מרחיבים בהדרגה את רשימת השפות הזמינות. אתה יכול לבדוק את *פלטפורמת התרגום* בשביל למצוא שפות נוספות או לעזור לנו לתרגם את הטלגרם: translations.telegram.org
 
     תלחץ על _שפות אחרות_ בתפריט השמאלי לחיפוש. אם אתה לא מוצא את השפה שלך, אתה יכול ליצור תרגום מותאם אישית: תלחץ על _הוסף שפה חדשה_ מתחת לחיפוש.
-  noCards: לא שלחת שום כרטיסיות.
-  standby: 🕑 _בבקשה תמתין..._
-  viewCard: צפה
-  lastCards: 15 הכרטיסיות האחרונות
-  yourCards: הכרטיסיות שלך
-  totalCards: סך הכל כרטיסיות
 
 newSuggestion:
   chooseApp: איזו אפליקציה היית רוצה שנשפר?
@@ -53,6 +47,21 @@ newSuggestion:
   notPublished: 😔 ההצעה שלך «${title}» לא פורסמה.
   publishedToChat: 🥳 הצעה חדשה <a href="${url}">«${title}»</a> מאת ${author} פורסמה בפלטפורמה!
 
+me:
+  info: |
+    Your cards list.
+    
+    Choose a card you would like to see information of.
+  preview: |
+    <b>כותרת:</b> <code>${title}</code>
+    
+    <b>תיאור:</b>
+    <code>${description}</code>
+    
+    <b>Rate:</b> <code>👍 ${like} 👎 ${dislike}</code>
+  noDescription: Not specified.
+  noCards: לא שלחת שום כרטיסיות.
+
 suggestion:
   retractVote: קודם כל בטל את ההצבעה שלך.
   retracted: ההצבעה שלך בוטלה.
@@ -77,6 +86,9 @@ button:
   yes: "כן"
   no: "לא"
   skip: דלג על שלב זה »
+  edit: Edit
+  delete: Delete
+  viewOnPlatform: View card on the platform
 
 application:
   tgdroid: טלגרם לאנדרואיד

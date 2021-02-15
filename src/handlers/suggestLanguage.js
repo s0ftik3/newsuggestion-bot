@@ -10,7 +10,7 @@ module.exports = () => async (ctx) => {
         ctx.editMessageText(ctx.i18n.t('service.suggestLanguage'), {
             parse_mode: 'Markdown',
             reply_markup: Markup.inlineKeyboard([
-                Markup.callbackButton(ctx.i18n.t('button.back'), 'back')
+                Markup.callbackButton(ctx.i18n.t('button.back'), 'backStart')
             ])
         });
 

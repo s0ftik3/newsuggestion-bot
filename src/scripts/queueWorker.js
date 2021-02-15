@@ -97,6 +97,8 @@ module.exports = async () => {
                     Markup.callbackButton(`👍`, `like:${card_id}`),
                     Markup.callbackButton(`👎`, `dislike:${card_id}`)
                 ], { columns: 2 })
+            }).then(response => {
+                ctx.telegram.pinChatMessage('@' + config.chat, response.message_id);
             });
 
         });

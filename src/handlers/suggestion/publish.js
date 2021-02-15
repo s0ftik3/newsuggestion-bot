@@ -83,6 +83,8 @@ module.exports = () => async (ctx) => {
                             Markup.callbackButton(`👍`, `like:${card_id}`),
                             Markup.callbackButton(`👎`, `dislike:${card_id}`)
                         ], { columns: 2 })
+                    }).then(response => {
+                        ctx.telegram.pinChatMessage('@' + config.chat, response.message_id);
                     });
         
                 });
@@ -107,6 +109,8 @@ module.exports = () => async (ctx) => {
             ctx.editMessageText(ctx.i18n.t('newSuggestion.queue'), { parse_mode: 'Markdown' });
 
         }
+
+        ctx.answerCbQuery();
 
     } catch (err) {
 

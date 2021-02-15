@@ -11,12 +11,6 @@ service:
     We’re gradually expanding the list of languages available in Settings. You can check the *Translation Platform* to find more languages or help us translate Telegram: translations.telegram.org
 
     Click _Other languages_ in the left menu to open search. If you don’t find your language there, you can start a custom translation: click _Add a new language_ under the search.
-  noCards: You didn't submit any cards.
-  standby: 🕑 _Please standby..._
-  viewCard: view
-  lastCards: Last 15 cards
-  yourCards: Your cards
-  totalCards: Total cards suggested
 
 newSuggestion:
   chooseApp: Which app would you like us to improve?
@@ -53,6 +47,21 @@ newSuggestion:
   notPublished: 😔 Your suggestion «${title}» hasn't been published.
   publishedToChat: 🥳 New suggestion <a href="${url}">«${title}»</a> by ${author} has been published on the platform!
 
+me:
+  info: |
+    Your cards list.
+    
+    Choose a card you would like to see information of.
+  preview: |
+    <b>Title:</b> <code>${title}</code>
+    
+    <b>Description:</b>
+    <code>${description}</code>
+    
+    <b>Rate:</b> <code>👍 ${like} 👎 ${dislike}</code>
+  noDescription: Not specified.
+  noCards: You didn't submit any cards.
+
 suggestion:
   retractVote: Retract your vote first.
   retracted: You retracted your vote.
@@ -77,6 +86,9 @@ button:
   yes: "Yes"
   no: "No"
   skip: Skip this step »
+  edit: Edit
+  delete: Delete
+  viewOnPlatform: View card on the platform
 
 application:
   tgdroid: Telegram for Android

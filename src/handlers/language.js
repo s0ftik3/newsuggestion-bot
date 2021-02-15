@@ -40,7 +40,7 @@ module.exports = () => async (ctx) => {
         });
 
         let keyboard = buttons.filter(e => e.callback_data != `setLang:${ctx.session.user.language}`);
-        keyboard.push({ text: ctx.i18n.t('button.back'), callback_data: 'back' });
+        keyboard.push({ text: ctx.i18n.t('button.back'), callback_data: 'backStart' });
 
         ctx.editMessageText(ctx.i18n.t('service.changeLang'), {
             reply_markup: Markup.inlineKeyboard(keyboard, { columns: 2 })

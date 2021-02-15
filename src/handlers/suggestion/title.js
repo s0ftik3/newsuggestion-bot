@@ -20,6 +20,8 @@ module.exports = () => async (ctx) => {
                 ctx.session.msg_id = response.message_id;
             });
 
+            ctx.answerCbQuery();
+
         } else {
 
             ctx.telegram.editMessageReplyMarkup(ctx.update.message.chat.id, ctx.session.msg_id, {});

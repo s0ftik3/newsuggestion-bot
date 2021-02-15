@@ -55,7 +55,7 @@ bot.start(handleStart());
 bot.command('me', handleMe());
 bot.command(['new', 'suggest'], handleChooseApp());
 
-bot.action('back', handleStart());
+bot.action('backStart', handleStart());
 bot.action('language', handleLanguage());
 bot.action('sLanguage', handleSuggestLanguage());
 bot.action('sFeature', handleChooseApp());
@@ -68,6 +68,10 @@ bot.action(/setLang:\w+/, handleLanguage());
 bot.action(/allow:\w+/, handleAllowSendMessages());
 bot.action(/\blike:\b\w+/, handleUpdateVote());
 bot.action(/\bdislike:\b\w+/, handleUpdateVote());
+bot.action(/back:\w+/, handleMe());
+bot.action(/forward:\w+/, handleMe());
+bot.action(/backward:\w+/, handleMe());
+bot.action(/view:\w+/, handleMe());
 
 description.on('text', handleMedia());
 media.on(['text', 'photo', 'video'], handleTitle());

@@ -16,9 +16,11 @@ module.exports = () => async (ctx) => {
         ctx.telegram.editMessageReplyMarkup(ctx.update.message.chat.id, ctx.session.msg_id, {});
 
         const title = ctx.message.text;
-        ctx.session.newCard.title = title;
+        ctx.session.newCard.title = title.replace(/[\r\n]{1,}/g, ' ');
         const description = ctx.session.newCard.description.replace(/[\r\n]{3,}/g, ' ');
         const app = ctx.session.newCard.app;
+
+        console.log(ctx.session.newCard);
 
         const url = 'https://bugs.telegram.org/?type=suggestions&sort=rate&query=' + encodeURIComponent(title);
 
