@@ -49,17 +49,17 @@ newSuggestion:
 
 me:
   info: |
-    Your cards list.
+    צפה ברשימת הכרטיסיות שלך.
     
-    Choose a card you would like to see information of.
+    תבחר בכרטיסייה שתרצה לראות את הפרטים עליה.
   preview: |
     <b>כותרת:</b> <code>${title}</code>
     
     <b>תיאור:</b>
     <code>${description}</code>
     
-    <b>Rate:</b> <code>👍 ${like} 👎 ${dislike}</code>
-  noDescription: Not specified.
+    <b>דירוג:</b> <code>👍 ${like} 👎 ${dislike}</code>
+  noDescription: לא צויין.
   noCards: לא שלחת שום כרטיסיות.
 
 suggestion:
@@ -86,9 +86,9 @@ button:
   yes: "כן"
   no: "לא"
   skip: דלג על שלב זה »
-  edit: Edit
-  delete: Delete
-  viewOnPlatform: View card on the platform
+  edit: ערוך
+  delete: מחק
+  viewOnPlatform: צפה בכרטיסייה בפלטפורמה
 
 application:
   tgdroid: טלגרם לאנדרואיד
