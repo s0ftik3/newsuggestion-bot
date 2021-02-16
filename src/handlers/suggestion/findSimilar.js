@@ -20,8 +20,6 @@ module.exports = () => async (ctx) => {
         const description = ctx.session.newCard.description.replace(/[\r\n]{3,}/g, ' ');
         const app = ctx.session.newCard.app;
 
-        console.log(ctx.session.newCard);
-
         const url = 'https://bugs.telegram.org/?type=suggestions&sort=rate&query=' + encodeURIComponent(title);
 
         const data = await axios(url).then(async response => {

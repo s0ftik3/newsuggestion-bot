@@ -49,9 +49,9 @@ newSuggestion:
 
 me:
   info: |
-    Your cards list.
+    List of your cards.
     
-    Choose a card you would like to see information of.
+    Choose a card you would like to see information about.
   preview: |
     <b>Title:</b> <code>${title}</code>
     
@@ -88,7 +88,7 @@ button:
   skip: Skip this step »
   edit: Edit
   delete: Delete
-  viewOnPlatform: View card on the platform
+  viewOnPlatform: View on the platform
 
 application:
   tgdroid: Telegram for Android

@@ -1,6 +1,6 @@
 {
   "name": "newsuggestion-bot",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "A Telegram bot that allows you to create suggestion cards on bugs.telegram.org in-app.",
   "main": "index.js",
   "repository": "https://github.com/s0ftik3/newsuggestion-bot",
