@@ -27,7 +27,7 @@ newSuggestion:
     *Warning:* your feature suggestion will be public, other users will be able to see all videos and screenshots you attach. Please make sure they don't show any private information – or blur/hide anything you don't want to share with others.
 
     You may also be interested to see feature implementations suggested by other Telegram users in https://t.me/designers.
-  title: Please enter the title for your feature suggestion (up to 128 characters).
+  title: Please enter the title for your feature suggestion (up to 250 characters).
   similar: To avoid repeating suggestions, please check if you see any similar ones below.
   see_similar: Do you see any similar suggestions?
   preview: |
@@ -60,19 +60,18 @@ me:
     <b>Description:</b>
     <i>${description}</i>
 
-    <b>Rate:</b> <i>👍 ${like} 👎 ${dislike}</i>
-    <b>Published:</b> <i>${date}</i>
+    <i>👍 ${like} 👎 ${dislike} 💬 ${comments}</i> • <i>${date}</i>
   noDescription: Not specified.
   noCards: You didn't submit any cards.
   edit: "Choose what you would like to edit:"
   startEditTitle: |
     👌 OK! Send me a new title.
 
-    <b>Your current title:</b> <code>${title}</code>
+    <b>Current title (tap to copy):</b> <code>${title}</code>
   startEditDescription: |
     👌 OK! Send me a new description.
 
-    <b>Your current description:</b>
+    <b>Current description (tap to copy):</b>
     <code>${description}</code>
   titleEdited: The title has been edited. Use /me command to see your updated cards.
   descriptionEdited: The description has been edited. Use /me command to see your updated cards.

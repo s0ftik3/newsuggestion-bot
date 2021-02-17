@@ -27,7 +27,7 @@ newSuggestion:
     *אזהרה:* ההצעה שלך הולכת להיות ציבורית, אנשים אחרים יוכלו לראות את הקבצים שצירפת. בבקשה תהיה בטוח שאתה לא משתף פרטים אישיים – או שתסתיר פרטים אישיים או כל דבר אחר שאתה לא רוצה לשתף.
 
     ייתכן גם שתתעניין לראות מימושים של תכונות שהוצעו על ידי משתמשים אחרים בטלגרם https://t.me/designers.
-  title: הקלד את הכותרת של ההצעה (עד ל 128 תווים).
+  title: הקלד את הכותרת של ההצעה (עד ל 250 תווים).
   similar: כדי למנוע הצעות החוזרות על עצמן, אנא בדוק אם אתה רואה הצעות דומות למטה.
   see_similar: האם תרצה לראות הצעות דומות?
   preview: |
@@ -45,7 +45,6 @@ newSuggestion:
   queue: 🐌 _ההצעה שלך עומדת בתור. תחכה בבקשה..._
   published: 🥳 ההצעה שלך [«${title}»](${url}) פורסמה בפלטפורמה!
   notPublished: 😔 ההצעה שלך «${title}» לא פורסמה.
-  publishedToChat: 🥳 הצעה חדשה <a href="${url}">«${title}»</a> מאת ${author} פורסמה בפלטפורמה!
 
 me:
   info: |
@@ -58,24 +57,23 @@ me:
     <b>תיאור:</b>
     <i>${description}</i>
     
-    <b>דירוג:</b> <i>👍 ${like} 👎 ${dislike}</i>
-    <b>Published:</b> <i>${date}</i>
+    <i>👍 ${like} 👎 ${dislike} 💬 ${comments}</i> • <i>${date}</i>
   noDescription: לא צויין.
   noCards: לא שלחת שום כרטיסיות.
-  edit: "Choose what you would like to edit:"
+  edit: "בחר את מה שתרצה לערוך:"
   startEditTitle: |
-    👌 OK! Send me a new title.
+    👌 אוקיי! שלח לי הכותרת החדשה.
 
-    <b>Your current title:</b> <code>${title}</code>
+    <b>הכותרת כרגע:</b> <code>${title}</code>
   startEditDescription: |
-    👌 OK! Send me a new description.
+    👌 אוקיי! שלח לי התיאור החדש.
 
-    <b>Your current description:</b>
+    <b>התיאור כרגע:</b>
     <code>${description}</code>
-  titleEdited: The title has been edited. Use /me command to see your updated cards.
-  descriptionEdited: The description has been edited. Use /me command to see your updated cards.
-  deleteCard: Do you really want to delete this card? *You will not be able to recover the card.*
-  cardDeleted: The card has been deleted.
+  titleEdited: הכותרת נערכה. תשתמש בפקודה /me בשביל לראות את הכרטיסיות המעודכנים שלך.
+  descriptionEdited: התיאור נערך. תשתמש בפקודה /me בשביל לראות את הכרטיסיות המעודכנים שלך.
+  deleteCard: האם אתה באמת רוצה למחוק את הכרטיסייה הזאת? *לא תוכל לשחזר את הכרטיסייה*
+  cardDeleted: הכרטיסייה נמחקה.
 
 suggestion:
   retractVote: קודם כל בטל את ההצבעה שלך.
@@ -90,11 +88,11 @@ error:
   noText: בבקשה תשלח תמונה או וידאו אחד.
   descritpionWrongLanguage: התיאור חייב להיות באנגלית.
   titleWrongLanguage: הכותרת חייבת להיות באנגלית.
-  titleTheSame: The title is the same as the current one. Please send different title.
-  descriptionTheSame: The description is the same as the current one. Please send different Description.
-  titleNotEdited: The title hasn't been edited. Probably, 24 hours from its creation has passed.
-  descriptionNotEdited: The description hasn't been edited. Probably, 24 hours from its creation has passed.
-  cardNotDeleted: Something went wrong. The card hasn't been deleted. Try again later.
+  titleTheSame: הכותרת זהה לזו הנוכחית. אנא שלח כותרת אחרת.
+  descriptionTheSame: התיאור זהה לזה הנוכחי. אנא שלח תיאור אחר.
+  titleNotEdited: הכותרת לא נערכה. כנראה שחלפו 24 שעות מיום היצירה.
+  descriptionNotEdited: התיאור לא נערך. כנראה שחלפו 24 שעות מיום היצירה.
+  cardNotDeleted: משהו השתבש. הכרטיס לא נמחק. נסה שוב מאוחר יותר.
 
 button:
   sFeature: הצע תכונה באפליקצייה
@@ -109,9 +107,9 @@ button:
   edit: ערוך
   delete: מחק
   viewOnPlatform: צפה בכרטיסייה בפלטפורמה
-  editTitle: Title
-  editDescription: Description
-  yesDelete: Yes, delete this card
+  editTitle: כותרת
+  editDescription: תיאור
+  yesDelete: כן, מחק את הכרטיסייה
   
 application:
   tgdroid: טלגרם לאנדרואיד

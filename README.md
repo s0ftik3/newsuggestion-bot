@@ -1,7 +1,8 @@
 # New Suggestion Bot
-[![release](https://img.shields.io/badge/release-v3.2.0-green.svg?style=flat)]()
+[![release](https://img.shields.io/badge/release-v3.2.1-green.svg?style=flat)]()
 [![license](https://img.shields.io/github/license/s0ftik3/newsuggestion-bot)]()
 [![size](https://img.shields.io/github/languages/code-size/s0ftik3/newsuggestion-bot)]()
+[![Crowdin](https://badges.crowdin.net/newsuggestion-bot/localized.svg)](https://crowdin.com/project/newsuggestion-bot)
 
 Telegram description: Suggest new features for Telegram.
 
@@ -31,5 +32,5 @@ The bot is created for those people who still don't have an access to create car
 4) Once you've done all those steps, you can launch your bot `node index.js` and enjoy it!
 
 ## Credits
-- Author [s0ftik3](https://github.com/s0ftik3)
+- [Bugs & Suggestions platform](https://bugs.telegram.org)
 - Author on [Telegram](https://t.me/id160)

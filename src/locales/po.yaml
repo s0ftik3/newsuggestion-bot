@@ -1,0 +1,123 @@
+language: 🇵🇱 Polskie
+
+service:
+  greeting: |
+    Witaj, *${name}*!
+
+    Co chciałbyś robić?
+  changeLang: Aby zmienić język interfejsu, wybierz jeden z dostępnych języków poniżej.
+  changedLang: Pomyślnie zmieniłeś język interfejsu!
+  suggestLanguage: |
+    Stopniowo poszerzamy listę dostępnych języków w ustawieniach aplikacji. Możesz odwiedzić *naszą platformę tłumaczeniową*, gdzie możesz znaleźć więcej języków i pomóc nam przetłumaczyć interfejs Telegrama: tłumaczenia.telegram.org
+
+    Kliknij _Inne języki_ (Other languages) w menu po lewej stronie, aby otworzyć wyszukiwanie. Jeśli nie znalazłeś swojego języka, możesz utworzyć własny: kliknij _Dodaj nowy język_ (Add a new language) u dołu pola wyszukiwania.
+
+newSuggestion:
+  chooseApp: Którą aplikację chciałbyś ulepszyć?
+  description: |
+    Opisz swoją ofertę poniżej *w języku angielskim* 👇
+
+    _Na przykład:_
+    _Możliwość przetłumaczenia dowolnego zdania na czacie z języka A ​​na język B._
+
+    Jeśli chcesz opublikować ofertę w języku rosyjskim, skorzystaj z zakładki: _Ustawienia > Zadaj pytanie._
+  media: |
+    Dołącz zrzut ekranu lub film przedstawiający swoją propozycję w akcji. (Jedno zdjęcie lub film)
+
+    *Uwaga:* Twoja propozycja jest publiczna. Użytkownicy zobaczą Twoje załączniki. Upewnij się, że nie publikujesz żadnych danych osobowych ani nie „zamazujesz” części pliku multimedialnego, które zawierają takie informacje.
+
+    Możesz również zobaczyć propozycje koncepcji od innych użytkowników Telegram — https://t.me/designers.
+  title: Wpisz tytuł swojej propozycji (do 250 znaków).
+  similar: Aby zapewnić oryginalność każdej propozycji, sprawdź, czy poniżej znajdują się podobne propozycje.
+  see_similar: Czy widzisz podobne oferty?
+  preview: |
+    <b>Tytuł:</b> <code>${title}</code>
+    
+    <b>Opis:</b>
+    <code>${description}</code>
+
+    <b>Tagi:</b> ${app}
+    <b>Załączniki:</b> ${attachments}
+
+    Opublikować tę ofertę?
+  cancel: 👌 W porządku! Użyj /new polecenie, aby złożyć nową propozycję.
+  standby: 🕓 _Twoja propozycja jest publikowana na platformie..._
+  queue: 🐌 _Twoja propozycja jest w kolejce. Poczekaj proszę..._
+  published: 🥳 Twoja propozycja [«${title}»](${url}) została opublikowana na platformie!
+  notPublished: 😔 Twoja propozycja «${title}» nie została opublikowany.
+
+me:
+  info: |
+    Lista twoich kart.
+    
+    Wybierz kartę, o której chcesz zobaczyć informacje.
+
+    *Uwaga:* Możesz edytować lub usuwać tylko karty, które zostały utworzone 24 godziny temu lub wcześniej.
+  preview: |
+    <b>Tytuł:</b> <i>${title}</i>
+    
+    <b>Opis:</b>
+    <i>${description}</i>
+    
+    <i>👍 ${like} 👎 ${dislike} 💬 ${comments}</i> • <i>${date}</i>
+  noDescription: Nie określono
+  noCards: Nie utworzyłeś żadnych kart.
+  edit: "Wybierz, co chcesz zmienić:"
+  startEditTitle: |
+    👌 W porządku! Wyślij mi nowy tytuł.
+
+    <b>Bieżący tytuł (kliknij, aby skopiować):</b> <code>${title}</code>
+  startEditDescription: |
+    👌 W porządku! Proszę o przesłanie nowego opisu.
+
+    <b>Bieżący opis (kliknij, aby skopiować):</b>
+    <code>${description}</code>
+  titleEdited: Tytuł został zmieniony. Użyj polecenia /me, aby wyświetlić zaktualizowane karty.
+  descriptionEdited: Opis został zmieniony. Użyj polecenia /me, aby wyświetlić zaktualizowane karty.
+  deleteCard: Czy na pewno chcesz usunąć tę kartę? *Nie możesz go przywrócić.*
+  cardDeleted: Karta została usunięta.
+
+suggestion:
+  retractVote: Najpierw anuluj swój głos.
+  retracted: Odwołałeś swój głos.
+
+error: 
+  default: 😔 Niestety coś poszło nie tak. Użyj ponownie polecenia /new.
+  title_too_long: Tytuł propozycji musi mieć mniej niż 250 znaków.
+  mediaGroup: Nie przesyłaj albumów. Prześlij tylko jedno zdjęcie lub plik wideo.
+  wrongMedia: Ten typ pliku nie jest obsługiwany. Prześlij tylko jedno zdjęcie lub plik wideo.
+  maxSize: Przekroczono maksymalny rozmiar pliku. Prześlij plik multimedialny do 15 MB.
+  noText: Prześlij tylko jedno zdjęcie lub plik wideo.
+  descritpionWrongLanguage: Opis musi być w języku angielskim.
+  titleWrongLanguage: Tytuł musi być w języku angielskim.
+  titleTheSame: Nowe i obecne nagłówki są identyczne. Prześlij inny tytuł.
+  descriptionTheSame: Nowe i aktualne opisy są identyczne. Prześlij kolejny opis.
+  titleNotEdited: Tytuł nie został zmieniony. Być może minęły 24 godziny od utworzenia karty.
+  descriptionNotEdited: Opis nie został zmieniony. Być może minęły 24 godziny od utworzenia karty.
+  cardNotDeleted: Coś poszło nie tak. Karta nie została usunięta. Spróbuj później.
+
+button:
+  sFeature: Zaproponuj nową funkcję
+  sLanguage: Zaproponuj nowy język
+  language: Zmień język
+  back: « Wstecz
+  cancel: Anuluj
+  submit: Poczta
+  yes: Tak
+  no: Nie
+  skip: Pominąć »
+  edit: Edytować
+  delete: Kasować
+  viewOnPlatform: Zobacz na platformie
+  editTitle: Tytuł
+  editDescription: Opis
+  yesDelete: Tak, skasować tę kartę
+
+application:
+  tgdroid: Telegram na Android
+  tgios: Telegram na iOS
+  tgdesk: Telegram na PC
+  tgmac: Telegram na macOS
+  tgx: Telegram X na Android
+  tgweb: Wersja internetowa Telegram
+  ddapp: Aplikacja niezależna

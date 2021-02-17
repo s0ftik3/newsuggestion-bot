@@ -42,17 +42,19 @@ module.exports = () => async (ctx) => {
             ];
         }
 
-        let ratio = {};
+        let meta = {};
 
         await axios(card.url).then(response => {
 
             const $ = cheerio.load(response.data);
             const like = $('body').find('span[class="cd-issue-like bt-active-btn"]').find('span[class="value"]').attr('data-value');
             const dislike = $('body').find('span[class="cd-issue-dislike bt-active-btn"]').find('span[class="value"]').attr('data-value');
+            const comments = $('body').find('span[class="bt-header-cnt"]').text();
 
-            ratio = { 
+            meta = { 
                 like: (like == undefined) ? 0 : like, 
-                dislike: (dislike == undefined) ? 0 : dislike 
+                dislike: (dislike == undefined) ? 0 : dislike,
+                comments: (comments.length <= 0) ? 0 : comments
             };
 
         });
@@ -60,8 +62,9 @@ module.exports = () => async (ctx) => {
         ctx.editMessageText(ctx.i18n.t('me.preview', {
             title: card.title,
             description: (card.description === undefined) ? ctx.i18n.t('me.noDescription') : card.description,
-            like: ratio.like,
-            dislike: ratio.dislike,
+            like: meta.like,
+            dislike: meta.dislike,
+            comments: meta.comments,
             date: publishedAt
         }), {
             parse_mode: 'HTML',
