@@ -227,11 +227,13 @@ async function setDescription(data) {
 async function uploadFile(data) {
 
     const form = new FormData();
-    form.append('file', await axios({
+    const imageData = await axios({
         method: 'GET',
         url: `https://api.telegram.org/file/bot${process.env.TOKEN}/${data.media}`,
         responseType: 'stream'
-    }).then(response => response.data));
+    }).then(response => response.data);
+    
+    form.append('file', imageData);
 
     const image = await axios({
         method: 'POST',
