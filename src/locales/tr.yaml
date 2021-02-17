@@ -1,0 +1,123 @@
+language: 🇹🇷 Türkçe
+
+service:
+  greeting: |
+    Merhaba, *${name}*!
+
+    Ne yapmak istersiniz?
+  changeLang: Arayüz dilini değiştirmek için, aşağıdaki kullanılabilir dillerden birini seçin.
+  changedLang: Arayüz dilini başarıyla değiştirdiniz!
+  suggestLanguage: |
+    Ayarlar'daki kullanılabilir diller listesini yavaş yavaş genişletiyoruz. Daha fazla dil bulmak ya da Telegram'ı çevirmemize yardımcı olmak için *Çeviri Platformu*'nu kontrol edebilirsiniz: translations.telegram.org
+
+    Aramayı açmak için sol menüdeki _Other languages_'a tıklayın. Dilinizi orada bulamıyorsanız, özel bir çeviri ekleyebilirsiniz: aramanın altındaki _Add a new language_'e tıklayın.
+
+newSuggestion:
+  chooseApp: Hangi uygulamayı geliştirmemizi istersiniz?
+  description: |
+    Lütfen önerinizi aşağıya İngilizce olarak açıklayın 👇
+
+    __Örneğin:_
+    _An option to translate particular chat messages using the context menu of the app._
+
+    Başka bir dilde öneri göndermek için, lütfen destek ekibimiz ile iletişime geçin: _Ayarlar_ > _Bir Soru Sor._
+  media: |
+    Please provide a demo screenshot or video of your suggested implementation. (One photo or video file)
+
+    *Uyarı:* Özellik öneriniz herkese açık olacak, diğer kullanıcılar eklediğiniz tüm video ve ekran görüntülerini görebilecek. Lütfen herhangi bir özel bilgiyi göstermediklerinden emin olun – ya da diğerleriyle paylaşmak istemediğiniz şeyleri bulanıklaştırın/gizleyin.
+
+    https://t.me/designers kanalında diğer Telegram kullanıcıları tarafından önerilen özellik uygulamalarını görmek isteyebilirsiniz.
+  title: Lütfen özellik öneriniz için başlık girin (250 karaktere kadar).
+  similar: Öneri tekrarlarından kaçınmak için, lütfen aşağıdaki benzer olanları kontrol edin.
+  see_similar: Benzer öneriler görüyor musunuz?
+  preview: |
+    <b>Başlık:</b> <code>${title}</code>
+    
+    <b>Açıklama:</b>
+    <code>${description}</code>
+
+    <b>Etiketler:</b> ${app}
+    <b>Ekler:</b> ${attachments}
+
+    Bu öneri gönderilsin mi?
+  cancel: 👌 TAMAM! Yeni bir öneri yapmak için /new komutunu kullanın.
+  standby: 🕓 _Öneriniz platforma gönderiliyor..._
+  queue: 🐌 _Öneriniz sıraya alındı. Lütfen bekleyin..._
+  published: 🥳 [«${title}»](${url}) öneriniz platformda yayınlandı!
+  notPublished: 😔 «${title}» öneriniz platformda yayınlanmadı.
+
+me:
+  info: |
+    Kartlarınızın listesi.
+
+    Hakkında, düzenleme veya silme bilgisini görmek istediğiniz bir kart seçin.
+
+    *Not:* Sadece 24 saat ya da daha önce oluşturduğunuz kartları düzenleyebilir veya silebilirsiniz.
+  preview: |
+    <b>Başlık:</b> <i>${title}</i>
+    
+    <b>Açıklama:</b>
+    <i>${description}</i>
+
+    <i>👍 ${like} 👎 ${dislike} 💬 ${comments}</i> • <i>${date}</i>
+  noDescription: Belirtilmemiş.
+  noCards: Hiç kart göndermediniz.
+  edit: "Düzenlemek istediğiniz şeyi seçin:"
+  startEditTitle: |
+    👌 TAMAM! Bana yeni bir başlık gönderin.
+
+    <b>Şu anki başlığınız:</b> <code>${title}</code>
+  startEditDescription: |
+    👌 TAMAM! Bana yeni bir açıklama gönderin.
+
+    <b>Şu anki açıklamanız:</b>
+    <code>${description}</code>
+  titleEdited: Başlık düzenlendi. Güncellenmiş kartlarınızı görmek için /me komutunu kullanın.
+  descriptionEdited: Açıklama düzenlendi. Güncellenmiş kartlarınızı görmek için /me komutunu kullanın.
+  deleteCard: Bu kartı gerçekten silmek istiyor musunuz? *Kartı geri kurtaramayacaksınız.*
+  cardDeleted: Kart silindi.
+
+suggestion:
+  retractVote: İlk önce oyunuzu geri çekin.
+  retracted: Oyunuzu geri çektiniz.
+
+error: 
+  default: 😔 Ne yazık ki, bir şeyler ters gitti. Lütfen tekrar /new komutunu kullanın.
+  title_too_long: Önerinizin başlığı 250 karakterden daha az olmalı.
+  mediaGroup: Albüm göndermeyin. Sadece bir fotoğraf ya da video dosyası gönderin.
+  wrongMedia: Desteklenmeyen medya dosyası. Sadece bir fotoğraf ya da video dosyası gönderin.
+  maxSize: Maksimum dosya boyutu aşıldı. Lütfen 15Mb'a kadar medya dosyası gönderin.
+  noText: Lütfen bir fotoğraf ya da video dosyası gönderin.
+  descritpionWrongLanguage: Açıklama, İngilizce olmalı.
+  titleWrongLanguage: Başlık, İngilizce olmalı.
+  titleTheSame: Başlık, şu anki ile aynı. Lütfen farklı başlık gönderin.
+  descriptionTheSame: Açıklama, şu anki ile aynı. Lütfen farklı açıklama gönderin.
+  titleNotEdited: Başlık düzenlenmedi. Muhtemelen oluşturulması 24 saati geçti.
+  descriptionNotEdited: Açıklama düzenlenmedi. Muhtemelen oluşturulması 24 saati geçti.
+  cardNotDeleted: Bir şeyler ters gitti. Kart silinmedi. Daha sonra tekrar deneyin.
+
+button:
+  sFeature: Uygulamalar için bir özellik önerin
+  sLanguage: Bir dil önerin
+  language: Dili değiştirin
+  back: « Geri
+  cancel: İptal
+  submit: Gönder
+  yes: Evet
+  no: Hayır
+  skip: Bu adımı atla »
+  edit: Düzenle
+  delete: Sil
+  viewOnPlatform: Platformda Görüntüle
+  editTitle: Başlık
+  editDescription: Açıklama
+  yesDelete: Evet, bu kartı sil
+
+application:
+  tgdroid: Android için Telegram
+  tgios: iOS için Telegram
+  tgdesk: Telegram Masaüstü
+  tgmac: Yerel macOS uygulaması
+  tgx: Android için Telegram X
+  tgweb: Telegram Web
+  ddapp: Uygulamaya bağlı değil
