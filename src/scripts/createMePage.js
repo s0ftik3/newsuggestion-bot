@@ -75,48 +75,6 @@ module.exports = async (ctx, data) => {
             (typeof ctx.match == 'object') ? action = action : action = ctx.match;
 
             switch (action) {
-
-                case 'view':
-                    const card_id = ctx.match[0].split(':')[1];
-                    const index_for_back = ctx.match.input.split(':')[2];
-                    const card = data.find(e => e.card_id == card_id);
-
-                    let viewKeyboard = [
-                        [Markup.urlButton(ctx.i18n.t('button.viewOnPlatform'), card.url)],
-                        [Markup.callbackButton(ctx.i18n.t('button.back'), `back:${index_for_back}`)]
-                    ]; // [Markup.callbackButton(ctx.i18n.t('button.edit'), `edit:${card_id}`), Markup.callbackButton(ctx.i18n.t('button.delete'), `delete:${card_id}`)],
-
-                    // if ((new Date().getTime() - new Date(card.timestamp).getTime()) >= 86400000) {
-                    //     viewKeyboard = [
-                    //         [Markup.urlButton(ctx.i18n.t('button.viewOnPlatform'), card.url)],
-                    //         [Markup.callbackButton(ctx.i18n.t('button.back'), `back:${index_for_back}`)]
-                    //     ];
-                    // }
-
-                    let ratio = {};
-
-                    await axios(card.url).then(response => {
-
-                        const $ = cheerio.load(response.data);
-                        const likes = $('body').find('span[class="cd-issue-like bt-active-btn"]').find('span[class="value"]').attr('data-value');
-                        const dislikes = $('body').find('span[class="cd-issue-dislike bt-active-btn"]').find('span[class="value"]').attr('data-value');
-
-                        ratio = { like: (likes == undefined) ? 0 : likes, dislike: (dislikes == undefined) ? 0 : dislikes };
-
-                    });
-
-                    ctx.editMessageText(ctx.i18n.t('me.preview', {
-                        title: card.title,
-                        description: (card.description === undefined) ? ctx.i18n.t('me.noDescription') : card.description,
-                        like: ratio.like,
-                        dislike: ratio.dislike
-                    }), {
-                        parse_mode: 'HTML',
-                        reply_markup: Markup.inlineKeyboard(viewKeyboard)
-                    });
-
-                    ctx.answerCbQuery();
-                    break;
                 
                 case 'forward':
                     const newKeyboard = [];

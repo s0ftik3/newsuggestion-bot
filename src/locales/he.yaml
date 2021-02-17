@@ -53,14 +53,29 @@ me:
     
     תבחר בכרטיסייה שתרצה לראות את הפרטים עליה.
   preview: |
-    <b>כותרת:</b> <code>${title}</code>
+    <b>כותרת:</b> <i>${title}</i>
     
     <b>תיאור:</b>
-    <code>${description}</code>
+    <i>${description}</i>
     
-    <b>דירוג:</b> <code>👍 ${like} 👎 ${dislike}</code>
+    <b>דירוג:</b> <i>👍 ${like} 👎 ${dislike}</i>
+    <b>Published:</b> <i>${date}</i>
   noDescription: לא צויין.
   noCards: לא שלחת שום כרטיסיות.
+  edit: "Choose what you would like to edit:"
+  startEditTitle: |
+    👌 OK! Send me a new title.
+
+    <b>Your current title:</b> <code>${title}</code>
+  startEditDescription: |
+    👌 OK! Send me a new description.
+
+    <b>Your current description:</b>
+    <code>${description}</code>
+  titleEdited: The title has been edited. Use /me command to see your updated cards.
+  descriptionEdited: The description has been edited. Use /me command to see your updated cards.
+  deleteCard: Do you really want to delete this card? *You will not be able to recover the card.*
+  cardDeleted: The card has been deleted.
 
 suggestion:
   retractVote: קודם כל בטל את ההצבעה שלך.
@@ -75,6 +90,11 @@ error:
   noText: בבקשה תשלח תמונה או וידאו אחד.
   descritpionWrongLanguage: התיאור חייב להיות באנגלית.
   titleWrongLanguage: הכותרת חייבת להיות באנגלית.
+  titleTheSame: The title is the same as the current one. Please send different title.
+  descriptionTheSame: The description is the same as the current one. Please send different Description.
+  titleNotEdited: The title hasn't been edited. Probably, 24 hours from its creation has passed.
+  descriptionNotEdited: The description hasn't been edited. Probably, 24 hours from its creation has passed.
+  cardNotDeleted: Something went wrong. The card hasn't been deleted. Try again later.
 
 button:
   sFeature: הצע תכונה באפליקצייה
@@ -89,7 +109,10 @@ button:
   edit: ערוך
   delete: מחק
   viewOnPlatform: צפה בכרטיסייה בפלטפורמה
-
+  editTitle: Title
+  editDescription: Description
+  yesDelete: Yes, delete this card
+  
 application:
   tgdroid: טלגרם לאנדרואיד
   tgios: טלגרם ל iOS

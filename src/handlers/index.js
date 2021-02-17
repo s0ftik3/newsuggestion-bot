@@ -15,5 +15,8 @@ module.exports = {
     handleLeftMember: require('./chat/leftMember'),
     handleAllowSendMessages: require('./chat/allowSendMessages'),
     handleMe: require('./me'),
-    handleUpdateVote: require('./updateVote')
+    handleUpdateVote: require('./updateVote'),
+    handleView: require('./card/view'),
+    handleEdit: require('./card/edit'),
+    handleDelete: require('./card/delete')
 }

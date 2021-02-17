@@ -391,6 +391,108 @@ async function submitSuggestion(data) {
 
 }
 
+async function editTitle(data) {
+
+    return await axios({
+        method: 'POST',
+        url: `https://bugs.telegram.org/api?hash=${data.hash}&issue_id=${data.url_id}&title=${encodeURIComponent(data.title)}&description=${encodeURIComponent(data.description)}&method=editIssue`,
+        headers: {
+            'Accept': 'application/json, text/javascript, */*; q=0.01',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Connection': 'keep-alive',
+            'Cookie': `stel_ln=${data.stel_ln}; stel_ssid=${data.stel_ssid}; stel_dt=${data.stel_dt}; stel_token=${data.stel_token}`,
+            'Host': 'bugs.telegram.org',
+            'Referer':'https://bugs.telegram.org/',
+            'Sec-Fetch-Dest': 'empty',
+            'Sec-Fetch-Mode': 'cors',
+            'Sec-Fetch-Site': 'same-origin',
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => {
+
+        if (response.data.error !== undefined) {
+            console.log(`%s: Couldn't edit ${data.url_id} title.`, new Date().toUTCString());
+        } else {
+            console.log(`%s: Edited ${data.url_id} title.`, new Date().toUTCString());
+        }
+
+        return response;
+
+    })
+    .catch(err => console.error(err));
+
+}
+
+async function editDescription(data) {
+
+    return await axios({
+        method: 'POST',
+        url: `https://bugs.telegram.org/api?hash=${data.hash}&issue_id=${data.url_id}&title=${encodeURIComponent(data.title)}&description=${encodeURIComponent(data.description)}&method=editIssue`,
+        headers: {
+            'Accept': 'application/json, text/javascript, */*; q=0.01',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Connection': 'keep-alive',
+            'Cookie': `stel_ln=${data.stel_ln}; stel_ssid=${data.stel_ssid}; stel_dt=${data.stel_dt}; stel_token=${data.stel_token}`,
+            'Host': 'bugs.telegram.org',
+            'Referer':'https://bugs.telegram.org/',
+            'Sec-Fetch-Dest': 'empty',
+            'Sec-Fetch-Mode': 'cors',
+            'Sec-Fetch-Site': 'same-origin',
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => {
+
+        if (response.data.error !== undefined) {
+            console.log(`%s: Couldn't edit ${data.url_id} description.`, new Date().toUTCString());
+        } else {
+            console.log(`%s: Edited ${data.url_id} description.`, new Date().toUTCString());
+        }
+
+        return response;
+        
+    })
+    .catch(err => console.error(err));
+
+}
+
+async function deleteCard(data) {
+
+    return await axios({
+        method: 'POST',
+        url: `https://bugs.telegram.org/api?hash=${data.hash}&issue_id=${data.url_id}&method=deleteIssue`,
+        headers: {
+            'Accept': 'application/json, text/javascript, */*; q=0.01',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Connection': 'keep-alive',
+            'Cookie': `stel_ln=${data.stel_ln}; stel_ssid=${data.stel_ssid}; stel_dt=${data.stel_dt}; stel_token=${data.stel_token}`,
+            'Host': 'bugs.telegram.org',
+            'Referer':'https://bugs.telegram.org/',
+            'Sec-Fetch-Dest': 'empty',
+            'Sec-Fetch-Mode': 'cors',
+            'Sec-Fetch-Site': 'same-origin',
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => {
+
+        if (response.data.error !== undefined) {
+            console.log(`%s: Couldn't delete ${data.url_id} card.`, new Date().toUTCString());
+        } else {
+            console.log(`%s: Deleted ${data.url_id} card.`, new Date().toUTCString());
+        }
+
+        return response;
+
+    })
+    .catch(err => console.error(err));
+
+}
+
 async function getMe(data) {
 
     return await axios({
@@ -434,5 +536,8 @@ module.exports = {
     skipAttachFile,
     setTitle,
     submitSuggestion,
+    editTitle,
+    editDescription,
+    deleteCard,
     getMe
 }

@@ -51,16 +51,33 @@ me:
   info: |
     List of your cards.
     
-    Choose a card you would like to see information about.
+    Choose a card you would like to see information about, edit or delete.
+
+    *Note:* you can only edit or delete cards that you created 24 hours ago or less.
   preview: |
-    <b>Title:</b> <code>${title}</code>
+    <b>Title:</b> <i>${title}</i>
     
     <b>Description:</b>
-    <code>${description}</code>
-    
-    <b>Rate:</b> <code>👍 ${like} 👎 ${dislike}</code>
+    <i>${description}</i>
+
+    <b>Rate:</b> <i>👍 ${like} 👎 ${dislike}</i>
+    <b>Published:</b> <i>${date}</i>
   noDescription: Not specified.
   noCards: You didn't submit any cards.
+  edit: "Choose what you would like to edit:"
+  startEditTitle: |
+    👌 OK! Send me a new title.
+
+    <b>Your current title:</b> <code>${title}</code>
+  startEditDescription: |
+    👌 OK! Send me a new description.
+
+    <b>Your current description:</b>
+    <code>${description}</code>
+  titleEdited: The title has been edited. Use /me command to see your updated cards.
+  descriptionEdited: The description has been edited. Use /me command to see your updated cards.
+  deleteCard: Do you really want to delete this card? *You will not be able to recover the card.*
+  cardDeleted: The card has been deleted.
 
 suggestion:
   retractVote: Retract your vote first.
@@ -75,6 +92,11 @@ error:
   noText: Please send one photo or video file.
   descritpionWrongLanguage: Description must be in English.
   titleWrongLanguage: Title must be in English.
+  titleTheSame: The title is the same as the current one. Please send different title.
+  descriptionTheSame: The description is the same as the current one. Please send different Description.
+  titleNotEdited: The title hasn't been edited. Probably, 24 hours from its creation has passed.
+  descriptionNotEdited: The description hasn't been edited. Probably, 24 hours from its creation has passed.
+  cardNotDeleted: Something went wrong. The card hasn't been deleted. Try again later.
 
 button:
   sFeature: Suggest a feature for the apps
@@ -89,6 +111,9 @@ button:
   edit: Edit
   delete: Delete
   viewOnPlatform: View on the platform
+  editTitle: Title
+  editDescription: Description
+  yesDelete: Yes, delete this card
 
 application:
   tgdroid: Telegram for Android

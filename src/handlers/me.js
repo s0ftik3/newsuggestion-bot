@@ -1,6 +1,4 @@
 const Card = require('../database/models/Card');
-const axios = require('axios');
-const cheerio = require('cheerio');
 const getUserSession = require('../scripts/getUserSession');
 const createMePage = require('../scripts/createMePage');
 
