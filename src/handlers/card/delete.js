@@ -48,6 +48,8 @@ module.exports = () => async (ctx) => {
                             ])
                         });
                         
+                        const indexOfCard = ctx.session.cards.indexOf(card);
+                        ctx.session.cards.splice(indexOfCard, 1);
                         Card.deleteOne({ card_id: card_id });
                     } else {
                         ctx.editMessageText(ctx.i18n.t('error.cardNotDeleted'), {
