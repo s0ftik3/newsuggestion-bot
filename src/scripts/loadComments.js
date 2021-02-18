@@ -63,6 +63,8 @@ module.exports = async () => {
                             [Markup.urlButton(i18n.t(language, 'button.showComment'), card.url + `/${data.comments[i].comment_id}`)]
                         ]),
                         disable_web_page_preview: true
+                    }).then(() => {
+                        console.log(`${authorId}: received a comment.`);
                     });
         
                 }
@@ -76,9 +78,11 @@ module.exports = async () => {
                 }), {
                     parse_mode: 'HTML',
                     reply_markup: Markup.inlineKeyboard([
-                        [Markup.urlButton(i18n.t(language, 'button.showComment'), card.url + `/${data.comments[i].comment_id}`)]
+                        [Markup.urlButton(i18n.t(language, 'button.showComment'), card.url + `/${data.comments[0].comment_id}`)]
                     ]),
                     disable_web_page_preview: true
+                }).then(() => {
+                    console.log(`${authorId}: received a comment.`);
                 });
 
             } else {
