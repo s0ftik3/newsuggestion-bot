@@ -528,7 +528,8 @@ async function loadComments(data) {
 
             comments.push({
                 author: response.data.comments_html.match(/<span class="bt-comment-author-name">(.*)<\/span>/gi)[i].replace(/<[^>]*>/gi, ''),
-                text: response.data.comments_html.match(/<div class="bt-comment-text">(.*)<\/div>/gi)[i].replace(/<[^>]*>/gi, '')
+                text: response.data.comments_html.match(/<div class="bt-comment-text">(.*)<\/div>/gi)[i].replace(/<[^>]*>/gi, ''),
+                comment_id: response.data.comments_html.match(/<div class="bt-comment" data-comment-id="(.*)">/gi)[i].replace(/<div class="bt-comment" data-comment-id=|['"]+/g, '')
             });
 
         }

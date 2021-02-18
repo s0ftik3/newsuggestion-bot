@@ -60,7 +60,7 @@ module.exports = async () => {
                     }), {
                         parse_mode: 'HTML',
                         reply_markup: Markup.inlineKeyboard([
-                            [Markup.urlButton(i18n.t(language, 'button.showComment'), card.url)]
+                            [Markup.urlButton(i18n.t(language, 'button.showComment'), card.url + `/${data.comments[i].comment_id}`)]
                         ]),
                         disable_web_page_preview: true
                     });
@@ -76,7 +76,7 @@ module.exports = async () => {
                 }), {
                     parse_mode: 'HTML',
                     reply_markup: Markup.inlineKeyboard([
-                        [Markup.urlButton(i18n.t(language, 'button.showComment'), card.url)]
+                        [Markup.urlButton(i18n.t(language, 'button.showComment'), card.url + `/${data.comments[i].comment_id}`)]
                     ]),
                     disable_web_page_preview: true
                 });
@@ -93,11 +93,7 @@ module.exports = async () => {
 
     } catch (err) {
 
-        if (error.code == 403 && error.description == 'Forbidden: bot was blocked by the user') {
-            await User.deleteOne({ id: error.on.payload.chat_id });
-        } else {
-            console.error(err);
-        }
+        console.error(err);
 
     }
 
