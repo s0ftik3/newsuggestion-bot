@@ -24,7 +24,6 @@ async function getHash(data) {
     .then(response => {
 
         const hash = response.data.match(/\/api\?hash=\w+/)[0].replace(/\/api\?hash=/gi, '');
-        console.log('%s: Updated hash.', new Date().toUTCString());
         
         return hash;
 
@@ -516,6 +515,9 @@ async function loadComments(data) {
     })
     .then(response => {
 
+        if (response.data.error !== undefined)
+            return { comments: [], url_id: Number(data.url_id), after_id: Number(data.after_id) };
+
         const hiddenAfterId = response.data.comments_html.match(/<div (.*) data-after="(.*)">/gi)[0];
         const next_after_id = hiddenAfterId.match(/data-after="(.*)"/gi)[0].replace(/data-after=|['"]+/g, '');
 
@@ -529,7 +531,7 @@ async function loadComments(data) {
             comments.push({
                 author: response.data.comments_html.match(/<span class="bt-comment-author-name">(.*)<\/span>/gi)[i].replace(/<[^>]*>/gi, ''),
                 text: response.data.comments_html.match(/<div class="bt-comment-text">(.*)<\/div>/gi)[i].replace(/<[^>]*>/gi, ''),
-                comment_id: response.data.comments_html.match(/<div class="bt-comment" data-comment-id="(.*)">/gi)[i].replace(/<div class="bt-comment" data-comment-id=|['"]+/g, '')
+                comment_id: response.data.comments_html.match(/<div class="bt-comment" data-comment-id="(.*)">/gi)[i].replace(/<div class="bt-comment" data-comment-id=|>|['"]+/g, '')
             });
 
         }
