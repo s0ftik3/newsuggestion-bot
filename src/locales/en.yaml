@@ -77,6 +77,10 @@ me:
   descriptionEdited: The description has been edited. Use /me command to see your updated cards.
   deleteCard: Do you really want to delete this card? *You will not be able to recover the card.*
   cardDeleted: The card has been deleted.
+  newComment: |
+    <b>${author}</b> left a comment to the card «${cardName}»:
+
+    <i>${text}</i>
 
 suggestion:
   retractVote: Retract your vote first.
@@ -113,6 +117,7 @@ button:
   editTitle: Title
   editDescription: Description
   yesDelete: Yes, delete this card
+  showComment: Show comment
 
 application:
   tgdroid: Telegram for Android

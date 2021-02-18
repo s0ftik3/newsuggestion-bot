@@ -19,6 +19,8 @@ const i18n = new TelegrafI18n({
     defaultLanguageOnMissing: true
 });
 
+const Markup = require('telegraf/markup');
+
 module.exports = async () => {
 
     const toPublish = await Queue.find().then(response => response);
@@ -87,7 +89,7 @@ module.exports = async () => {
 
             });
 
-            ctx.telegram.sendMessage('@' + config.chat, ctx.i18n.t(`newSuggestion.publishedToChat`, { 
+            telegram.sendMessage('@' + config.chat, i18n.t(toPublish[i].language, `newSuggestion.publishedToChat`, { 
                 title: toPublish[i].title, 
                 url: suggestion, 
                 author: toPublish[i].authorName
@@ -98,7 +100,7 @@ module.exports = async () => {
                     Markup.callbackButton(`👎`, `dislike:${card_id}`)
                 ], { columns: 2 })
             }).then(response => {
-                ctx.telegram.pinChatMessage('@' + config.chat, response.message_id);
+                telegram.pinChatMessage('@' + config.chat, response.message_id);
             });
 
         });

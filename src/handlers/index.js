@@ -1,7 +1,7 @@
 module.exports = {
-    handleStart: require('./start'),
+    handleStart: require('./user/start'),
     handleLanguage: require('./language'),
-    handleSuggestLanguage: require('./suggestLanguage'),
+    handleSuggestLanguage: require('./suggestion/suggestLanguage'),
     handleChooseApp: require('./suggestion/chooseApplication'),
     handleDescription: require('./suggestion/description'),
     handleMedia: require('./suggestion/media'),
@@ -15,7 +15,7 @@ module.exports = {
     handleLeftMember: require('./chat/leftMember'),
     handleAllowSendMessages: require('./chat/allowSendMessages'),
     handleMe: require('./me'),
-    handleUpdateVote: require('./updateVote'),
+    handleUpdateVote: require('./chat/updateVote'),
     handleView: require('./card/view'),
     handleEdit: require('./card/edit'),
     handleDelete: require('./card/delete')

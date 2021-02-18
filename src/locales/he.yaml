@@ -74,6 +74,10 @@ me:
   descriptionEdited: התיאור נערך. תשתמש בפקודה /me בשביל לראות את הכרטיסיות המעודכנים שלך.
   deleteCard: האם אתה באמת רוצה למחוק את הכרטיסייה הזאת? *לא תוכל לשחזר את הכרטיסייה*
   cardDeleted: הכרטיסייה נמחקה.
+  newComment: |
+    <b>${author}</b> left a comment to the card «${cardName}»:
+
+    <i>${text}</i>
 
 suggestion:
   retractVote: קודם כל בטל את ההצבעה שלך.
@@ -110,6 +114,7 @@ button:
   editTitle: כותרת
   editDescription: תיאור
   yesDelete: כן, מחק את הכרטיסייה
+  showComment: Show comment
   
 application:
   tgdroid: טלגרם לאנדרואיד

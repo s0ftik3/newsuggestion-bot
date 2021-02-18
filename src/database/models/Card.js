@@ -31,6 +31,11 @@ const cardSchema = new mongoose.Schema({
         required: false,
         default: 0
     },
+    lastCommentId: {
+        type: Number,
+        required: false,
+        default: 0
+    },
     votedPeople: {
         type: Array,
         required: false,

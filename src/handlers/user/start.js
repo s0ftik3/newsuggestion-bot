@@ -1,6 +1,6 @@
-const User = require('../database/models/User');
+const User = require('../../database/models/User');
 const Markup = require('telegraf/markup');
-const getUser = require('../database/getUser');
+const getUser = require('../../database/getUser');
 
 module.exports = () => async (ctx) => {
     try {

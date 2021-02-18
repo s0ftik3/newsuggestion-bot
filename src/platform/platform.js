@@ -15,6 +15,7 @@ const {
     editTitle,
     editDescription,
     deleteCard,
+    loadComments,
     getMe
 } = require('./utils');
 
@@ -239,7 +240,30 @@ module.exports = class Platform {
 
     }
 
-    createIssue(data) {
+    async getComments(data) {
+
+        const stel_ln = 'en'; 
+        const stel_ssid = this.ssid; 
+        const stel_dt = this.dt; 
+        const stel_token= this.token;
+        const hash = await getHash({
+            stel_ln: stel_ln, 
+            stel_ssid: stel_ssid, 
+            stel_dt: stel_dt, 
+            stel_token: stel_token
+        });
+
+        return await loadComments({
+            hash: hash,
+            url_id: data.url_id,
+            after_id: data.after_id,
+            stel_ln: stel_ln, 
+            stel_ssid: stel_ssid, 
+            stel_dt: stel_dt, 
+            stel_token: stel_token
+        })
+        .then(response => response)
+        .catch(err => console.error(err));
 
     }
 

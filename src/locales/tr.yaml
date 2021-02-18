@@ -22,7 +22,7 @@ newSuggestion:
 
     Başka bir dilde öneri göndermek için, lütfen destek ekibimiz ile iletişime geçin: _Ayarlar_ > _Bir Soru Sor._
   media: |
-    Please provide a demo screenshot or video of your suggested implementation. (One photo or video file)
+    Lütfen önerdiğiniz uygulamanın demo ekran görüntüsünü ya da videosunu gönderin. (Tek fotoğraf veya video dosyası)
 
     *Uyarı:* Özellik öneriniz herkese açık olacak, diğer kullanıcılar eklediğiniz tüm video ve ekran görüntülerini görebilecek. Lütfen herhangi bir özel bilgiyi göstermediklerinden emin olun – ya da diğerleriyle paylaşmak istemediğiniz şeyleri bulanıklaştırın/gizleyin.
 
@@ -76,6 +76,10 @@ me:
   descriptionEdited: Açıklama düzenlendi. Güncellenmiş kartlarınızı görmek için /me komutunu kullanın.
   deleteCard: Bu kartı gerçekten silmek istiyor musunuz? *Kartı geri kurtaramayacaksınız.*
   cardDeleted: Kart silindi.
+  newComment: |
+    <b>${author}</b> left a comment to the card «${cardName}»:
+
+    <i>${text}</i>
 
 suggestion:
   retractVote: İlk önce oyunuzu geri çekin.
@@ -84,10 +88,10 @@ suggestion:
 error: 
   default: 😔 Ne yazık ki, bir şeyler ters gitti. Lütfen tekrar /new komutunu kullanın.
   title_too_long: Önerinizin başlığı 250 karakterden daha az olmalı.
-  mediaGroup: Albüm göndermeyin. Sadece bir fotoğraf ya da video dosyası gönderin.
-  wrongMedia: Desteklenmeyen medya dosyası. Sadece bir fotoğraf ya da video dosyası gönderin.
+  mediaGroup: Albüm göndermeyin. Sadece tek fotoğraf ya da video dosyası gönderin.
+  wrongMedia: Desteklenmeyen medya dosyası. Sadece tek fotoğraf ya da video dosyası gönderin.
   maxSize: Maksimum dosya boyutu aşıldı. Lütfen 15Mb'a kadar medya dosyası gönderin.
-  noText: Lütfen bir fotoğraf ya da video dosyası gönderin.
+  noText: Lütfen tek fotoğraf ya da video dosyası gönderin.
   descritpionWrongLanguage: Açıklama, İngilizce olmalı.
   titleWrongLanguage: Başlık, İngilizce olmalı.
   titleTheSame: Başlık, şu anki ile aynı. Lütfen farklı başlık gönderin.

@@ -1,6 +1,6 @@
-const Card = require('../database/models/Card');
+const Card = require('../../database/models/Card');
 const Markup = require('telegraf/markup');
-const getUserSession = require('../scripts/getUserSession');
+const getUserSession = require('../../scripts/getUserSession');
 
 module.exports = () => async (ctx) => {
     try {

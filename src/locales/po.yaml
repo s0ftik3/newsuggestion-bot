@@ -76,6 +76,10 @@ me:
   descriptionEdited: Opis został zmieniony. Użyj polecenia /me, aby wyświetlić zaktualizowane karty.
   deleteCard: Czy na pewno chcesz usunąć tę kartę? *Nie możesz go przywrócić.*
   cardDeleted: Karta została usunięta.
+  newComment: |
+    <b>${author}</b> zostawił komentarz do karty «${cardName}»:
+
+    <i>${text}</i>
 
 suggestion:
   retractVote: Najpierw anuluj swój głos.

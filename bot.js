@@ -19,6 +19,7 @@ const i18n = new TelegrafI18n({
 });
 
 const queueWorker = require('./src/scripts/queueWorker');
+const loadComments = require('./src/scripts/loadComments');
 
 const connect = require('./src/database/connect');
 
@@ -107,5 +108,10 @@ bot.launch().then(async () => {
         setInterval(async () => {
             await queueWorker().then(response => (response) ? console.log('Work is done.') : false);
         }, 10000);
+    });
+    await loadComments().then(() => {
+        setInterval(async () => {
+            await loadComments();
+        }, 30000);
     });
 });

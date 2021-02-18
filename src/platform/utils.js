@@ -495,6 +495,55 @@ async function deleteCard(data) {
 
 }
 
+async function loadComments(data) {
+
+    return await axios({
+        method: 'POST',
+        url: `https://bugs.telegram.org/api?hash=${data.hash}&issue_id=${data.url_id}&team=&after_id=${data.after_id}&auto=1&method=loadComments`,
+        headers: {
+            'Accept': 'application/json, text/javascript, */*; q=0.01',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Connection': 'keep-alive',
+            'Cookie': `stel_ln=${data.stel_ln}; stel_ssid=${data.stel_ssid}; stel_dt=${data.stel_dt}; stel_token=${data.stel_token}`,
+            'Host': 'bugs.telegram.org',
+            'Referer':'https://bugs.telegram.org/',
+            'Sec-Fetch-Dest': 'empty',
+            'Sec-Fetch-Mode': 'cors',
+            'Sec-Fetch-Site': 'same-origin',
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => {
+
+        const hiddenAfterId = response.data.comments_html.match(/<div (.*) data-after="(.*)">/gi)[0];
+        const next_after_id = hiddenAfterId.match(/data-after="(.*)"/gi)[0].replace(/data-after=|['"]+/g, '');
+
+        const comments = [];
+
+        if (response.data.comments_html.match(/<span class="bt-comment-author-name">(.*)<\/span>/gi) === null)
+            return { comments: [], url_id: Number(data.url_id), after_id: Number(next_after_id) };
+
+        for (let i = 0; i < response.data.comments_html.match(/<span class="bt-comment-author-name">(.*)<\/span>/gi).length; i++) {
+
+            comments.push({
+                author: response.data.comments_html.match(/<span class="bt-comment-author-name">(.*)<\/span>/gi)[i].replace(/<[^>]*>/gi, ''),
+                text: response.data.comments_html.match(/<div class="bt-comment-text">(.*)<\/div>/gi)[i].replace(/<[^>]*>/gi, '')
+            });
+
+        }
+
+        return { 
+            comments: comments, 
+            url_id: Number(data.url_id), 
+            after_id: Number(next_after_id) 
+        };
+
+    })
+    .catch(err => console.error(err));
+
+}
+
 async function getMe(data) {
 
     return await axios({
@@ -541,5 +590,6 @@ module.exports = {
     editTitle,
     editDescription,
     deleteCard,
+    loadComments,
     getMe
 }

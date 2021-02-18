@@ -1,6 +1,6 @@
-const Card = require('../database/models/Card');
-const getUserSession = require('../scripts/getUserSession');
-const createMePage = require('../scripts/createMePage');
+const Card = require('../../database/models/Card');
+const getUserSession = require('../../scripts/getUserSession');
+const createMePage = require('../../scripts/createMePage');
 
 module.exports = () => async (ctx) => {
 
