@@ -26,7 +26,7 @@ module.exports = () => async (ctx) => {
                     case 'like':
                         ctx.editMessageReplyMarkup(Markup.inlineKeyboard([
                                 Markup.callbackButton(`👍 ${response[0].like + 1}`, `like:${card}`),
-                                Markup.callbackButton(`👎 ${response[0].dislike}`, `dislike:${card}`)
+                                Markup.callbackButton(`${(response[0].dislike <= 0) ? '👎' : `👎 ${response[0].dislike}`}`, `dislike:${card}`)
                             ], { columns: 2 })
                         );
                         Card.updateOne({ card_id: card }, { $set: { votedPeople: newArr, like: response[0].like + 1 } }, () => {});
@@ -36,7 +36,7 @@ module.exports = () => async (ctx) => {
 
                     case 'dislike':
                         ctx.editMessageReplyMarkup(Markup.inlineKeyboard([
-                                Markup.callbackButton(`👍 ${response[0].like}`, `like:${card}`),
+                                Markup.callbackButton(`${(response[0].like <= 0) ? '👍' : `👍 ${response[0].like}`}`, `like:${card}`),
                                 Markup.callbackButton(`👎 ${response[0].dislike + 1}`, `dislike:${card}`)
                             ], { columns: 2 })
                         );
@@ -60,8 +60,8 @@ module.exports = () => async (ctx) => {
                         likeArr.splice(likeIndex, 1);
 
                         ctx.editMessageReplyMarkup(Markup.inlineKeyboard([
-                                Markup.callbackButton(`👍 ${response[0].like - 1}`, `like:${card}`),
-                                Markup.callbackButton(`👎 ${response[0].dislike}`, `dislike:${card}`)
+                                Markup.callbackButton(`${((response[0].like - 1) <= 0) ? '👍' : `👍 ${response[0].like - 1}`}`, `like:${card}`),
+                                Markup.callbackButton(`${(response[0].dislike <= 0) ? '👎' : `👎 ${response[0].dislike}`}`, `dislike:${card}`)
                             ], { columns: 2 })
                         );
                         Card.updateOne({ card_id: card }, { $set: { votedPeople: likeArr, like: response[0].like - 1 } }, () => {});
@@ -76,8 +76,8 @@ module.exports = () => async (ctx) => {
                         dislikeArr.splice(dislikeIndex, 1);
 
                         ctx.editMessageReplyMarkup(Markup.inlineKeyboard([
-                                Markup.callbackButton(`👍 ${response[0].like}`, `like:${card}`),
-                                Markup.callbackButton(`👎 ${response[0].dislike - 1}`, `dislike:${card}`)
+                                Markup.callbackButton(`${(response[0].like <= 0) ? '👍' : `👍 ${response[0].like}`}`, `like:${card}`),
+                                Markup.callbackButton(`${((response[0].dislike - 1) <= 0) ? '👎' : `👎 ${response[0].dislike - 1}`}`, `dislike:${card}`)
                             ], { columns: 2 })
                         );
                         Card.updateOne({ card_id: card }, { $set: { votedPeople: dislikeArr, dislike: response[0].dislike - 1 } }, () => {});
