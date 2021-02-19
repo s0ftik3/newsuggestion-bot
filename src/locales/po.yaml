@@ -43,7 +43,10 @@ newSuggestion:
   cancel: 👌 W porządku! Użyj /new polecenie, aby złożyć nową propozycję.
   standby: 🕓 _Twoja propozycja jest publikowana na platformie..._
   queue: 🐌 _Twoja propozycja jest w kolejce. Poczekaj proszę..._
-  published: 🥳 Twoja propozycja [«${title}»](${url}) została opublikowana na platformie!
+  published: |
+    🥳 Twoja propozycja [«${title}»](${url}) została opublikowana na platformie!
+
+    Możesz również dołączyć do [naszego czatu grupowego](https://t.me/SuggestFeature), aby omówić sugestie swoje i innych.
   notPublished: 😔 Twoja propozycja «${title}» nie została opublikowany.
 
 me:

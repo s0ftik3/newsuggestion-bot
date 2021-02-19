@@ -43,7 +43,10 @@ newSuggestion:
   cancel: 👌 אוקיי! תשתמש בפקודה /new בשביל להציע הצעה חדשה.
   standby: 🕓 _ההצעה שלך נשלחת לפלטפורמה..._
   queue: 🐌 _ההצעה שלך עומדת בתור. תחכה בבקשה..._
-  published: 🥳 ההצעה שלך [«${title}»](${url}) פורסמה בפלטפורמה!
+  published: |
+    🥳 ההצעה שלך [«${title}»](${url}) פורסמה בפלטפורמה!
+
+    You can also join [our group chat](https://t.me/SuggestFeature) to discuss your and others suggestions.
   notPublished: 😔 ההצעה שלך «${title}» לא פורסמה.
 
 me:
