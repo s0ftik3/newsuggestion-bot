@@ -19,7 +19,7 @@ const i18n = new TelegrafI18n({
 });
 
 const queueWorker = require('./src/scripts/queueWorker');
-const loadComments = require('./src/scripts/loadComments');
+const commentsChecker = require('./src/scripts/commentsChecker.js');
 
 const connect = require('./src/database/connect');
 
@@ -100,18 +100,22 @@ bot.on('new_chat_members', handleNewMember());
 bot.on('left_chat_member', handleLeftMember());
 bot.on('callback_query', handleCallback());
 
+let commentChecking = false;
+let queueChecking = false;
+
 bot.launch().then(async () => {
     console.log('The bot has been started.');
     connect();
-    await queueWorker().then(response => {
-        (response) ? console.log('Work is done.') : false;
-        setInterval(async () => {
-            await queueWorker().then(response => (response) ? console.log('Work is done.') : false);
-        }, 10000);
-    });
-    await loadComments().then(() => {
-        setInterval(async () => {
-            await loadComments();
-        }, 30000);
-    });
+    setInterval(async () => {
+        if (!commentChecking) {
+            commentChecking = true;
+            await commentsChecker().then(() => commentChecking = false);
+        };
+    }, 30 * 1000);
+    setInterval(async () => {
+        if (!queueChecking) {
+            queueChecking = true;
+            await queueWorker().then(() => queueChecking = false);
+        };
+    }, 15 * 1000);
 });

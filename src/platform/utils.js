@@ -518,6 +518,13 @@ async function loadComments(data) {
         if (response.data.error !== undefined)
             return { comments: [], url_id: Number(data.url_id), after_id: Number(data.after_id) };
 
+        // The best kludge to get rid of replies.
+        if (response.data.comments_html.match(/<a href="(.*)" data-layer class="bt-comment-reply-content" data-comment-link="(.*)">((.|\n)*?)<\/a>/g) !== null) {
+
+            response.data.comments_html = response.data.comments_html.replace(/<a href="(.*)" data-layer class="bt-comment-reply-content" data-comment-link="(.*)">((.|\n)*?)<\/a>/, '');
+
+        }
+
         const hiddenAfterId = response.data.comments_html.match(/<div (.*) data-after="(.*)">/gi)[0];
         const next_after_id = hiddenAfterId.match(/data-after="(.*)"/gi)[0].replace(/data-after=|['"]+/g, '');
 

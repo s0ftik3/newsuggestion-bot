@@ -17,7 +17,9 @@ const cookieChecker = require('./cookieChecker');
 const Markup = require('telegraf/markup');
 
 module.exports = async () => {
-    
+
+    console.log('%s: Searching for new comments...', new Date().toUTCString());
+
     try {
 
         const cookie = await cookieChecker().then(response => response);
@@ -98,6 +100,10 @@ module.exports = async () => {
     } catch (err) {
 
         console.error(err);
+
+    } finally {
+
+        console.log('%s: Finished comments update.', new Date().toUTCString());
 
     }
 
