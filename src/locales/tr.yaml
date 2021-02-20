@@ -11,7 +11,11 @@ service:
     Ayarlar'daki kullanılabilir diller listesini yavaş yavaş genişletiyoruz. Daha fazla dil bulmak ya da Telegram'ı çevirmemize yardımcı olmak için *Çeviri Platformu*'nu kontrol edebilirsiniz: translations.telegram.org
 
     Aramayı açmak için sol menüdeki _Other languages_'a tıklayın. Dilinizi orada bulamıyorsanız, özel bir çeviri ekleyebilirsiniz: aramanın altındaki _Add a new language_'e tıklayın.
+  cardDeleted: |
+    😔 Unfortunately, your card «${title}» has been removed from the platform.
 
+    *Reason:* ${reason}
+    
 newSuggestion:
   chooseApp: Hangi uygulamayı geliştirmemizi istersiniz?
   description: |
@@ -102,6 +106,12 @@ error:
   titleNotEdited: Başlık düzenlenmedi. Muhtemelen oluşturulması 24 saati geçti.
   descriptionNotEdited: Açıklama düzenlenmedi. Muhtemelen oluşturulması 24 saati geçti.
   cardNotDeleted: Bir şeyler ters gitti. Kart silinmedi. Daha sonra tekrar deneyin.
+  description_too_short: |
+    Please explain your suggestion better.
+
+    *Do not create blank suggestions or suggestions that don't have any sense. If you keep creating them, you will get banned.*
+  sendDescription: Please describe your suggestion.
+  sendTitle: Please enter the title for your feature suggestion.
 
 button:
   sFeature: Uygulamalar için bir özellik önerin

@@ -2,6 +2,8 @@ const Card = require('../../database/models/Card');
 const Markup = require('telegraf/markup');
 const getUserSession = require('../../scripts/getUserSession');
 const cookieChecker = require('../../scripts/cookieChecker');
+const languageCheck = require('../../scripts/languageCheck');
+const config = require('../../../config').card;
 
 module.exports = () => async (ctx) => {
     
@@ -29,6 +31,10 @@ module.exports = () => async (ctx) => {
                 case 'titleEdit':
                     const newTitle = ctx.message.text;
                     if (newTitle === card.title) return ctx.reply(ctx.i18n.t('error.titleTheSame'));
+                    if (newTitle.length > config.title_maximum_length) return ctx.reply(ctx.i18n.t('error.title_too_long'));
+                    if (newTitle.text.length < config.title_minimum_length) return ctx.reply(ctx.i18n.t('error.title_too_short'));
+                    if (newTitle.text.match(/^\/start|\/me|\/new|\/suggest$/gi) !== null) return ctx.reply(ctx.i18n.t('error.sendTitle'));
+                    if (!languageCheck(newTitle)) return ctx.reply(ctx.i18n.t(`error.titleWrongLanguage`));
 
                     ctx.telegram.editMessageReplyMarkup(ctx.update.message.chat.id, ctx.session.msg_id, {});
 
@@ -68,6 +74,9 @@ module.exports = () => async (ctx) => {
                 case 'descriptionEdit':
                     const newDescription = ctx.message.text;
                     if (newDescription === card.description) return ctx.reply(ctx.i18n.t('error.descriptionTheSame'));
+                    if (newDescription.match(/^\/start|\/me|\/new|\/suggest$/gi) !== null) return ctx.reply(ctx.i18n.t('error.sendDescription'));
+                    if (newDescription.length <= config.description_minimum_length) return ctx.replyWithMarkdown(ctx.i18n.t('error.description_too_short'));
+                    if (!languageCheck(newDescription)) return ctx.reply(ctx.i18n.t(`error.descritpionWrongLanguage`));
 
                     ctx.telegram.editMessageReplyMarkup(ctx.update.message.chat.id, ctx.session.msg_id, {});
 

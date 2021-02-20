@@ -9,7 +9,7 @@ const User = require('../database/models/User');
 
 const Platform = require('../platform/platform');
 const Authentication = require('../platform/login');
-const authentication = new Authentication(process.env.NUMBER);
+const authentication = new Authentication(config.number);
 
 const path = require('path');
 const TelegrafI18n = require('telegraf-i18n');

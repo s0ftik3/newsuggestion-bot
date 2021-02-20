@@ -1,5 +1,6 @@
 const Authentication = require('../platform/login');
-const authentication = new Authentication(process.env.NUMBER);
+const config = require('../../config');
+const authentication = new Authentication(config.number);
 const Cookie = require('../database/models/Cookie');
 
 module.exports = async () => {

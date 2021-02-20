@@ -11,6 +11,10 @@ service:
     אנו מרחיבים בהדרגה את רשימת השפות הזמינות. אתה יכול לבדוק את *פלטפורמת התרגום* בשביל למצוא שפות נוספות או לעזור לנו לתרגם את הטלגרם: translations.telegram.org
 
     תלחץ על _שפות אחרות_ בתפריט השמאלי לחיפוש. אם אתה לא מוצא את השפה שלך, אתה יכול ליצור תרגום מותאם אישית: תלחץ על _הוסף שפה חדשה_ מתחת לחיפוש.
+  cardDeleted: |
+    😔 Unfortunately, your card «${title}» has been removed from the platform.
+
+    *Reason:* ${reason}
 
 newSuggestion:
   chooseApp: איזו אפליקציה היית רוצה שנשפר?
@@ -100,6 +104,12 @@ error:
   titleNotEdited: הכותרת לא נערכה. כנראה שחלפו 24 שעות מיום היצירה.
   descriptionNotEdited: התיאור לא נערך. כנראה שחלפו 24 שעות מיום היצירה.
   cardNotDeleted: משהו השתבש. הכרטיס לא נמחק. נסה שוב מאוחר יותר.
+  description_too_short: |
+    Please explain your suggestion better.
+
+    *Do not create blank suggestions or suggestions that don't have any sense. If you keep creating them, you will get banned.*
+  sendDescription: Please describe your suggestion.
+  sendTitle: Please enter the title for your feature suggestion.
 
 button:
   sFeature: הצע תכונה באפליקצייה

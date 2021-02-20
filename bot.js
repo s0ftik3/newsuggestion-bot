@@ -63,8 +63,13 @@ bot.use(i18n.middleware());
 bot.use(rateLimit(limitConfig));
 bot.use(stage.middleware());
 
-bot.start(handleStart());
+description.on('text', handleMedia());
+media.on(['text', 'photo', 'video'], handleTitle());
+title.on('text', handleFindSimilar());
+titleEdit.on('text', handleEdit());
+descriptionEdit.on('text', handleEdit());
 
+bot.start(handleStart());
 bot.command('me', handleMe());
 bot.command(['new', 'suggest'], handleChooseApp());
 
@@ -91,11 +96,6 @@ bot.action(/descriptionEdit:\w+/, handleEdit());
 bot.action(/delete:\w+/, handleDelete());
 bot.action(/reallyDelete:\w+/, handleDelete());
 
-description.on('text', handleMedia());
-media.on(['text', 'photo', 'video'], handleTitle());
-title.on('text', handleFindSimilar());
-titleEdit.on('text', handleEdit());
-descriptionEdit.on('text', handleEdit());
 bot.on('new_chat_members', handleNewMember());
 bot.on('left_chat_member', handleLeftMember());
 bot.on('callback_query', handleCallback());

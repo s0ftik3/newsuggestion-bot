@@ -42,11 +42,17 @@ module.exports = () => async (ctx) => {
 
                 platform.deleteSuggestion({ url_id: card.url.replace(/https:\/\/bugs.telegram.org\/c\//g, '') }).then(response => {
                     if (response) {
-                        ctx.editMessageText(ctx.i18n.t('me.cardDeleted'), {
-                            reply_markup: Markup.inlineKeyboard([
-                                [Markup.callbackButton(ctx.i18n.t('button.back'), `backward:0`)]
-                            ])
-                        });
+                        const cards = await Card.find({ author: ctx.from.id }).then(response => response.length);
+
+                        if (cards > 0) {
+                            ctx.editMessageText(ctx.i18n.t('me.cardDeleted'), {
+                                reply_markup: Markup.inlineKeyboard([
+                                    [Markup.callbackButton(ctx.i18n.t('button.back'), `backward:0`)]
+                                ])
+                            });
+                        } else {
+                            ctx.editMessageText(ctx.i18n.t('me.cardDeleted'));
+                        }
                         
                         const indexOfCard = ctx.session.cards.indexOf(card);
                         ctx.session.cards.splice(indexOfCard, 1);

@@ -45,6 +45,7 @@ module.exports = async () => {
         for (let i = 0; i < cards.length; i++) {
 
             const card = await Card.find({ url: `https://bugs.telegram.org/c/${cards[i]}` }).then(response => response[0]);
+            if (card === undefined) continue;
             const data = await platform.getComments({ url_id: cards[i], after_id: (card.lastCommentId === undefined) ? 0 : card.lastCommentId }).then(response => response);
 
             const card_id = card.card_id;

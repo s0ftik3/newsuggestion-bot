@@ -11,7 +11,11 @@ service:
     Stopniowo poszerzamy listę dostępnych języków w ustawieniach aplikacji. Możesz odwiedzić *naszą platformę tłumaczeniową*, gdzie możesz znaleźć więcej języków i pomóc nam przetłumaczyć interfejs Telegrama: tłumaczenia.telegram.org
 
     Kliknij _Inne języki_ (Other languages) w menu po lewej stronie, aby otworzyć wyszukiwanie. Jeśli nie znalazłeś swojego języka, możesz utworzyć własny: kliknij _Dodaj nowy język_ (Add a new language) u dołu pola wyszukiwania.
+  cardDeleted: |
+    😔 Niestety, Twoja karta «$ {title}» została usunięta z platformy.
 
+    *Powód:* ${reason}
+    
 newSuggestion:
   chooseApp: Którą aplikację chciałbyś ulepszyć?
   description: |
@@ -102,6 +106,12 @@ error:
   titleNotEdited: Tytuł nie został zmieniony. Być może minęły 24 godziny od utworzenia karty.
   descriptionNotEdited: Opis nie został zmieniony. Być może minęły 24 godziny od utworzenia karty.
   cardNotDeleted: Coś poszło nie tak. Karta nie została usunięta. Spróbuj później.
+  description_too_short: |
+    Proszę wyjaśnij lepiej swoją sugestię.
+
+    *Nie twórz pustych sugestii ani sugestii, które nie mają żadnego sensu. Jeśli będziesz je tworzyć, zostaniesz zbanowany.*
+  sendDescription: Opisz swoją sugestię.
+  sendTitle: Wpisz tytuł swojej propozycji funkcji.
 
 button:
   sFeature: Zaproponuj nową funkcję

@@ -3,6 +3,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const getUserSession = require('../../scripts/getUserSession');
 const languageCheck = require('../../scripts/languageCheck');
+const config = require('../../../config').card;
 
 module.exports = () => async (ctx) => {
     try {
@@ -10,7 +11,9 @@ module.exports = () => async (ctx) => {
         const user = await getUserSession(ctx).then(response => response);
         ctx.i18n.locale(user.language);
 
-        if (ctx.message.text.length > 250) return ctx.reply(ctx.i18n.t('error.title_too_long'));
+        if (ctx.message.text.length > config.title_maximum_length) return ctx.reply(ctx.i18n.t('error.title_too_long'));
+        if (ctx.message.text.length < config.title_minimum_length) return ctx.reply(ctx.i18n.t('error.title_too_short'));
+        if (ctx.message.text.match(/^\/start|\/me|\/new|\/suggest$/gi) !== null) return ctx.reply(ctx.i18n.t('error.sendTitle'));
         if (!languageCheck(ctx.message.text)) return ctx.reply(ctx.i18n.t(`error.titleWrongLanguage`));
 
         ctx.telegram.editMessageReplyMarkup(ctx.update.message.chat.id, ctx.session.msg_id, {});
