@@ -32,8 +32,8 @@ module.exports = () => async (ctx) => {
                     const newTitle = ctx.message.text;
                     if (newTitle === card.title) return ctx.reply(ctx.i18n.t('error.titleTheSame'));
                     if (newTitle.length > config.title_maximum_length) return ctx.reply(ctx.i18n.t('error.title_too_long'));
-                    if (newTitle.text.length < config.title_minimum_length) return ctx.reply(ctx.i18n.t('error.title_too_short'));
-                    if (newTitle.text.match(/^\/start|\/me|\/new|\/suggest$/gi) !== null) return ctx.reply(ctx.i18n.t('error.sendTitle'));
+                    if (newTitle.length < config.title_minimum_length) return ctx.reply(ctx.i18n.t('error.title_too_short'));
+                    if (newTitle.match(/^\/start|\/me|\/new|\/suggest$/gi) !== null) return ctx.reply(ctx.i18n.t('error.sendTitle'));
                     if (!languageCheck(newTitle)) return ctx.reply(ctx.i18n.t(`error.titleWrongLanguage`));
 
                     ctx.telegram.editMessageReplyMarkup(ctx.update.message.chat.id, ctx.session.msg_id, {});
