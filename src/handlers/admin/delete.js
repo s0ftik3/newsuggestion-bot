@@ -6,11 +6,12 @@ module.exports = () => async (ctx) => {
 
     try {
 
+        if (ctx.message.text.match(/https:\/\/bugs.telegram.org\/c\/([0-9]+)/g) !== null) return ctx.reply('No urls detected.');
+
         const card_url = ctx.message.text.match(/https:\/\/bugs.telegram.org\/c\/([0-9]+)/g)[0];
         const reason = ctx.message.text.replace(/\/delete https:\/\/bugs.telegram.org\/c\/(.+?)\s/g, '');
 
-        if (card_url !== null) return ctx.reply('No urls detected.');
-        if (reason !== null) return ctx.reply('There\'s must be a reason.');
+        if (reason.length <= 0) return ctx.reply('There\'s must be a reason.');
 
         const cookie = await cookieChecker().then(response => response);
 

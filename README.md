@@ -1,5 +1,5 @@
 # New Suggestion Bot
-[![release](https://img.shields.io/badge/release-v3.4.2-green.svg?style=flat)]()
+[![release](https://img.shields.io/badge/release-v3.4.3-green.svg?style=flat)]()
 [![license](https://img.shields.io/github/license/s0ftik3/newsuggestion-bot)]()
 [![size](https://img.shields.io/github/languages/code-size/s0ftik3/newsuggestion-bot)]()
 [![Crowdin](https://badges.crowdin.net/newsuggestion-bot/localized.svg)](https://crowdin.com/project/newsuggestion-bot)
