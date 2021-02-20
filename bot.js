@@ -43,7 +43,10 @@ const {
     handleUpdateVote,
     handleView,
     handleEdit,
-    handleDelete
+    handleDelete,
+    handleReset,
+    handleDeleteAdmin,
+    handleDebug
 } = require('./src/handlers');
 
 const description = new Scene('description');
@@ -72,6 +75,9 @@ descriptionEdit.on('text', handleEdit());
 bot.start(handleStart());
 bot.command('me', handleMe());
 bot.command(['new', 'suggest'], handleChooseApp());
+bot.command('delete', handleDeleteAdmin());
+bot.command('reset', handleReset());
+bot.command('debug', handleDebug());
 
 bot.action('backStart', handleStart());
 bot.action('language', handleLanguage());

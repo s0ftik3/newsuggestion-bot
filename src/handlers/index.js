@@ -18,5 +18,8 @@ module.exports = {
     handleUpdateVote: require('./chat/updateVote'),
     handleView: require('./card/view'),
     handleEdit: require('./card/edit'),
-    handleDelete: require('./card/delete')
+    handleDelete: require('./card/delete'),
+    handleReset: require('./admin/reset'),
+    handleDeleteAdmin: require('./admin/delete'),
+    handleDebug: require('./admin/debug')
 }
