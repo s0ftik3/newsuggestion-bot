@@ -40,7 +40,7 @@ module.exports = () => async (ctx) => {
 
                 const card = await Card.find({ card_id: card_id }).then(response => response[0]);
 
-                platform.deleteSuggestion({ url_id: card.url.replace(/https:\/\/bugs.telegram.org\/c\//g, '') }).then(response => {
+                platform.deleteSuggestion({ url_id: card.url.replace(/https:\/\/bugs.telegram.org\/c\//g, '') }).then(async response => {
                     if (response) {
                         const cards = await Card.find({ author: ctx.from.id }).then(response => response.length);
 
