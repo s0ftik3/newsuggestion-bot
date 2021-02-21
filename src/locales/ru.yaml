@@ -130,6 +130,7 @@ button:
   editTitle: Заголовок
   editDescription: Описание
   yesDelete: Да, удалить эту карточку
+  showComment: Показать комментарий
 
 application:
   tgdroid: Telegram для Android

@@ -13,7 +13,7 @@ module.exports = () => async (ctx) => {
 
         const message = `Bot information.\n\n` +
             `*User(s):* \`${users.length}\`\n` +
-            `*Last User:* ${(users[0].username === null) ? `\`${users.reverse()[0].firstName}\`` : `@${users.reverse()[0].username}`}\n` +
+            `*Last User:* ${(users.reverse()[0].username === null) ? `\`${users[0].firstName}\`` : `@${users[0].username}`}\n` +
             `*Card(s):* \`${cards.length}\`\n` +
             `*Last Card:* ${cards.reverse()[0].url}`;
 

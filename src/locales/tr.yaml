@@ -12,9 +12,9 @@ service:
 
     Aramayı açmak için sol menüdeki _Other languages_'a tıklayın. Dilinizi orada bulamıyorsanız, özel bir çeviri ekleyebilirsiniz: aramanın altındaki _Add a new language_'e tıklayın.
   cardDeleted: |
-    😔 Unfortunately, your card «${title}» has been removed from the platform.
+    😔 Ne yazık ki, «${title}» kartınız platformdan kaldırıldı.
 
-    *Reason:* ${reason}
+    *Sebep:* ${reason}
     
 newSuggestion:
   chooseApp: Hangi uygulamayı geliştirmemizi istersiniz?
@@ -50,7 +50,7 @@ newSuggestion:
   published: |
     🥳 [«${title}»](${url}) öneriniz platformda yayınlandı!
 
-    You can also join [our group chat](https://t.me/SuggestFeature) to discuss your and others suggestions.
+    Ayrıca sizin ve diğerlerinin önerilerini tartışmak için [grup sohbetimize](https://t.me/SuggestFeature) katılabilirsiniz.
   notPublished: 😔 «${title}» öneriniz platformda yayınlanmadı.
 
 me:
@@ -84,7 +84,7 @@ me:
   deleteCard: Bu kartı gerçekten silmek istiyor musunuz? *Kartı geri kurtaramayacaksınız.*
   cardDeleted: Kart silindi.
   newComment: |
-    <b>${author}</b> left a comment to the card «${cardName}»:
+    <b>${author}</b>, «${cardName}» kartınıza bir yorum bıraktı:
 
     <i>${text}</i>
 
@@ -107,11 +107,11 @@ error:
   descriptionNotEdited: Açıklama düzenlenmedi. Muhtemelen oluşturulması 24 saati geçti.
   cardNotDeleted: Bir şeyler ters gitti. Kart silinmedi. Daha sonra tekrar deneyin.
   description_too_short: |
-    Please explain your suggestion better.
+    Lütfen önerinizi daha iyi açıklayın.
 
-    *Do not create blank suggestions or suggestions that don't have any sense. If you keep creating them, you will get banned.*
-  sendDescription: Please describe your suggestion.
-  sendTitle: Please enter the title for your feature suggestion.
+    *Boş ya da hiçbir anlamı olmayan öneriler oluşturmayın. Bunları oluşturmaya devam ederseniz, engelleneceksiniz.*
+  sendDescription: Lütfen önerinizi açıklayın.
+  sendTitle: Lütfen özellik öneriniz için başlık girin.
 
 button:
   sFeature: Uygulamalar için bir özellik önerin
@@ -129,6 +129,7 @@ button:
   editTitle: Başlık
   editDescription: Açıklama
   yesDelete: Evet, bu kartı sil
+  showComment: Yorumu göster
 
 application:
   tgdroid: Android için Telegram

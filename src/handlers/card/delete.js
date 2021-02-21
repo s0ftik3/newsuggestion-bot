@@ -2,6 +2,7 @@ const Card = require('../../database/models/Card');
 const Markup = require('telegraf/markup');
 const getUserSession = require('../../scripts/getUserSession');
 const cookieChecker = require('../../scripts/cookieChecker');
+const config = require('../../../config');
 
 module.exports = () => async (ctx) => {
     
@@ -53,6 +54,9 @@ module.exports = () => async (ctx) => {
                         } else {
                             ctx.editMessageText(ctx.i18n.t('me.cardDeleted'));
                         }
+
+                        ctx.telegram.deleteMessage('@' + config.chat, card.chatMessageId);
+                        ctx.telegram.deleteMessage('@' + config.chat, card.chatMessageId + 1);
                         
                         const indexOfCard = ctx.session.cards.indexOf(card);
                         ctx.session.cards.splice(indexOfCard, 1);

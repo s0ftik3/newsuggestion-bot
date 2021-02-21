@@ -12,9 +12,9 @@ service:
 
     תלחץ על _שפות אחרות_ בתפריט השמאלי לחיפוש. אם אתה לא מוצא את השפה שלך, אתה יכול ליצור תרגום מותאם אישית: תלחץ על _הוסף שפה חדשה_ מתחת לחיפוש.
   cardDeleted: |
-    😔 Unfortunately, your card «${title}» has been removed from the platform.
+    😔 מצטערים, הכרטיסייה«${title}» נמחקה מהפלטפורמה.
 
-    *Reason:* ${reason}
+    *סיבה:* ${reason}
 
 newSuggestion:
   chooseApp: איזו אפליקציה היית רוצה שנשפר?
@@ -50,7 +50,7 @@ newSuggestion:
   published: |
     🥳 ההצעה שלך [«${title}»](${url}) פורסמה בפלטפורמה!
 
-    You can also join [our group chat](https://t.me/SuggestFeature) to discuss your and others suggestions.
+    אתה יכול גם להצטרף [לקבוצה שלנו](https://t.me/SuggestFeature) בשביל להתדיין על ההצעה שלך ושל אחרים.
   notPublished: 😔 ההצעה שלך «${title}» לא פורסמה.
 
 me:
@@ -82,7 +82,7 @@ me:
   deleteCard: האם אתה באמת רוצה למחוק את הכרטיסייה הזאת? *לא תוכל לשחזר את הכרטיסייה*
   cardDeleted: הכרטיסייה נמחקה.
   newComment: |
-    <b>${author}</b> left a comment to the card «${cardName}»:
+    <b>${author}</b> השאיר תגובה לכרטיס «${cardName}»:
 
     <i>${text}</i>
 
@@ -105,11 +105,11 @@ error:
   descriptionNotEdited: התיאור לא נערך. כנראה שחלפו 24 שעות מיום היצירה.
   cardNotDeleted: משהו השתבש. הכרטיס לא נמחק. נסה שוב מאוחר יותר.
   description_too_short: |
-    Please explain your suggestion better.
+    אנא הסבר טוב יותר את הצעתך.
 
-    *Do not create blank suggestions or suggestions that don't have any sense. If you keep creating them, you will get banned.*
-  sendDescription: Please describe your suggestion.
-  sendTitle: Please enter the title for your feature suggestion.
+    *אל תיצור הצעות ריקות או הצעות שאין להן שום היגיון. אם תמשיך ליצור אותם, אתה תחסם.*
+  sendDescription: שלח תיאור להצעה.
+  sendTitle: הקלד את הכותרת של ההצעה.
 
 button:
   sFeature: הצע תכונה באפליקצייה
@@ -127,7 +127,7 @@ button:
   editTitle: כותרת
   editDescription: תיאור
   yesDelete: כן, מחק את הכרטיסייה
-  showComment: Show comment
+  showComment: הצג תגובה
   
 application:
   tgdroid: טלגרם לאנדרואיד

@@ -21,6 +21,11 @@ const cardSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    chatMessageId: {
+        type: Number,
+        required: false,
+        default: null 
+    },
     like: {
         type: Number,
         required: false,

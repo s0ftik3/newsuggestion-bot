@@ -129,6 +129,7 @@ button:
   editTitle: Tytuł
   editDescription: Opis
   yesDelete: Tak, skasować tę kartę
+  showComment: Pokaż komentarz
 
 application:
   tgdroid: Telegram na Android
