@@ -107,7 +107,7 @@ module.exports = () => async (ctx) => {
                     if (isEditedD) {
                         Card.updateOne({ card_id: cardToEdit }, { $set: { description: newDescription } }, () => {});
                         const descriptionCardIndex = ctx.session.cards.indexOf(card);
-                        ctx.session.cards[descriptionCardIndex].title = newDescription;    
+                        ctx.session.cards[descriptionCardIndex].description = newDescription;    
                     }
 
                     ctx.scene.leave('descriptionEdit');
