@@ -2,9 +2,9 @@ language: 🇹🇷 Türkçe
 
 service:
   greeting: |
-    Merhaba, *${name}*!
+    Hoş geldin, *${name}*!
 
-    Ne yapmak istersiniz?
+    Direkt uygulama üzerinden bugs.telegram.org'a kartlar oluşturun.[ᅠ](https://i.ibb.co/yk0PMp5/preview.png)
   changeLang: Arayüz dilini değiştirmek için, aşağıdaki kullanılabilir dillerden birini seçin.
   changedLang: Arayüz dilini başarıyla değiştirdiniz!
   suggestLanguage: |
@@ -15,7 +15,7 @@ service:
     😔 Ne yazık ki, «${title}» kartınız platformdan kaldırıldı.
 
     *Sebep:* ${reason}
-    
+
 newSuggestion:
   chooseApp: Hangi uygulamayı geliştirmemizi istersiniz?
   description: |
@@ -55,8 +55,6 @@ newSuggestion:
 
 me:
   info: |
-    Kartlarınızın listesi.
-
     Hakkında, düzenleme veya silme bilgisini görmek istediğiniz bir kart seçin.
 
     *Not:* Sadece 24 saat ya da daha önce oluşturduğunuz kartları düzenleyebilir veya silebilirsiniz.
@@ -84,7 +82,7 @@ me:
   deleteCard: Bu kartı gerçekten silmek istiyor musunuz? *Kartı geri kurtaramayacaksınız.*
   cardDeleted: Kart silindi.
   newComment: |
-    <b>${author}</b>, «${cardName}» kartınıza bir yorum bıraktı:
+    <b>${author}</b>, «<a href="${url}">${cardName}</a>» kartınıza bir yorum bıraktı:
 
     <i>${text}</i>
 
@@ -112,7 +110,9 @@ error:
     *Boş ya da hiçbir anlamı olmayan öneriler oluşturmayın. Bunları oluşturmaya devam ederseniz, engelleneceksiniz.*
   sendDescription: Lütfen önerinizi açıklayın.
   sendTitle: Lütfen özellik öneriniz için başlık girin.
-
+  limit_exceeded: 👮🏻 Acele etmeyin!
+  banned: Kalıcı olarak yasaklandınız ve artık kart oluşturamayacaksınız.
+  
 button:
   sFeature: Uygulamalar için bir özellik önerin
   sLanguage: Bir dil önerin

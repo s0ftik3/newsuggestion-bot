@@ -2,9 +2,9 @@ language: 🇬🇧 English
 
 service:
   greeting: |
-    Hello, *${name}*!
-
-    What would you like to do?
+    Welcome, *${name}*!
+    
+    Create cards on bugs.telegram.org directly from the application.[ᅠ](https://i.ibb.co/yk0PMp5/preview.png)
   changeLang: In order to change interface language, choose one of available languages below.
   changedLang: You successfully changed interface language!
   suggestLanguage: |
@@ -56,9 +56,7 @@ newSuggestion:
 
 me:
   info: |
-    List of your cards.
-    
-    Choose a card you would like to see information about, edit or delete.
+    Choose a card you would like to edit, delete or see information about.
 
     *Note:* you can only edit or delete cards that you created 24 hours ago or less.
   preview: |
@@ -85,7 +83,7 @@ me:
   deleteCard: Do you really want to delete this card? *You will not be able to recover the card.*
   cardDeleted: The card has been deleted.
   newComment: |
-    <b>${author}</b> left a comment to the card «${cardName}»:
+    <b>${author}</b> left a comment to the card «<a href="${url}">${cardName}</a>»:
 
     <i>${text}</i>
 
@@ -114,7 +112,9 @@ error:
     *Do not create blank suggestions or suggestions that don't have any sense. If you keep creating them, you will get banned.*
   sendDescription: Please describe your suggestion.
   sendTitle: Please enter the title for your feature suggestion.
-
+  limit_exceeded: 👮🏻 Don't be in hurry!
+  banned: You were permanently banned and you won't be able to create cards anymore.
+  
 button:
   sFeature: Suggest a feature for the apps
   sLanguage: Suggest a language

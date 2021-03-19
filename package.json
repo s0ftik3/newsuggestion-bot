@@ -1,6 +1,6 @@
 {
   "name": "newsuggestion-bot",
-  "version": "3.5.1",
+  "version": "3.6.0",
   "description": "A Telegram bot that allows you to create suggestion cards on bugs.telegram.org in-app.",
   "main": "index.js",
   "repository": "https://github.com/s0ftik3/newsuggestion-bot",
@@ -19,6 +19,8 @@
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",
     "form-data": "^3.0.0",
+    "languagedetect": "^2.0.0",
+    "moment": "^2.29.1",
     "mongoose": "^5.11.15",
     "puppeteer": "^7.0.4",
     "telegraf": "^3.38.0",

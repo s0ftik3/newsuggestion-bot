@@ -3,7 +3,7 @@ const config = require('./config.js');
 const bot = new Telegraf(config.token);
 
 const rateLimit = require('telegraf-ratelimit');
-const limitConfig = { window: 1000, limit: 1 };
+const limitConfig = config.limit;
 
 const session = require('telegraf/session');
 const Stage = require('telegraf/stage');
@@ -46,7 +46,9 @@ const {
     handleDelete,
     handleReset,
     handleDeleteAdmin,
-    handleDebug
+    handleDebug,
+    handleBan,
+    handlePardon
 } = require('./src/handlers');
 
 const description = new Scene('description');
@@ -78,6 +80,8 @@ bot.command(['new', 'suggest'], handleChooseApp());
 bot.command('delete', handleDeleteAdmin());
 bot.command('reset', handleReset());
 bot.command('debug', handleDebug());
+bot.command('ban', handleBan());
+bot.command('pardon', handlePardon());
 
 bot.action('backStart', handleStart());
 bot.action('language', handleLanguage());

@@ -4,28 +4,26 @@ const cookieChecker = require('../../scripts/cookieChecker');
 const config = require('../../../config');
 
 module.exports = () => async (ctx) => {
-
     try {
-
         if (ctx.message.text.match(/https:\/\/bugs.telegram.org\/c\/([0-9]+)/g) === null) return ctx.reply('No urls detected.');
 
         const card_url = ctx.message.text.match(/https:\/\/bugs.telegram.org\/c\/([0-9]+)/g)[0];
         const reason = ctx.message.text.replace(/\/delete https:\/\/bugs.telegram.org\/c\/(.+?)/g, '').trimStart();
 
-        if (reason.length <= 0) return ctx.reply('There\'s must be a reason.');
+        if (reason.length <= 0) return ctx.reply("There's must be a reason.");
 
-        const cookie = await cookieChecker().then(response => response);
+        const cookie = await cookieChecker().then((response) => response);
 
         const Platform = require('../../platform/platform');
         const platform = new Platform({
             ssid: cookie.cookies[2].value,
             dt: cookie.cookies[1].value,
-            token: cookie.cookies[0].value
+            token: cookie.cookies[0].value,
         });
 
-        const card = await Card.find({ url: card_url }).then(response => response[0]);
+        const card = await Card.find({ url: card_url }).then((response) => response[0]);
         if (card === undefined) return ctx.reply('No cards found.');
-        const user = await User.find({ id: card.author }).then(response => response[0]);
+        const user = await User.find({ id: card.author }).then((response) => response[0]);
         if (user === undefined) return ctx.reply('No users found.');
 
         // Not matter what platform actually returns, if I delete suggestion, it must be deleted from everywhere
@@ -34,12 +32,16 @@ module.exports = () => async (ctx) => {
         platform.deleteSuggestion({ url_id: card.url.replace(/https:\/\/bugs.telegram.org\/c\//g, '') }).then(() => {
             ctx.reply('Deleted the card.');
 
-            ctx.telegram.sendMessage(user.id, ctx.i18n.t(user.language, 'service.cardDeleted', {
-                title: card.title,
-                reason: reason
-            }), {
-                parse_mode: 'Markdown'
-            });
+            ctx.telegram.sendMessage(
+                user.id,
+                ctx.i18n.t(user.language, 'service.cardDeleted', {
+                    title: card.title,
+                    reason: reason,
+                }),
+                {
+                    parse_mode: 'Markdown',
+                }
+            );
 
             // Delete message from the group chat and service message about pin.
             ctx.telegram.deleteMessage('@' + config.chat, card.chatMessageId);
@@ -47,11 +49,7 @@ module.exports = () => async (ctx) => {
 
             Card.deleteOne({ card_id: card.card_id });
         });
-
     } catch (err) {
-
         console.error(err);
-
     }
-
-}
+};

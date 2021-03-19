@@ -2,9 +2,9 @@ language: 🇮🇱 עברית
 
 service:
   greeting: |
-    שלום, *${name}*!
+    ברוך הבא, *${name}*!
 
-    מה תרצה לעשות?
+    צור כרטיסיות ב bugs.telegram.org ישירות מהאפליקצייה.[ᅠ](https://i.ibb.co/yk0PMp5/preview.png)
   changeLang: בשביל לשנות את השפה בחר את השפה למטה.
   changedLang: השפה שונתה בהצלחה!
   suggestLanguage: |
@@ -82,7 +82,7 @@ me:
   deleteCard: האם אתה באמת רוצה למחוק את הכרטיסייה הזאת? *לא תוכל לשחזר את הכרטיסייה*
   cardDeleted: הכרטיסייה נמחקה.
   newComment: |
-    <b>${author}</b> השאיר תגובה לכרטיס «${cardName}»:
+    <b>${author}</b> השאיר תגובה לכרטיס «<a href="${url}">${cardName}</a>»:
 
     <i>${text}</i>
 
@@ -110,7 +110,9 @@ error:
     *אל תיצור הצעות ריקות או הצעות שאין להן שום היגיון. אם תמשיך ליצור אותם, אתה תחסם.*
   sendDescription: שלח תיאור להצעה.
   sendTitle: הקלד את הכותרת של ההצעה.
-
+  limit_exceeded: 👮🏻 לא למהר!
+  banned: נחסמת משימוש בבוט ולא תוכל ליצור כרטיסיות.
+  
 button:
   sFeature: הצע תכונה באפליקצייה
   sLanguage: הצע שפה (לא של הבוט)

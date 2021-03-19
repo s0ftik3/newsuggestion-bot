@@ -21,5 +21,7 @@ module.exports = {
     handleDelete: require('./card/delete'),
     handleReset: require('./admin/reset'),
     handleDeleteAdmin: require('./admin/delete'),
-    handleDebug: require('./admin/debug')
+    handleDebug: require('./admin/debug'),
+    handleBan: require('./admin/ban'),
+    handlePardon: require('./admin/pardon')
 }

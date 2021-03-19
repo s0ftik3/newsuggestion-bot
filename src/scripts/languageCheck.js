@@ -1,17 +1,15 @@
+'use strict';
+
+const LanguageDetect = require('languagedetect');
+const lang = new LanguageDetect();
+
 module.exports = (str) => {
-    
     try {
+        const language = lang.detect(str)[0][0];
 
-        if (str.match(/[a-zA-Z0-9]|[~!@#$%^&*()_+{}:"?><,./';[\]=\-`]/ig) === null) return false;
-        const length = str.match(/[a-zA-Z0-9\s]|[~!@#$%^&*()_+{}:"?><,./';[\]=\-`]/ig).length;
-
-        if (str.length !== length) return false;
-            else return true;
-
+        if (language != 'english') return false;
+        else return true;
     } catch (err) {
-
         console.error(err);
-
     }
-
-}
+};

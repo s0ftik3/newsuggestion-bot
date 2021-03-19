@@ -4,7 +4,7 @@ service:
   greeting: |
     Witaj, *${name}*!
 
-    Co chciałbyś robić?
+    Twórz karty na bugs.telegram.org bezpośrednio z aplikacji.[ᅠ](https://i.ibb.co/yk0PMp5/preview.png)
   changeLang: Aby zmienić język interfejsu, wybierz jeden z dostępnych języków poniżej.
   changedLang: Pomyślnie zmieniłeś język interfejsu!
   suggestLanguage: |
@@ -15,7 +15,7 @@ service:
     😔 Niestety, Twoja karta «$ {title}» została usunięta z platformy.
 
     *Powód:* ${reason}
-    
+
 newSuggestion:
   chooseApp: Którą aplikację chciałbyś ulepszyć?
   description: |
@@ -55,8 +55,6 @@ newSuggestion:
 
 me:
   info: |
-    Lista twoich kart.
-    
     Wybierz kartę, o której chcesz zobaczyć informacje.
 
     *Uwaga:* Możesz edytować lub usuwać tylko karty, które zostały utworzone 24 godziny temu lub wcześniej.
@@ -84,7 +82,7 @@ me:
   deleteCard: Czy na pewno chcesz usunąć tę kartę? *Nie możesz go przywrócić.*
   cardDeleted: Karta została usunięta.
   newComment: |
-    <b>${author}</b> zostawił komentarz do karty «${cardName}»:
+    <b>${author}</b> zostawił komentarz do karty «<a href="${url}">${cardName}</a>»:
 
     <i>${text}</i>
 
@@ -112,7 +110,9 @@ error:
     *Nie twórz pustych sugestii ani sugestii, które nie mają żadnego sensu. Jeśli będziesz je tworzyć, zostaniesz zbanowany.*
   sendDescription: Opisz swoją sugestię.
   sendTitle: Wpisz tytuł swojej propozycji funkcji.
-
+  limit_exceeded: 👮🏻 Nie spiesz się!
+  banned: Zostałeś trwale zbanowany i nie będziesz już mógł tworzyć kart.
+  
 button:
   sFeature: Zaproponuj nową funkcję
   sLanguage: Zaproponuj nowy język
