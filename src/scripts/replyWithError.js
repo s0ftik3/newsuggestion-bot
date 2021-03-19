@@ -76,7 +76,7 @@ module.exports = (ctx, code) => {
                 ctx.reply(ctx.i18n.t('error.title_too_short'));
                 break;
             case 15:
-                ctx.reply(ctx.i18n.t('error.description_too_short'));
+                ctx.replyWithMarkdown(ctx.i18n.t('error.description_too_short'));
                 break;
             case 16:
                 ctx.reply(ctx.i18n.t('error.sendDescription'));
