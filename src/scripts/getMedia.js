@@ -1,6 +1,7 @@
 'use strict';
 
 const axios = require('axios');
+const config = require('../../config');
 
 module.exports = async (ctx) => {
     try {
@@ -29,7 +30,7 @@ module.exports = async (ctx) => {
                 return 'WRONG_MEDIA_FILE';
         }
 
-        const file = await axios(`https://api.telegram.org/bot${process.env.TOKEN}/getFile?file_id=${file_id}`)
+        const file = await axios(`https://api.telegram.org/bot${config.token}/getFile?file_id=${file_id}`)
             .then((response) => {
                 return { path: response.data.result.file_path, size: response.data.result.file_size };
             })
