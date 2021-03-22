@@ -46,7 +46,14 @@ module.exports = () => async (ctx) => {
                 const url = response.suggestion;
                 url === undefined ? (state = 'notPublished') : (state = 'published');
 
-                ctx.editMessageText(ctx.i18n.t(`newSuggestion.${state}`, { title: card.title, url: url }), { parse_mode: 'Markdown' });
+                await ctx.editMessageText(ctx.i18n.t(`newSuggestion.${state}`, { title: card.title, url: url }), {
+                    parse_mode: 'Markdown',
+                    disable_web_page_preview: true
+                });
+
+                ctx.replyWithMarkdown(ctx.i18n.t(`newSuggestion.joinChat`), {
+                    disable_web_page_preview: true
+                });
 
                 if (url === undefined) return;
 

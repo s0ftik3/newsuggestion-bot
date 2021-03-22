@@ -49,7 +49,7 @@ module.exports = async () => {
                 const url = response.suggestion;
                 url === undefined ? (state = 'notPublished') : (state = 'published');
 
-                telegram.editMessageText(
+                await telegram.editMessageText(
                     toPublish[i].author,
                     toPublish[i].message_id,
                     0,
@@ -57,8 +57,16 @@ module.exports = async () => {
                         title: toPublish[i].title,
                         url: url,
                     }),
-                    { parse_mode: 'Markdown' }
+                    {
+                        parse_mode: 'Markdown',
+                        disable_web_page_preview: true
+                    }
                 );
+
+                telegram.sendMessage(toPublish[i].author, ctx.i18n.t(`newSuggestion.joinChat`), {
+                    parse_mode: 'Markdown',
+                    disable_web_page_preview: true
+                });
 
                 return url;
             });

@@ -48,10 +48,8 @@ newSuggestion:
   cancel: 👌 OK! Use /new command to make a new suggestion.
   standby: 🕓 _Your suggestion is submitting on the platform..._
   queue: 🐌 _Your suggestion has been queued. Wait please..._
-  published: |
-    🥳 Your suggestion [«${title}»](${url}) has been published on the platform!
-
-    You can also join [our group chat](https://t.me/SuggestFeature) to discuss your and others suggestions.
+  published: 🥳 Your suggestion [«${title}»](${url}) has been published on the platform!
+  joinChat: You can also join [our group chat](https://t.me/SuggestFeature) to discuss your and others suggestions.
   notPublished: 😔 Your suggestion «${title}» hasn't been published.
   publishedToChat: 🥳 New suggestion <a href="${url}">«${title}»</a> by ${author} has been published on the platform!
 

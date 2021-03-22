@@ -48,10 +48,8 @@ newSuggestion:
   cancel: 👌 TAMAM! Yeni bir öneri yapmak için /new komutunu kullanın.
   standby: 🕓 _Öneriniz platforma gönderiliyor..._
   queue: 🐌 _Öneriniz sıraya alındı. Lütfen bekleyin..._
-  published: |
-    🥳 [«${title}»](${url}) öneriniz platformda yayınlandı!
-
-    Ayrıca sizin ve diğerlerinin önerilerini tartışmak için [grup sohbetimize](https://t.me/SuggestFeature) katılabilirsiniz.
+  published: 🥳 [«${title}»](${url}) öneriniz platformda yayınlandı!
+  joinChat: Ayrıca sizin ve diğerlerinin önerilerini tartışmak için [grup sohbetimize](https://t.me/SuggestFeature) katılabilirsiniz.
   notPublished: 😔 «${title}» öneriniz platformda yayınlanmadı.
 
 me:

@@ -48,10 +48,8 @@ newSuggestion:
   cancel: 👌 אוקיי! תשתמש בפקודה /new בשביל להציע הצעה חדשה.
   standby: 🕓 _ההצעה שלך נשלחת לפלטפורמה..._
   queue: 🐌 _ההצעה שלך עומדת בתור. תחכה בבקשה..._
-  published: |
-    🥳 ההצעה שלך [«${title}»](${url}) פורסמה בפלטפורמה!
-
-    אתה יכול גם להצטרף [לקבוצה שלנו](https://t.me/SuggestFeature) בשביל להתדיין על ההצעה שלך ושל אחרים.
+  published: 🥳 ההצעה שלך [«${title}»](${url}) פורסמה בפלטפורמה!
+  joinChat: אתה יכול גם להצטרף [לקבוצה שלנו](https://t.me/SuggestFeature) בשביל להתדיין על ההצעה שלך ושל אחרים.
   notPublished: 😔 ההצעה שלך «${title}» לא פורסמה.
 
 me:
