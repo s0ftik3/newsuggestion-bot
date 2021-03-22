@@ -23,5 +23,7 @@ module.exports = {
     handleDeleteAdmin: require('./admin/delete'),
     handleDebug: require('./admin/debug'),
     handleBan: require('./admin/ban'),
-    handlePardon: require('./admin/pardon')
+    handlePardon: require('./admin/pardon'),
+    handleSettings: require('./user/settings'),
+    handleInline: require('./user/inline')
 }

@@ -15,7 +15,9 @@ service:
     😔 Ne yazık ki, «${title}» kartınız platformdan kaldırıldı.
 
     *Sebep:* ${reason}
-
+  settings: Burada kullanıcı tercihlerinizi değiştirebilirsiniz.
+  autoTranslateWarning: Otomatik çeviri etkin. Lütfen çevirinin her zaman doğru olmadığını unutmayın. Eğer öneriniz anlaşılmayan açıklama nedeniyle silinmişse, İngilizce öğrenin.
+  
 newSuggestion:
   chooseApp: Hangi uygulamayı geliştirmemizi istersiniz?
   description: |
@@ -41,7 +43,6 @@ newSuggestion:
     <code>${description}</code>
 
     <b>Etiketler:</b> ${app}
-    <b>Ekler:</b> ${attachments}
 
     Bu öneri gönderilsin mi?
   cancel: 👌 TAMAM! Yeni bir öneri yapmak için /new komutunu kullanın.
@@ -85,6 +86,7 @@ me:
     <b>${author}</b>, «<a href="${url}">${cardName}</a>» kartınıza bir yorum bıraktı:
 
     <i>${text}</i>
+  shareSuggestion: "Merhaba! bugs.telegram.org'daki [önerime](${url}) göz atın:"
 
 suggestion:
   retractVote: İlk önce oyunuzu geri çekin.
@@ -97,8 +99,8 @@ error:
   wrongMedia: Desteklenmeyen medya dosyası. Sadece tek fotoğraf ya da video dosyası gönderin.
   maxSize: Maksimum dosya boyutu aşıldı. Lütfen 15Mb'a kadar medya dosyası gönderin.
   noText: Lütfen tek fotoğraf ya da video dosyası gönderin.
-  descritpionWrongLanguage: Açıklama, İngilizce olmalı.
-  titleWrongLanguage: Başlık, İngilizce olmalı.
+  descritpionWrongLanguage: Açıklama, İngilizce olmalı. Otomatik çeviriyi açmak ister misiniz?
+  titleWrongLanguage: Başlık, İngilizce olmalı. Otomatik çeviriyi açmak ister misiniz?
   titleTheSame: Başlık, şu anki ile aynı. Lütfen farklı başlık gönderin.
   descriptionTheSame: Açıklama, şu anki ile aynı. Lütfen farklı açıklama gönderin.
   titleNotEdited: Başlık düzenlenmedi. Muhtemelen oluşturulması 24 saati geçti.
@@ -112,7 +114,8 @@ error:
   sendTitle: Lütfen özellik öneriniz için başlık girin.
   limit_exceeded: 👮🏻 Acele etmeyin!
   banned: Kalıcı olarak yasaklandınız ve artık kart oluşturamayacaksınız.
-  
+  autoTranslateFailed: Varsayılan diliniz İngilizce ve İngilizce öneriler beklenir. Otomatik çeviriyi etkinleştirmek isterseniz, arayüz dilini değiştirin.
+
 button:
   sFeature: Uygulamalar için bir özellik önerin
   sLanguage: Bir dil önerin
@@ -130,6 +133,11 @@ button:
   editDescription: Açıklama
   yesDelete: Evet, bu kartı sil
   showComment: Yorumu göster
+  neverAskMedia: Asla medya sorma ${condition}
+  autoTranslate: Otomatik çeviri ${condition}
+  reportBug: Bildir
+  settings: Ayarlar
+  share: Paylaş
 
 application:
   tgdroid: Android için Telegram

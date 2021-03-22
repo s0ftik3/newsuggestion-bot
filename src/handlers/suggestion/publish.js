@@ -15,8 +15,12 @@ module.exports = () => async (ctx) => {
         const cookie = await cookieChecker().then((response) => response);
 
         ctx.i18n.locale(user.language);
-
-        await ctx.editMessageText(ctx.i18n.t('newSuggestion.standby'), { parse_mode: 'Markdown' }).then((response) => (msg_id = response.message_id));
+        if (ctx.session.newCard.media === null) {
+            await ctx.editMessageText(ctx.i18n.t('newSuggestion.standby'), { parse_mode: 'Markdown' }).then((response) => (msg_id = response.message_id));
+        } else {
+            ctx.deleteMessage();
+            await ctx.reply(ctx.i18n.t('newSuggestion.standby'), { parse_mode: 'Markdown' }).then((response) => (msg_id = response.message_id));
+        }
 
         const Platform = require('../../platform/platform');
         const platform = new Platform({

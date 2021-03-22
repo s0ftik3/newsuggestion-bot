@@ -23,21 +23,37 @@ module.exports = () => async (ctx) => {
             6: ctx.i18n.t('application.ddapp'),
         };
 
-        ctx.editMessageText(
-            ctx.i18n.t('newSuggestion.preview', {
-                title: title.replace(/[\r\n]{1,}/g, ' '),
-                description: description,
-                app: name[app],
-                attachments: ctx.session.newCard.media === null ? 0 : 1,
-            }),
-            {
+        if (ctx.session.newCard.media === null) {
+            ctx.editMessageText(
+                ctx.i18n.t('newSuggestion.preview', {
+                    title: title.replace(/[\r\n]{1,}/g, ' '),
+                    description: description,
+                    app: name[app],
+                }),
+                {
+                    parse_mode: 'HTML',
+                    reply_markup: Markup.inlineKeyboard(
+                        [Markup.callbackButton(ctx.i18n.t('button.submit'), 'publish'), Markup.callbackButton(ctx.i18n.t('button.cancel'), 'cancel')],
+                        { columns: 2 }
+                    ),
+                }
+            );
+        } else {
+            ctx.deleteMessage();
+
+            ctx.replyWithPhoto(ctx.session.newCard.media.file_id, {
+                caption: ctx.i18n.t('newSuggestion.preview', {
+                    title: title.replace(/[\r\n]{1,}/g, ' '),
+                    description: description,
+                    app: name[app]
+                }),
                 parse_mode: 'HTML',
                 reply_markup: Markup.inlineKeyboard(
                     [Markup.callbackButton(ctx.i18n.t('button.submit'), 'publish'), Markup.callbackButton(ctx.i18n.t('button.cancel'), 'cancel')],
                     { columns: 2 }
-                ),
-            }
-        );
+                )
+            });
+        }
 
         ctx.answerCbQuery();
     } catch (err) {

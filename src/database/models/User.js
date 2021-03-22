@@ -32,6 +32,16 @@ const userSchema = new mongoose.Schema({
         required: false,
         default: false
     },
+    neverAskMedia: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
+    autoTranslate: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
     timestamp: {
         type: Date,
         required: false,

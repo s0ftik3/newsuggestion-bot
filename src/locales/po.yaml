@@ -15,7 +15,9 @@ service:
     😔 Niestety, Twoja karta «$ {title}» została usunięta z platformy.
 
     *Powód:* ${reason}
-
+  settings: Tutaj możesz zmienić swoje preferencje użytkownika.
+  autoTranslateWarning: Włączono auto-tłumaczenie. Pamiętaj, że tłumaczenie nie zawsze jest poprawne. Jeśli Twoja sugestia zostanie usunięta z powodu niejasnego opisu, naucz się angielskiego.
+  
 newSuggestion:
   chooseApp: Którą aplikację chciałbyś ulepszyć?
   description: |
@@ -41,7 +43,6 @@ newSuggestion:
     <code>${description}</code>
 
     <b>Tagi:</b> ${app}
-    <b>Załączniki:</b> ${attachments}
 
     Opublikować tę ofertę?
   cancel: 👌 W porządku! Użyj /new polecenie, aby złożyć nową propozycję.
@@ -85,6 +86,7 @@ me:
     <b>${author}</b> zostawił komentarz do karty «<a href="${url}">${cardName}</a>»:
 
     <i>${text}</i>
+  shareSuggestion: "Hej! Zajrzyj na [moja sugestia]($ {url}) na bugs.telegram.org:"
 
 suggestion:
   retractVote: Najpierw anuluj swój głos.
@@ -97,8 +99,8 @@ error:
   wrongMedia: Ten typ pliku nie jest obsługiwany. Prześlij tylko jedno zdjęcie lub plik wideo.
   maxSize: Przekroczono maksymalny rozmiar pliku. Prześlij plik multimedialny do 15 MB.
   noText: Prześlij tylko jedno zdjęcie lub plik wideo.
-  descritpionWrongLanguage: Opis musi być w języku angielskim.
-  titleWrongLanguage: Tytuł musi być w języku angielskim.
+  descritpionWrongLanguage: Opis musi być w języku angielskim. Czy chcesz włączyć tłumaczenie automatyczne?
+  titleWrongLanguage: Tytuł musi być w języku angielskim. Czy chcesz włączyć tłumaczenie automatyczne?
   titleTheSame: Nowe i obecne nagłówki są identyczne. Prześlij inny tytuł.
   descriptionTheSame: Nowe i aktualne opisy są identyczne. Prześlij kolejny opis.
   titleNotEdited: Tytuł nie został zmieniony. Być może minęły 24 godziny od utworzenia karty.
@@ -112,7 +114,8 @@ error:
   sendTitle: Wpisz tytuł swojej propozycji funkcji.
   limit_exceeded: 👮🏻 Nie spiesz się!
   banned: Zostałeś trwale zbanowany i nie będziesz już mógł tworzyć kart.
-  
+  autoTranslateFailed: Twoim domyślnym językiem jest angielski i oczekiwane są sugestie w języku angielskim. Jeśli chcesz włączyć automatyczne tłumaczenie, zmień język interfejsu.
+
 button:
   sFeature: Zaproponuj nową funkcję
   sLanguage: Zaproponuj nowy język
@@ -130,6 +133,11 @@ button:
   editDescription: Opis
   yesDelete: Tak, skasować tę kartę
   showComment: Pokaż komentarz
+  neverAskMedia: Bez multimediów ${condition}
+  autoTranslate: Przetłumacz automatycznie ${condition}
+  reportBug: Raport
+  settings: Ustawienia
+  share: Dzielić
 
 application:
   tgdroid: Telegram na Android

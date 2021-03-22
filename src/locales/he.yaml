@@ -15,7 +15,9 @@ service:
     😔 מצטערים, הכרטיסייה«${title}» נמחקה מהפלטפורמה.
 
     *סיבה:* ${reason}
-
+  settings: תוכל לשנות את העדפות המשתמש שלך כאן.
+  autoTranslateWarning: תרגום אוטומטי מופעל. זכור שתרגום לא תמיד נכון. וההצעה שלך יכולה להימחק בגלל תיאור לא ברור.
+  
 newSuggestion:
   chooseApp: איזו אפליקציה היית רוצה שנשפר?
   description: |
@@ -41,7 +43,6 @@ newSuggestion:
     <code>${description}</code>
 
     <b>תגיות:</b> ${app}
-    <b>קבצים מצורפים:</b> ${attachments}
 
     האם לשלוח את ההצעה הזאת?
   cancel: 👌 אוקיי! תשתמש בפקודה /new בשביל להציע הצעה חדשה.
@@ -85,6 +86,7 @@ me:
     <b>${author}</b> השאיר תגובה לכרטיס «<a href="${url}">${cardName}</a>»:
 
     <i>${text}</i>
+  shareSuggestion: "היי! תראה את [ההצעות שלי](${url}) ב bugs.telegram.org:"
 
 suggestion:
   retractVote: קודם כל בטל את ההצבעה שלך.
@@ -97,8 +99,8 @@ error:
   wrongMedia: סוג הקובץ לא נתמך. תשלח רק תמונה אחת או וידאו אחד.
   maxSize: חרגת מגודל הקובץ המרבי. גודל הקובץ חייב להיות פחות מ 15Mb.
   noText: בבקשה תשלח תמונה או וידאו אחד.
-  descritpionWrongLanguage: התיאור חייב להיות באנגלית.
-  titleWrongLanguage: הכותרת חייבת להיות באנגלית.
+  descritpionWrongLanguage: התיאור חייבת להיות באנגלית, האם אתה תרצה תרגום אוטומטי?
+  titleWrongLanguage: הכותרת חייבת להיות באנגלית, האם אתה תרצה תרגום אוטומטי?
   titleTheSame: הכותרת זהה לזו הנוכחית. אנא שלח כותרת אחרת.
   descriptionTheSame: התיאור זהה לזה הנוכחי. אנא שלח תיאור אחר.
   titleNotEdited: הכותרת לא נערכה. כנראה שחלפו 24 שעות מיום היצירה.
@@ -112,7 +114,8 @@ error:
   sendTitle: הקלד את הכותרת של ההצעה.
   limit_exceeded: 👮🏻 לא למהר!
   banned: נחסמת משימוש בבוט ולא תוכל ליצור כרטיסיות.
-  
+  autoTranslateFailed: שפת ברירת המחדל שלך היא אנגלית אם תרצה תרגום אוטומטי תשנה את השפה.
+
 button:
   sFeature: הצע תכונה באפליקצייה
   sLanguage: הצע שפה (לא של הבוט)
@@ -130,6 +133,11 @@ button:
   editDescription: תיאור
   yesDelete: כן, מחק את הכרטיסייה
   showComment: הצג תגובה
+  neverAskMedia: אל תשאל על מדיה ${condition}
+  autoTranslate: תרגום אוטומטי ${condition}
+  reportBug: דווח
+  settings: הגדרות
+  share: שתף
   
 application:
   tgdroid: טלגרם לאנדרואיד

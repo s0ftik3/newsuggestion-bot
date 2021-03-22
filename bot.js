@@ -48,7 +48,9 @@ const {
     handleDeleteAdmin,
     handleDebug,
     handleBan,
-    handlePardon
+    handlePardon,
+    handleSettings,
+    handleInline
 } = require('./src/handlers');
 
 const description = new Scene('description');
@@ -77,6 +79,7 @@ descriptionEdit.on('text', handleEdit());
 bot.start(handleStart());
 bot.command('me', handleMe());
 bot.command(['new', 'suggest'], handleChooseApp());
+bot.command('settings', handleSettings());
 bot.command('delete', handleDeleteAdmin());
 bot.command('reset', handleReset());
 bot.command('debug', handleDebug());
@@ -91,6 +94,7 @@ bot.action('skip', handleTitle());
 bot.action('check', handleCheck());
 bot.action('cancel', handleCancel());
 bot.action('publish', handlePublish());
+bot.action('settings', handleSettings());
 bot.action(/app:\w+/, handleDescription());
 bot.action(/setLang:\w+/, handleLanguage());
 bot.action(/allow:\w+/, handleAllowSendMessages());
@@ -105,9 +109,12 @@ bot.action(/titleEdit:\w+/, handleEdit());
 bot.action(/descriptionEdit:\w+/, handleEdit());
 bot.action(/delete:\w+/, handleDelete());
 bot.action(/reallyDelete:\w+/, handleDelete());
+bot.action(/nam:\w+/, handleSettings());
+bot.action(/at:\w+/, handleSettings());
 
 bot.on('new_chat_members', handleNewMember());
 bot.on('left_chat_member', handleLeftMember());
+bot.on('inline_query', handleInline());
 bot.on('callback_query', handleCallback());
 
 let commentChecking = false;
@@ -116,16 +123,16 @@ let queueChecking = false;
 bot.launch().then(async () => {
     console.log('The bot has been started.');
     connect();
-    setInterval(async () => {
-        if (!commentChecking) {
-            commentChecking = true;
-            await commentsChecker().then(() => commentChecking = false);
-        };
-    }, 30 * 1000);
-    setInterval(async () => {
-        if (!queueChecking) {
-            queueChecking = true;
-            await queueWorker().then(() => queueChecking = false);
-        };
-    }, 15 * 1000);
+    // setInterval(async () => {
+    //     if (!commentChecking) {
+    //         commentChecking = true;
+    //         await commentsChecker().then(() => commentChecking = false);
+    //     };
+    // }, 30 * 1000);
+    // setInterval(async () => {
+    //     if (!queueChecking) {
+    //         queueChecking = true;
+    //         await queueWorker().then(() => queueChecking = false);
+    //     };
+    // }, 15 * 1000);
 });

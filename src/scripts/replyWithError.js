@@ -22,10 +22,11 @@
  * 18 edit default;
  * 19 callback default;
  * 20 user banned;
+ * 21 autoTranslateFailed;
  */
 module.exports = (ctx, code) => {
     try {
-        ctx.i18n.locale(ctx.session.user.language || 'en');
+        ctx.i18n.locale((ctx.session.user === undefined) ? 'en' : ctx.session.user.language);
 
         switch (code) {
             case 0:
@@ -94,6 +95,9 @@ module.exports = (ctx, code) => {
                 const c = () => ctx.answerCbQuery(ctx.i18n.t('error.banned'), true);
                 const d = () => ctx.reply(ctx.i18n.t('error.banned'));
                 (ctx.updateType === 'callback_query') ? c() : d();
+                break;
+            case 21:
+                ctx.answerCbQuery(ctx.i18n.t('error.autoTranslateFailed'), true);
                 break;
             default:
                 ctx.reply(ctx.i18n.t('error.default'));

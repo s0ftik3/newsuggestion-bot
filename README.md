@@ -1,5 +1,5 @@
 # New Suggestion Bot
-[![release](https://img.shields.io/badge/release-v3.6.2-green.svg?style=flat)]()
+[![release](https://img.shields.io/badge/release-v3.7.0-green.svg?style=flat)]()
 [![license](https://img.shields.io/github/license/s0ftik3/newsuggestion-bot)]()
 [![size](https://img.shields.io/github/languages/code-size/s0ftik3/newsuggestion-bot)]()
 [![Crowdin](https://badges.crowdin.net/newsuggestion-bot/localized.svg)](https://crowdin.com/project/newsuggestion-bot)
@@ -17,6 +17,8 @@ Create, edit, remove and follow your cards on bugs.telegram.org directly from Te
 * Formatting support. (bold, italic, code, all headers) ✅
 * View list of created cards. ✅
 * Media attach support. ✅
+* Cards search. ✅
+* Auto-translation to English. ✅
 * Albums attach support. ❌
 
 ## Creating your bot

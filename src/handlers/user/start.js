@@ -5,6 +5,7 @@ const replyWithError = require('../../scripts/replyWithError');
 
 module.exports = () => async (ctx) => {
     try {
+        if (ctx.chat.type !== 'private') return;
         const user = await getUser(ctx.from.id);
 
         if (user === null) {
@@ -22,7 +23,7 @@ module.exports = () => async (ctx) => {
                         [
                             Markup.callbackButton(ctx.i18n.t('button.sFeature'), 'sFeature'),
                             Markup.callbackButton(ctx.i18n.t('button.sLanguage'), 'sLanguage'),
-                            Markup.callbackButton(ctx.i18n.t('button.language'), 'language'),
+                            Markup.callbackButton(ctx.i18n.t('button.settings'), 'settings'),
                         ],
                         { columns: 1 }
                     ),
@@ -39,7 +40,7 @@ module.exports = () => async (ctx) => {
                         [
                             Markup.callbackButton(ctx.i18n.t('button.sFeature'), 'sFeature'),
                             Markup.callbackButton(ctx.i18n.t('button.sLanguage'), 'sLanguage'),
-                            Markup.callbackButton(ctx.i18n.t('button.language'), 'language'),
+                            Markup.callbackButton(ctx.i18n.t('button.settings'), 'settings'),
                         ],
                         { columns: 1 }
                     ),
@@ -52,7 +53,7 @@ module.exports = () => async (ctx) => {
                         [
                             Markup.callbackButton(ctx.i18n.t('button.sFeature'), 'sFeature'),
                             Markup.callbackButton(ctx.i18n.t('button.sLanguage'), 'sLanguage'),
-                            Markup.callbackButton(ctx.i18n.t('button.language'), 'language'),
+                            Markup.callbackButton(ctx.i18n.t('button.settings'), 'settings'),
                         ],
                         { columns: 1 }
                     ),

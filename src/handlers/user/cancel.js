@@ -6,8 +6,14 @@ module.exports = () => async (ctx) => {
         const user = await getUserSession(ctx);
         ctx.i18n.locale(user.language);
 
-        ctx.editMessageText(ctx.i18n.t('newSuggestion.cancel'));
+        if (ctx.session.newCard === undefined || ctx.session.newCard.media === null) {
+            ctx.editMessageText(ctx.i18n.t('newSuggestion.cancel'));
+        } else {
+            ctx.deleteMessage();
+            ctx.reply(ctx.i18n.t('newSuggestion.cancel'));
+        }
 
+        ctx.session.newCard = {};
         ctx.scene.leave('description');
         ctx.scene.leave('media');
         ctx.scene.leave('title');

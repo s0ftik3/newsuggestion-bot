@@ -4,6 +4,7 @@ const cheerio = require('cheerio');
 const getUserSession = require('../../scripts/getUserSession');
 const languageCheck = require('../../scripts/languageCheck');
 const replyWithError = require('../../scripts/replyWithError');
+const translate = require('translatte');
 const config = require('../../../config').card;
 
 module.exports = () => async (ctx) => {
@@ -14,7 +15,16 @@ module.exports = () => async (ctx) => {
         if (ctx.message.text.length > config.title_maximum_length) return replyWithError(ctx, 2);
         if (ctx.message.text.length < config.title_minimum_length) return replyWithError(ctx, 14);
         if (ctx.message.text.match(/^\/start|\/me|\/new|\/suggest$/gi) !== null) return replyWithError(ctx, 17);
-        if (!languageCheck(ctx.message.text)) return replyWithError(ctx, 8);
+        if (!languageCheck(ctx.message.text)) {
+            if (user.autoTranslate) {
+                if (user.language === 'en') return replyWithError(ctx, 21);
+                ctx.message.text = (await translate(ctx.message.text, { to: 'en' })).text;
+            } else {
+                return ctx.reply(ctx.i18n.t('error.titleWrongLanguage'), {
+                    reply_markup: Markup.inlineKeyboard([[Markup.callbackButton(ctx.i18n.t('button.settings'), 'settings')]]),
+                });
+            }
+        }
 
         ctx.telegram.editMessageReplyMarkup(ctx.update.message.chat.id, ctx.session.msg_id, {});
 
@@ -66,20 +76,34 @@ module.exports = () => async (ctx) => {
                 6: ctx.i18n.t('application.ddapp'),
             };
 
-            ctx.replyWithHTML(
-                ctx.i18n.t('newSuggestion.preview', {
-                    title: title.replace(/[\r\n]{1,}/g, ' '),
-                    description: description,
-                    app: name[app],
-                    attachments: ctx.session.newCard.media === null ? 0 : 1,
-                }),
-                {
+            if (ctx.session.newCard.media === null) {
+                ctx.replyWithHTML(
+                    ctx.i18n.t('newSuggestion.preview', {
+                        title: title.replace(/[\r\n]{1,}/g, ' '),
+                        description: description,
+                        app: name[app]
+                    }),
+                    {
+                        reply_markup: Markup.inlineKeyboard(
+                            [Markup.callbackButton(ctx.i18n.t('button.submit'), 'publish'), Markup.callbackButton(ctx.i18n.t('button.cancel'), 'cancel')],
+                            { columns: 2 }
+                        ),
+                    }
+                );
+            } else {
+                ctx.replyWithPhoto(ctx.session.newCard.media.file_id, {
+                    caption: ctx.i18n.t('newSuggestion.preview', {
+                        title: title.replace(/[\r\n]{1,}/g, ' '),
+                        description: description,
+                        app: name[app]
+                    }),
+                    parse_mode: 'HTML',
                     reply_markup: Markup.inlineKeyboard(
                         [Markup.callbackButton(ctx.i18n.t('button.submit'), 'publish'), Markup.callbackButton(ctx.i18n.t('button.cancel'), 'cancel')],
                         { columns: 2 }
-                    ),
-                }
-            );
+                    )
+                });
+            }
         } else {
             let suggestions = [];
 

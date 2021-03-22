@@ -15,6 +15,8 @@ service:
     😔 Unfortunately, your card «${title}» has been removed from the platform.
 
     *Reason:* ${reason}
+  settings: You can change your user preferences here.
+  autoTranslateWarning: Auto-translation enabled. Please remember that translation isn't always correct. If your suggestion is deleted due to unclear description, learn English then.
 
 newSuggestion:
   chooseApp: Which app would you like us to improve?
@@ -41,7 +43,6 @@ newSuggestion:
     <code>${description}</code>
 
     <b>Tags:</b> ${app}
-    <b>Attachments:</b> ${attachments}
 
     Submit this suggestion?
   cancel: 👌 OK! Use /new command to make a new suggestion.
@@ -86,6 +87,7 @@ me:
     <b>${author}</b> left a comment to the card «<a href="${url}">${cardName}</a>»:
 
     <i>${text}</i>
+  shareSuggestion: "Hey! Have a look at [my suggestion](${url}) on bugs.telegram.org:"
 
 suggestion:
   retractVote: Retract your vote first.
@@ -98,8 +100,8 @@ error:
   wrongMedia: Unsupported media file. Send only one photo or video file.
   maxSize: Maximum file size exceeded. Please send media file up to 15Mb.
   noText: Please send one photo or video file.
-  descritpionWrongLanguage: Description must be in English.
-  titleWrongLanguage: Title must be in English.
+  descritpionWrongLanguage: Description must be in English. Would you like to turn on auto-translate?
+  titleWrongLanguage: Title must be in English. Would you like to turn on auto-translate?
   titleTheSame: The title is the same as the current one. Please send different title.
   descriptionTheSame: The description is the same as the current one. Please send different Description.
   titleNotEdited: The title hasn't been edited. Probably, 24 hours from its creation has passed.
@@ -114,6 +116,7 @@ error:
   sendTitle: Please enter the title for your feature suggestion.
   limit_exceeded: 👮🏻 Don't be in hurry!
   banned: You were permanently banned and you won't be able to create cards anymore.
+  autoTranslateFailed: Your default language is English and suggestions in English are expected. If you want to enable auto-translation, change interface language.
   
 button:
   sFeature: Suggest a feature for the apps
@@ -132,6 +135,11 @@ button:
   editDescription: Description
   yesDelete: Yes, delete this card
   showComment: Show comment
+  neverAskMedia: Never ask media ${condition}
+  autoTranslate: Auto-translate ${condition}
+  reportBug: Report
+  settings: Settings
+  share: Share
 
 application:
   tgdroid: Telegram for Android

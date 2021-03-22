@@ -11,7 +11,7 @@ const i18n = new TelegrafI18n({
 
 module.exports = (keyboard, language) => {
     try {
-        const backButton = Markup.callbackButton(i18n.t(language, 'button.back'), `backStart`);
+        const backButton = Markup.callbackButton(i18n.t(language, 'button.back'), `settings`);
         keyboard.inline_keyboard.push([backButton]);
 
         return keyboard;

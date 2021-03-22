@@ -6,6 +6,7 @@ const replyWithError = require('../../scripts/replyWithError');
 const fs = require('fs');
 const path = require('path');
 const TelegrafI18n = require('telegraf-i18n');
+const { fa } = require('translatte/languages');
 const i18n = new TelegrafI18n({
     directory: path.resolve(__dirname, '../../locales'),
     defaultLanguage: 'en',
@@ -21,6 +22,10 @@ module.exports = () => async (ctx) => {
             const language = ctx.match[0].split(':')[1];
             ctx.i18n.locale(language);
 
+            if (language === 'en') { 
+                User.updateOne({ id: ctx.from.id }, { $set: { autoTranslate: false } }, () => {}); 
+                ctx.session.user.autoTranslate = false;
+            }
             await User.updateOne({ id: ctx.from.id }, { $set: { language: language } }, () => {});
             ctx.session.user.language = language;
         }

@@ -4,6 +4,7 @@ const replyWithError = require('../../scripts/replyWithError');
 
 module.exports = () => async (ctx) => {
     try {
+        if (ctx.chat.type !== 'private') return;
         const user = await getUserSession(ctx);
         if (user.banned) return replyWithError(ctx, 20);
         ctx.i18n.locale(user.language);

@@ -5,6 +5,7 @@ const replyWithError = require('../../scripts/replyWithError');
 
 module.exports = () => async (ctx) => {
     try {
+        if (ctx.chat.type !== 'private') return;
         const user = await getUserSession(ctx);
         ctx.i18n.locale(user.language);
 
