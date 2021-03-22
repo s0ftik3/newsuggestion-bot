@@ -27,10 +27,10 @@ module.exports = () => async (ctx) => {
 
         let keyboard = [
             [
+                Markup.urlButton(ctx.i18n.t('button.viewOnPlatform'), card.url),
                 Markup.callbackButton(ctx.i18n.t('button.edit'), `edit:${card_id}:${index}`),
                 Markup.callbackButton(ctx.i18n.t('button.delete'), `delete:${card_id}:${index}`),
             ],
-            [Markup.urlButton(ctx.i18n.t('button.viewOnPlatform'), card.url)],
             [Markup.switchToChatButton(ctx.i18n.t('button.share'), card.title)],
             [Markup.callbackButton(ctx.i18n.t('button.back'), `back:${index}`)]
         ];
@@ -38,8 +38,10 @@ module.exports = () => async (ctx) => {
         // 25 hours.
         if (new Date().getTime() - date.getTime() >= 90000000) {
             keyboard = [
-                [Markup.urlButton(ctx.i18n.t('button.viewOnPlatform'), card.url)],
-                [Markup.switchToChatButton(ctx.i18n.t('button.share'), card.title)],
+                [
+                    Markup.urlButton(ctx.i18n.t('button.viewOnPlatform'), card.url),
+                    Markup.switchToChatButton(ctx.i18n.t('button.share'), card.title)
+                ],
                 [Markup.callbackButton(ctx.i18n.t('button.back'), `back:${index}`)]
             ];
         }

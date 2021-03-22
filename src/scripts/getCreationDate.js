@@ -9,5 +9,5 @@ module.exports = (date, language) => {
         language = 'pl'
     };
     moment.locale(language);
-    return moment(date).fromNow();
+    return moment(date).format('LL');
 };

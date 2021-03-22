@@ -128,7 +128,7 @@ button:
   skip: Пропустить »
   edit: Редактировать
   delete: Удалить
-  viewOnPlatform: Посмотреть на платформе
+  viewOnPlatform: Открыть
   editTitle: Заголовок
   editDescription: Описание
   yesDelete: Да, удалить эту карточку
