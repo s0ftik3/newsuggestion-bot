@@ -1,18 +1,18 @@
 const User = require('../../database/models/User');
 const Card = require('../../database/models/Card');
+const Markup = require('telegraf/markup');
 const cookieChecker = require('../../scripts/cookieChecker');
 const config = require('../../../config');
 
 module.exports = () => async (ctx) => {
     try {
-        if (ctx.message.text.match(/https:\/\/bugs.telegram.org\/c\/([0-9]+)/g) === null) return ctx.reply('No urls detected.');
+        ctx.answerCbQuery('Deleting the card...');
 
-        const card_url = ctx.message.text.match(/https:\/\/bugs.telegram.org\/c\/([0-9]+)/g)[0];
-        const reason = ctx.message.text.replace(/\/delete https:\/\/bugs.telegram.org\/c\/(.+?)/g, '').trimStart();
-
-        if (reason.length <= 0) return ctx.reply("There's must be a reason.");
-
-        const cookie = await cookieChecker().then((response) => response);
+        const card_id = ctx.match[0].split(':')[1];
+        const index = ctx.match.input.split(':')[2];
+        const card = await Card.find({ card_id: card_id }).then((response) => response[0]);
+        const user = await User.find({ id: card.author }).then((response) => response[0]);
+        const cookie = await cookieChecker();
 
         const Platform = require('../../platform/platform');
         const platform = new Platform({
@@ -21,33 +21,26 @@ module.exports = () => async (ctx) => {
             token: cookie.cookies[0].value,
         });
 
-        const card = await Card.find({ url: card_url }).then((response) => response[0]);
-        if (card === undefined) return ctx.reply('No cards found.');
-        const user = await User.find({ id: card.author }).then((response) => response[0]);
-        if (user === undefined) return ctx.reply('No users found.');
+        platform.deleteSuggestion({ url_id: card.url.replace(/https:\/\/bugs.telegram.org\/c\//g, '') }).then(async () => {
+            await Card.deleteOne({ card_id: card_id });
 
-        // Not matter what platform actually returns, if I delete suggestion, it must be deleted from everywhere
-        // so even if it's already removed from the platform, I gotta notify user and remove it from
-        // my database.
-        platform.deleteSuggestion({ url_id: card.url.replace(/https:\/\/bugs.telegram.org\/c\//g, '') }).then(() => {
-            ctx.reply('Deleted the card.');
+            ctx.editMessageText('The card has been deleted.', {
+                reply_markup: Markup.inlineKeyboard([Markup.callbackButton(ctx.i18n.t('« Back',), `adminBack:${index}`)])
+            });
 
             ctx.telegram.sendMessage(
                 user.id,
                 ctx.i18n.t(user.language, 'service.cardDeleted', {
                     title: card.title,
-                    reason: reason,
+                    reason: 'Moderators decided to remove your card.',
                 }),
                 {
                     parse_mode: 'Markdown',
                 }
-            );
+            ).catch(() => {});
 
-            // Delete message from the group chat and service message about pin.
-            ctx.telegram.deleteMessage('@' + config.chat, card.chatMessageId);
-            ctx.telegram.deleteMessage('@' + config.chat, card.chatMessageId + 1);
-
-            Card.deleteOne({ card_id: card.card_id });
+            ctx.telegram.deleteMessage('@' + config.chat, card.chatMessageId).catch(() => {});
+            ctx.telegram.deleteMessage('@' + config.chat, card.chatMessageId + 1).catch(() => {});
         });
     } catch (err) {
         console.error(err);

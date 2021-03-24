@@ -110,7 +110,7 @@ module.exports = async () => {
                     )
                     .then((response) => {
                         Card.updateOne({ card_id: card_id }, { $set: { chatMessageId: response.message_id } }, () => {});
-                        telegram.pinChatMessage('@' + config.chat, response.message_id);
+                        telegram.pinChatMessage('@' + config.chat, response.message_id, { disable_notification: true });
                     });
             });
 

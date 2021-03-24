@@ -42,6 +42,11 @@ const userSchema = new mongoose.Schema({
         required: false,
         default: false
     },
+    role: {
+        type: String,
+        required: false,
+        default: 'user'
+    },
     timestamp: {
         type: Date,
         required: false,

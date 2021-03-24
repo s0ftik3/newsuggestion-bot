@@ -46,11 +46,14 @@ const {
     handleDelete,
     handleReset,
     handleDeleteAdmin,
-    handleDebug,
-    handleBan,
-    handlePardon,
     handleSettings,
-    handleInline
+    handleInline,
+    handleMenu,
+    handleStats,
+    handleManageCards,
+    handleAdminView,
+    handleManageUsers,
+    handleAdminViewUser
 } = require('./src/handlers');
 
 const description = new Scene('description');
@@ -80,11 +83,8 @@ bot.start(handleStart());
 bot.command('me', handleMe());
 bot.command(['new', 'suggest'], handleChooseApp());
 bot.command('settings', handleSettings());
-bot.command('delete', handleDeleteAdmin());
 bot.command('reset', handleReset());
-bot.command('debug', handleDebug());
-bot.command('ban', handleBan());
-bot.command('pardon', handlePardon());
+bot.command('menu', handleMenu());
 
 bot.action('backStart', handleStart());
 bot.action('language', handleLanguage());
@@ -95,6 +95,22 @@ bot.action('check', handleCheck());
 bot.action('cancel', handleCancel());
 bot.action('publish', handlePublish());
 bot.action('settings', handleSettings());
+bot.action('mCards', handleManageCards());
+bot.action('mUsers', handleManageUsers());
+bot.action(/adminForward:\w+/, handleManageCards());
+bot.action(/adminBackward:\w+/, handleManageCards());
+bot.action(/adminBack:\w+/, handleManageCards());
+bot.action(/adminView:\w+/, handleAdminView());
+bot.action(/adminDelete:\w+/, handleDeleteAdmin());
+bot.action(/adminUsersForward:\w+/, handleManageUsers());
+bot.action(/adminUsersBackward:\w+/, handleManageUsers());
+bot.action(/adminUsersBack:\w+/, handleManageUsers());
+bot.action(/adminUsersView:\w+/, handleAdminViewUser());
+bot.action(/adminPromote:\w+/, handleAdminViewUser());
+bot.action(/adminBan:\w+/, handleAdminViewUser());
+bot.action(/adminUsersDelete:\w+/, handleAdminViewUser());
+bot.action('vStats', handleStats());
+bot.action('backAdmin', handleMenu());
 bot.action(/app:\w+/, handleDescription());
 bot.action(/setLang:\w+/, handleLanguage());
 bot.action(/allow:\w+/, handleAllowSendMessages());

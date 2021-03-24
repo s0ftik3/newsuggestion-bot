@@ -21,9 +21,12 @@ module.exports = {
     handleDelete: require('./card/delete'),
     handleReset: require('./admin/reset'),
     handleDeleteAdmin: require('./admin/delete'),
-    handleDebug: require('./admin/debug'),
-    handleBan: require('./admin/ban'),
-    handlePardon: require('./admin/pardon'),
     handleSettings: require('./user/settings'),
-    handleInline: require('./user/inline')
+    handleInline: require('./user/inline'),
+    handleMenu: require('./admin/menu'),
+    handleStats: require('./admin/statistics'),
+    handleManageCards: require('./admin/cards'),
+    handleAdminView: require('./admin/view'),
+    handleManageUsers: require('./admin/users'),
+    handleAdminViewUser: require('./admin/userView')
 }
