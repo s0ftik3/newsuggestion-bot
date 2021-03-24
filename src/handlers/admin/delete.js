@@ -23,6 +23,8 @@ module.exports = () => async (ctx) => {
 
         platform.deleteSuggestion({ url_id: card.url.replace(/https:\/\/bugs.telegram.org\/c\//g, '') }).then(async () => {
             await Card.deleteOne({ card_id: card_id });
+            const _index = ctx.session.cards.indexOf(ctx.session.cards.find((e) => e.card_id == card_id));
+            ctx.session.cards.splice(_index, 1);
 
             ctx.editMessageText('The card has been deleted.', {
                 reply_markup: Markup.inlineKeyboard([Markup.callbackButton(ctx.i18n.t('« Back',), `adminBack:${index}`)])
