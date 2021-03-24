@@ -13,6 +13,7 @@ module.exports = () => async (ctx) => {
     try {
         const user = await getUserSession(ctx).then((response) => response);
         const cookie = await cookieChecker().then((response) => response);
+        let msg_id;
 
         ctx.i18n.locale(user.language);
         if (ctx.session.newCard.media === null) {
@@ -46,7 +47,7 @@ module.exports = () => async (ctx) => {
                 const url = response.suggestion;
                 url === undefined ? (state = 'notPublished') : (state = 'published');
 
-                await ctx.editMessageText(ctx.i18n.t(`newSuggestion.${state}`, { title: card.title, url: url }), {
+                await ctx.telegram.editMessageText(ctx.from.id, msg_id, 0, ctx.i18n.t(`newSuggestion.${state}`, { title: card.title, url: url }), {
                     parse_mode: 'Markdown',
                     disable_web_page_preview: true
                 });
