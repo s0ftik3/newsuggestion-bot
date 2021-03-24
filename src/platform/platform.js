@@ -135,7 +135,7 @@ module.exports = class Platform {
             .then((response) => response)
             .catch((err) => console.error(err));
 
-        let result = await submitSuggestion({
+        const result = await submitSuggestion({
             hash: hash,
             msg_id: parseInt(stage6) + 1,
             stel_ln: stel_ln,

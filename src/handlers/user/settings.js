@@ -8,6 +8,12 @@ module.exports = () => async (ctx) => {
         const user = await getUserSession(ctx);
         ctx.i18n.locale(user.language);
 
+        let bottom = [Markup.callbackButton(ctx.i18n.t('button.back'), 'backStart')];
+
+        if (user.role === 'admin' || user.role === 'moderator') {
+            bottom = [Markup.callbackButton('Admin panel', 'adminPanel'), Markup.callbackButton(ctx.i18n.t('button.back'), 'backStart')];
+        }
+
         if (ctx.updateType === 'callback_query') {
             const action = Array.isArray(ctx.match) ? ctx.match[0].split(':')[0] : ctx.match;
 
@@ -33,7 +39,7 @@ module.exports = () => async (ctx) => {
                                 ),
                                 Markup.urlButton(ctx.i18n.t('button.reportBug'), `https://t.me/id160`)
                             ],
-                            [Markup.callbackButton(ctx.i18n.t('button.back'), 'backStart')]
+                            bottom
                         ]),
                     });
                     
@@ -67,7 +73,7 @@ module.exports = () => async (ctx) => {
                                 ),
                                 Markup.urlButton(ctx.i18n.t('button.reportBug'), `https://t.me/id160`)
                             ],
-                            [Markup.callbackButton(ctx.i18n.t('button.back'), 'backStart')]
+                            bottom
                         ]),
                     });
 
@@ -99,7 +105,7 @@ module.exports = () => async (ctx) => {
                                 ),
                                 Markup.urlButton(ctx.i18n.t('button.reportBug'), `https://t.me/id160`)
                             ],
-                            [Markup.callbackButton(ctx.i18n.t('button.back'), 'backStart')]
+                            bottom
                         ]),
                     });
 
@@ -131,7 +137,7 @@ module.exports = () => async (ctx) => {
                         ),
                         Markup.urlButton(ctx.i18n.t('button.reportBug'), `https://t.me/id160`)
                     ],
-                    [Markup.callbackButton(ctx.i18n.t('button.back'), 'backStart')]
+                    bottom
                 ]),
             });
         }

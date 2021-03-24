@@ -40,7 +40,18 @@ module.exports = async (ctx) => {
 
         if (file.size > 15728640) return 'MAX_SIZE_EXCEEDED'; // 15Mb
 
-        ctx.session.newCard.media = { type: type, data: file.path, size: file.size, file_id: file_id };
+        const imageData = await axios({
+            method: 'GET',
+            url: `https://api.telegram.org/file/bot${config.token}/${file.path}`,
+            responseType: 'stream',
+        }).then((response) => response.data);
+
+        ctx.session.newCard.media = { 
+            type: type, 
+            data: imageData, 
+            size: file.size, 
+            file_id: file_id
+        };
     } catch (err) {
         console.error(err);
     }

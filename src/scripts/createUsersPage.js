@@ -25,9 +25,16 @@ module.exports = async (ctx, data) => {
                 const keyboardSlider = [Markup.callbackButton(`1 / ${pagesNum}`, `nothing`), Markup.callbackButton('»', `adminUsersForward:1`)];
     
                 for (let i = 0; i < limitUsersOnPage; i++) {
-                    const name = data[i].firstName.length > 25 ? data[i].firstName.slice(0, 25).trim() + '...' : data[i].firstName;
-    
-                    keyboard.push(Markup.callbackButton(name.replace(/[^\x20-\x7E]+/g, ''), `adminUsersView:${data[i].id}:0`));
+                    let name = data[i].firstName.length > 25 ? data[i].firstName.slice(0, 25).trim() + '...' : data[i].firstName;
+                    if (name.match(/[^\x20-\x7E]+/g,)) {
+                        if (data[i].username === null) {
+                            name = data[i].id.length > 25 ? data[i].id.slice(0, 25).trim() + '...' : data[i].id;
+                        } else {
+                            name = data[i].username.length > 25 ? '@' + data[i].username.slice(0, 25).trim() + '...' : '@' + data[i].username;
+                        }
+                    }
+
+                    keyboard.push(Markup.callbackButton(name, `adminUsersView:${data[i].id}:0`));
                 }  
 
                 const keyboardToSend = Markup.inlineKeyboard(keyboard, { columns: 3 });
@@ -40,9 +47,16 @@ module.exports = async (ctx, data) => {
                 });
             } else {
                 for (let i = 0; i < data.length; i++) {
-                    const name = data[i].firstName.length > 25 ? data[i].firstName.slice(0, 25).trim() + '...' : data[i].firstName;
-    
-                    keyboard.push(Markup.callbackButton(name.replace(/[^\x20-\x7E]+/g, ''), `adminUsersView:${data[i].id}:0`));
+                    let name = data[i].firstName.length > 25 ? data[i].firstName.slice(0, 25).trim() + '...' : data[i].firstName;
+                    if (name.match(/[^\x20-\x7E]+/g,)) {
+                        if (data[i].username === null) {
+                            name = data[i].id.length > 25 ? data[i].id.slice(0, 25).trim() + '...' : data[i].id;
+                        } else {
+                            name = data[i].username.length > 25 ? '@' + data[i].username.slice(0, 25).trim() + '...' : '@' + data[i].username;
+                        }
+                    }
+
+                    keyboard.push(Markup.callbackButton(name, `adminUsersView:${data[i].id}:0`));
                 }
     
                 const keyboardToSend = Markup.inlineKeyboard(keyboard, { columns: 3 });
@@ -75,9 +89,16 @@ module.exports = async (ctx, data) => {
             }
 
             for (let i = 0; i < newCard.length; i++) {
-                const name = newCard[i].firstName.length > 25 ? newCard[i].firstName.slice(0, 25).trim() + '...' : newCard[i].firstName;
+                let name = newCard[i].firstName.length > 25 ? newCard[i].firstName.slice(0, 25).trim() + '...' : newCard[i].firstName;
+                if (name.match(/[^\x20-\x7E]+/g,)) {
+                    if (newCard[i].username === null) {
+                        name = newCard[i].id.length > 25 ? newCard[i].id.slice(0, 25).trim() + '...' : newCard[i].id;
+                    } else {
+                        name = newCard[i].username.length > 25 ? '@' + newCard[i].username.slice(0, 25).trim() + '...' : '@' + newCard[i].username;
+                    }
+                }
 
-                newKeyboard.push(Markup.callbackButton(name.replace(/[^\x20-\x7E]+/g, ''), `adminUsersView:${newCard[i].id}:${index}`));
+                newKeyboard.push(Markup.callbackButton(name, `adminUsersView:${newCard[i].id}:${index}`));
             }
 
             const keyboardToSend = Markup.inlineKeyboard(newKeyboard, { columns: 3 });
@@ -110,9 +131,16 @@ module.exports = async (ctx, data) => {
             }
 
             for (let i = 0; i < newCard.length; i++) {
-                const name = newCard[i].firstName.length > 25 ? newCard[i].firstName.slice(0, 25).trim() + '...' : newCard[i].firstName;
+                let name = newCard[i].firstName.length > 25 ? newCard[i].firstName.slice(0, 25).trim() + '...' : newCard[i].firstName;
+                if (name.match(/[^\x20-\x7E]+/g,)) {
+                    if (newCard[i].username === null) {
+                        name = newCard[i].id.length > 25 ? newCard[i].id.slice(0, 25).trim() + '...' : newCard[i].id;
+                    } else {
+                        name = newCard[i].username.length > 25 ? '@' + newCard[i].username.slice(0, 25).trim() + '...' : '@' + newCard[i].username;
+                    }
+                }
 
-                newKeyboard.push(Markup.callbackButton(name.replace(/[^\x20-\x7E]+/g, ''), `adminUsersView:${newCard[i].id}:${index}`));
+                newKeyboard.push(Markup.callbackButton(name, `adminUsersView:${newCard[i].id}:${index}`));
             }
 
             const keyboardToSend = Markup.inlineKeyboard(newKeyboard, { columns: 3 });
@@ -153,9 +181,16 @@ module.exports = async (ctx, data) => {
             }
 
             for (let i = 0; i < result[n].length; i++) {
-                const name = result[n][i].firstName.length > 25 ? result[n][i].firstName.slice(0, 25).trim() + '...' : result[n][i].firstName;
+                let name = result[n][i].firstName.length > 25 ? result[n][i].firstName.slice(0, 25).trim() + '...' : result[n][i].firstName;
+                if (name.match(/[^\x20-\x7E]+/g,)) {
+                    if (result[n][i].username === null) {
+                        name = result[n][i].id.length > 25 ? result[n][i].id.slice(0, 25).trim() + '...' : result[n][i].id;
+                    } else {
+                        name = result[n][i].username.length > 25 ? '@' + result[n][i].username.slice(0, 25).trim() + '...' : '@' + result[n][i].username;
+                    }
+                }
         
-                keyboard.push(Markup.callbackButton(name.replace(/[^\x20-\x7E]+/g, ''), `adminUsersView:${result[n][i].id}:${index}`));
+                keyboard.push(Markup.callbackButton(name, `adminUsersView:${result[n][i].id}:${index}`));
             }
 
             const keyboardToSend = Markup.inlineKeyboard(keyboard, { columns: 3 });

@@ -84,7 +84,6 @@ bot.command('me', handleMe());
 bot.command(['new', 'suggest'], handleChooseApp());
 bot.command('settings', handleSettings());
 bot.command('reset', handleReset());
-bot.command('menu', handleMenu());
 
 bot.action('backStart', handleStart());
 bot.action('language', handleLanguage());
@@ -95,6 +94,7 @@ bot.action('check', handleCheck());
 bot.action('cancel', handleCancel());
 bot.action('publish', handlePublish());
 bot.action('settings', handleSettings());
+bot.action('adminPanel', handleMenu());
 bot.action('mCards', handleManageCards());
 bot.action('mUsers', handleManageUsers());
 bot.action(/adminForward:\w+/, handleManageCards());
