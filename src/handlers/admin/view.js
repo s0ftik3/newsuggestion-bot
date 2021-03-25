@@ -61,6 +61,14 @@ module.exports = () => async (ctx) => {
             const like = $('span.cd-issue-like.bt-active-btn').find('span[class="value"]').attr('data-value');
             const dislike = $('span.cd-issue-dislike.bt-active-btn').find('span[class="value"]').attr('data-value');
             const comments = $('span.bt-header-cnt').text();
+            let warning = '';
+            if (response.data.ls === undefined) {
+                warning = '❗️ <b>Warning: the suggestion is removed from the platform by moderators.</b>\n\n';
+                keyboard = [
+                    [Markup.callbackButton('Delete from database', `adminDelete:${card_id}:${index}`)],
+                    [Markup.callbackButton(ctx.i18n.t('« Back',), `adminBack:${index}`)]
+                ];
+            }
 
             const meta = {
                 like: like == undefined ? 0 : like,
@@ -69,6 +77,7 @@ module.exports = () => async (ctx) => {
             };
 
             ctx.editMessageText(
+                `${warning}<b>ID:</b> <i>${card.card_id}</i>\n` +
                 `<b>Title:</b> <i>${card.title}</i>\n` +
                 `<b>Author:</b> <i>${card.user.firstName}</i> ${(card.user.username !== null ? `(@${card.user.username})` : '')}\n\n` +
                 `<b>Description:</b>\n` +

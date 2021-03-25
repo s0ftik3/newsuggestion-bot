@@ -3,11 +3,16 @@ const Card = require('../../database/models/Card');
 const Markup = require('telegraf/markup');
 const cookieChecker = require('../../scripts/cookieChecker');
 const config = require('../../../config');
+const path = require('path');
+const TelegrafI18n = require('telegraf-i18n');
+const i18n = new TelegrafI18n({
+    directory: path.resolve(__dirname, '../../locales'),
+    defaultLanguage: 'en',
+    defaultLanguageOnMissing: true,
+});
 
 module.exports = () => async (ctx) => {
     try {
-        ctx.answerCbQuery('Deleting the card...');
-
         const card_id = ctx.match[0].split(':')[1];
         const index = ctx.match.input.split(':')[2];
         const card = await Card.find({ card_id: card_id }).then((response) => response[0]);
@@ -32,7 +37,7 @@ module.exports = () => async (ctx) => {
 
             ctx.telegram.sendMessage(
                 user.id,
-                ctx.i18n.t(user.language, 'service.cardDeleted', {
+                i18n.t(user.language, 'service.cardDeleted', {
                     title: card.title,
                     reason: 'Moderators decided to remove your card.',
                 }),
@@ -44,6 +49,8 @@ module.exports = () => async (ctx) => {
             ctx.telegram.deleteMessage('@' + config.chat, card.chatMessageId).catch(() => {});
             ctx.telegram.deleteMessage('@' + config.chat, card.chatMessageId + 1).catch(() => {});
         });
+
+        ctx.answerCbQuery();
     } catch (err) {
         console.error(err);
     }
