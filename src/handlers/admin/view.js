@@ -89,7 +89,9 @@ module.exports = () => async (ctx) => {
                     reply_markup: Markup.inlineKeyboard(keyboard),
                 }
             );
-
+            
+            ctx.scene.leave('titleEdit');
+            ctx.scene.leave('descriptionEdit');
             ctx.answerCbQuery();
         });
     } catch (err) {

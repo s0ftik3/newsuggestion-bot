@@ -17,12 +17,12 @@ module.exports = () => async (ctx) => {
             const whatToEdit = ctx.session.__scenes.current;
             const cardToEdit = ctx.session.currentlyEditing;
             const card = ctx.session.cards.find((e) => e.card_id == cardToEdit);
-            if ((user.cards.filter((e) => e.card_id === cardToEdit)).length <= 0) {
-                if (user.role !== 'admin' || user.role !== 'moderator') {
+            if (user.cards.find(e => e.card_id == cardToEdit) === undefined) {
+                if (user.role != 'admin' && user.role != 'moderator') {
                     return;
                 }
             }
-            const isAdmin = (user.role !== 'admin' || user.role !== 'moderator') ? false : true;
+            const isAdmin = (user.role != 'admin' && user.role != 'moderator') ? false : true;
             const cancelButton = (isAdmin) ? 'adminBackward' : 'backward';
 
             const Platform = require('../../platform/platform');
