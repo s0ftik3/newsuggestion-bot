@@ -143,7 +143,7 @@ module.exports = () => async (ctx) => {
     
             if (id === config.admin) {
                 buttons = [
-                    Markup.callbackButton('You can\'t do anything to God.', `nothing`)
+                    Markup.callbackButton('You can\'t do anything to the God.', `nothing`)
                 ];
             }
 
