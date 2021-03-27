@@ -5,7 +5,7 @@ const getUser = require('../database/getUser');
 module.exports = async (ctx) => {
     try {
         if (ctx.session.user === undefined) {
-            const user = await getUser(ctx.from.id).then((response) => response);
+            const user = await getUser(ctx.from.id);
             ctx.session.user = user;
 
             return user;
