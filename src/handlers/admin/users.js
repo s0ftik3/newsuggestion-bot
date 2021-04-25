@@ -1,5 +1,6 @@
 const User = require('../../database/models/User');
 const createUsersPage = require('../../scripts/createUsersPage');
+const filterByMods = require('../../scripts/filterByMods');
 
 module.exports = () => async (ctx) => {
     try {
@@ -11,7 +12,7 @@ module.exports = () => async (ctx) => {
             });
         }
 
-        createUsersPage(ctx, data.reverse());
+        createUsersPage(ctx, filterByMods(data.reverse()));
     } catch (error) {
         console.error(err);
     }

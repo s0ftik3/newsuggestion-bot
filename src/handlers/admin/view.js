@@ -34,18 +34,18 @@ module.exports = () => async (ctx) => {
             [
                 Markup.urlButton('View', card.url),
                 Markup.callbackButton('Edit', `edit:${card_id}:${index}:admin`),
-                Markup.callbackButton('Delete', `adminDelete:${card_id}:${index}`),
+                Markup.callbackButton('Delete', `adminDelete:${card_id}:${index}`)
             ],
-            [Markup.callbackButton(ctx.i18n.t('« Back',), `adminBack:${index}`)]
+            [Markup.callbackButton(ctx.i18n.t('« Back'), `adminBack:${index}`)]
         ];
 
         if (new Date().getTime() - date.getTime() >= 90000000) {
             keyboard = [
                 [
                     Markup.urlButton('View', card.url),
-                    Markup.callbackButton('Delete from DB', `adminDelete:${card_id}:${index}`)
+                    Markup.callbackButton('Delete from database', `adminDelete:${card_id}:${index}`)
                 ],
-                [Markup.callbackButton(ctx.i18n.t('« Back',), `adminBack:${index}`)]
+                [Markup.callbackButton(ctx.i18n.t('« Back'), `adminBack:${index}`)]
             ];
         }
 
@@ -63,10 +63,10 @@ module.exports = () => async (ctx) => {
             const comments = $('span.bt-header-cnt').text();
             let warning = '';
             if (response.data.ls === undefined) {
-                warning = '❗️ <b>Warning: the suggestion is removed from the platform by moderators.</b>\n\n';
+                warning = '❗️ <b>Removed from the platform.</b>';
                 keyboard = [
                     [Markup.callbackButton('Delete from database', `adminDelete:${card_id}:${index}`)],
-                    [Markup.callbackButton(ctx.i18n.t('« Back',), `adminBack:${index}`)]
+                    [Markup.callbackButton(ctx.i18n.t('« Back'), `adminBack:${index}`)]
                 ];
             }
 
@@ -77,16 +77,16 @@ module.exports = () => async (ctx) => {
             };
 
             ctx.editMessageText(
-                `${warning}<b>ID:</b> <i>${card.card_id}</i>\n` +
                 `<b>Title:</b> <i>${card.title}</i>\n` +
                 `<b>Author:</b> <i>${card.user.firstName}</i> ${(card.user.username !== null ? `(@${card.user.username})` : '')}\n\n` +
                 `<b>Description:</b>\n` +
                 `<i>${card.description === undefined ? 'Not specified.' : card.description}</i>\n\n` +
-                `<b>Stats:</b> <i>👍 ${meta.like} 👎 ${meta.dislike} 💬 ${meta.comments}</i>\n` +
-                `<b>Creation date:</b> <i>${publishedAt}</i>`,
+                `<b>Meta:</b> <i>👍 ${meta.like} 👎 ${meta.dislike} 💬 ${meta.comments}</i>\n` +
+                `<b>Creation date:</b> <i>${publishedAt}</i>\n` +
+                `<b>ID:</b> <i>${card.card_id} ${warning}</i>`,
                 {
                     parse_mode: 'HTML',
-                    reply_markup: Markup.inlineKeyboard(keyboard),
+                    reply_markup: Markup.inlineKeyboard(keyboard)
                 }
             );
             

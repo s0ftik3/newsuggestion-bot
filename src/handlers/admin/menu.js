@@ -6,7 +6,7 @@ module.exports = () => async (ctx) => {
         const user = await User.find({ id: ctx.from.id }).then(response => response[0]);
 
         if (user.role === 'moderator') {
-            ctx.editMessageText(`Hello, *${ctx.from.first_name}*!\nYou\'re logged in as: *${user.role}*.`, {
+            ctx.editMessageText(`Hello, *${ctx.from.first_name}*! (${user.role})`, {
                 parse_mode: 'Markdown',
                 reply_markup: Markup.inlineKeyboard([
                     [Markup.callbackButton('Manage cards', 'mCards')],
@@ -14,11 +14,10 @@ module.exports = () => async (ctx) => {
                 ])
             });
         } else if (user.role === 'admin') {
-            ctx.editMessageText(`Hello, *${ctx.from.first_name}*!\nYou\'re logged in as: *${user.role}*.`, {
+            ctx.editMessageText(`Hello, *${ctx.from.first_name}*! (${user.role})`, {
                 parse_mode: 'Markdown',
                 reply_markup: Markup.inlineKeyboard([
-                    [Markup.callbackButton('Manage cards', 'mCards')],
-                    [Markup.callbackButton('Manage users', 'mUsers')],
+                    [Markup.callbackButton('Manage cards', 'mCards'), Markup.callbackButton('Manage users', 'mUsers')],
                     [Markup.callbackButton('View statistics', 'vStats')],
                     [Markup.callbackButton(ctx.i18n.t('button.back'), 'settings')]
                 ])

@@ -4,8 +4,6 @@ const Markup = require('telegraf/markup');
 
 module.exports = () => async (ctx) => {
     try {
-        ctx.answerCbQuery('Please standby.');
-
         const users = await User.find();
         const cards = await Card.find();
 
@@ -19,6 +17,8 @@ module.exports = () => async (ctx) => {
             parse_mode: 'HTML',
             reply_markup: Markup.inlineKeyboard([Markup.callbackButton('« Back', 'backAdmin')])
         });
+
+        ctx.answerCbQuery();
     } catch (err) {
         console.error(err);
     }
