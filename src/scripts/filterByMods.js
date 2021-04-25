@@ -5,7 +5,7 @@ module.exports = (data) => {
         const arr = data;
         const moderators = arr.filter(e => e.role === 'moderator');
 
-        for (i = 0; i < moderators.length; i++) {
+        for (let i = 0; i < moderators.length; i++) {
             const moderator = moderators[i];
             const index = arr.indexOf(moderator);
             arr.splice(index, 1);
