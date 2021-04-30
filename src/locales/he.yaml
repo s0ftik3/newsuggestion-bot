@@ -144,4 +144,6 @@ application:
   tgmac: טלגרם לmacos
   tgx: טלגרם X לאנדרואיד
   tgweb: טלגרם ווב
+  tgwebk: Telegram Web (K version)
+  tgwebz: Telegram Web (Z version)
   ddapp: לא קשור לאפליקציות האלה/ צד שרת

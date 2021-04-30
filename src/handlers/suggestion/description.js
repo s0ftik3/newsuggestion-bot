@@ -8,7 +8,9 @@ const application = {
     tgmac: 3,
     tgx: 4,
     tgweb: 5,
-    ddapp: 6,
+    tgwebk: 6,
+    tgwebz: 7,
+    ddapp: 8
 };
 
 module.exports = () => async (ctx) => {

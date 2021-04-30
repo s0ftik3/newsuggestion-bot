@@ -28,7 +28,9 @@ module.exports = () => async (ctx) => {
                         Markup.callbackButton(ctx.i18n.t('application.tgmac'), 'app:tgmac'),
                         Markup.callbackButton(ctx.i18n.t('application.tgx'), 'app:tgx'),
                         Markup.callbackButton(ctx.i18n.t('application.tgweb'), 'app:tgweb'),
-                        Markup.callbackButton(ctx.i18n.t('application.ddapp'), 'app:ddapp'),
+                        Markup.callbackButton(ctx.i18n.t('application.tgwebk'), 'app:tgwebk'),
+                        Markup.callbackButton(ctx.i18n.t('application.tgwebz'), 'app:tgwebz'),
+                        Markup.callbackButton(ctx.i18n.t('application.ddapp'), 'app:ddapp')
                     ],
                     { columns: 1 }
                 ),
@@ -45,7 +47,9 @@ module.exports = () => async (ctx) => {
                         Markup.callbackButton(ctx.i18n.t('application.tgmac'), 'app:tgmac'),
                         Markup.callbackButton(ctx.i18n.t('application.tgx'), 'app:tgx'),
                         Markup.callbackButton(ctx.i18n.t('application.tgweb'), 'app:tgweb'),
-                        Markup.callbackButton(ctx.i18n.t('application.ddapp'), 'app:ddapp'),
+                        Markup.callbackButton(ctx.i18n.t('application.tgwebk'), 'app:tgwebk'),
+                        Markup.callbackButton(ctx.i18n.t('application.tgwebz'), 'app:tgwebz'),
+                        Markup.callbackButton(ctx.i18n.t('application.ddapp'), 'app:ddapp')
                     ],
                     { columns: 1 }
                 ),

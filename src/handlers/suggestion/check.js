@@ -20,7 +20,9 @@ module.exports = () => async (ctx) => {
             3: ctx.i18n.t('application.tgmac'),
             4: ctx.i18n.t('application.tgx'),
             5: ctx.i18n.t('application.tgweb'),
-            6: ctx.i18n.t('application.ddapp'),
+            6: ctx.i18n.t('application.tgwebk'),
+            7: ctx.i18n.t('application.tgwebz'),
+            8: ctx.i18n.t('application.ddapp')
         };
 
         if (ctx.session.newCard.media === null) {

@@ -143,4 +143,6 @@ application:
   tgmac: Telegram для macOS
   tgx: Telegram X для Android
   tgweb: Веб-версія Telegram
+  tgwebk: Telegram Web (K version)
+  tgwebz: Telegram Web (Z version)
   ddapp: Чи не залежить від додатка
