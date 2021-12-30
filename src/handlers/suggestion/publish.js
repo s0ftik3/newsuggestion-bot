@@ -1,12 +1,12 @@
-const Card = require('../../database/models/Card');
-const User = require('../../database/models/User');
-const Queue = require('../../database/models/Queue');
-const getUserSession = require('../../scripts/getUserSession');
-const cookieChecker = require('../../scripts/cookieChecker');
-const saveFormatting = require('../../scripts/saveFormatting');
-const replyWithError = require('../../scripts/replyWithError');
-const Markup = require('telegraf/markup');
-const config = require('../../../config');
+const Card = require("../../database/models/Card");
+const User = require("../../database/models/User");
+const Queue = require("../../database/models/Queue");
+const getUserSession = require("../../scripts/getUserSession");
+const cookieChecker = require("../../scripts/cookieChecker");
+const saveFormatting = require("../../scripts/saveFormatting");
+const replyWithError = require("../../scripts/replyWithError");
+const Markup = require("telegraf/markup");
+const config = require("../../../config");
 const queue = new Set();
 
 module.exports = () => async (ctx) => {
@@ -15,15 +15,25 @@ module.exports = () => async (ctx) => {
         const cookie = await cookieChecker().then((response) => response);
         let msg_id;
 
+        if (user.banned) return replyWithError(ctx, 20);
+
         ctx.i18n.locale(user.language);
         if (ctx.session.newCard.media === null) {
-            await ctx.editMessageText(ctx.i18n.t('newSuggestion.standby'), { parse_mode: 'Markdown' }).then((response) => (msg_id = response.message_id));
+            await ctx
+                .editMessageText(ctx.i18n.t("newSuggestion.standby"), {
+                    parse_mode: "Markdown",
+                })
+                .then((response) => (msg_id = response.message_id));
         } else {
             ctx.deleteMessage();
-            await ctx.reply(ctx.i18n.t('newSuggestion.standby'), { parse_mode: 'Markdown' }).then((response) => (msg_id = response.message_id));
+            await ctx
+                .reply(ctx.i18n.t("newSuggestion.standby"), {
+                    parse_mode: "Markdown",
+                })
+                .then((response) => (msg_id = response.message_id));
         }
 
-        const Platform = require('../../platform/platform');
+        const Platform = require("../../platform/platform");
         const platform = new Platform({
             ssid: cookie.cookies[2].value,
             dt: cookie.cookies[1].value,
@@ -32,7 +42,10 @@ module.exports = () => async (ctx) => {
 
         const card = {
             title: ctx.session.newCard.title,
-            description: saveFormatting(ctx.session.newCard.description, ctx.session.newCard.entities),
+            description: saveFormatting(
+                ctx.session.newCard.description,
+                ctx.session.newCard.entities,
+            ),
             app: ctx.session.newCard.app,
             media: ctx.session.newCard.media,
         };
@@ -45,15 +58,26 @@ module.exports = () => async (ctx) => {
                 queue.delete(0);
 
                 const url = response.suggestion;
-                url === undefined ? (state = 'notPublished') : (state = 'published');
+                url === undefined
+                    ? (state = "notPublished")
+                    : (state = "published");
 
-                await ctx.telegram.editMessageText(ctx.from.id, msg_id, 0, ctx.i18n.t(`newSuggestion.${state}`, { title: card.title, url: url }), {
-                    parse_mode: 'Markdown',
-                    disable_web_page_preview: true
-                });
+                await ctx.telegram.editMessageText(
+                    ctx.from.id,
+                    msg_id,
+                    0,
+                    ctx.i18n.t(`newSuggestion.${state}`, {
+                        title: card.title,
+                        url: url,
+                    }),
+                    {
+                        parse_mode: "Markdown",
+                        disable_web_page_preview: true,
+                    },
+                );
 
                 ctx.replyWithMarkdown(ctx.i18n.t(`newSuggestion.joinChat`), {
-                    disable_web_page_preview: true
+                    disable_web_page_preview: true,
                 });
 
                 if (url === undefined) return;
@@ -71,31 +95,67 @@ module.exports = () => async (ctx) => {
                         url: url || null,
                     };
                     const newCard = new Card(cardData);
-                    newCard.save().then(() => console.log(`${ctx.from.id}: new card created.`));
+                    newCard
+                        .save()
+                        .then(() =>
+                            console.log(`${ctx.from.id}: new card created.`),
+                        );
 
                     User.find({ id: ctx.from.id }).then((response) => {
-                        User.updateOne({ id: ctx.from.id }, { $set: { cards: [...response[0].cards, cardData] } }, () => {});
+                        User.updateOne(
+                            { id: ctx.from.id },
+                            {
+                                $set: {
+                                    cards: [...response[0].cards, cardData],
+                                },
+                            },
+                            () => {},
+                        );
                     });
 
                     ctx.telegram
                         .sendMessage(
-                            '@' + config.chat,
+                            "@" + config.chat,
                             ctx.i18n.t(`newSuggestion.publishedToChat`, {
                                 title: card.title,
                                 url: url,
-                                author: ctx.from.username === undefined ? ctx.from.first_name : '@' + ctx.from.username,
+                                author:
+                                    ctx.from.username === undefined
+                                        ? ctx.from.first_name
+                                        : "@" + ctx.from.username,
                             }),
                             {
-                                parse_mode: 'HTML',
+                                parse_mode: "HTML",
                                 reply_markup: Markup.inlineKeyboard(
-                                    [Markup.callbackButton(`👍`, `like:${card_id}`), Markup.callbackButton(`👎`, `dislike:${card_id}`)],
-                                    { columns: 2 }
+                                    [
+                                        Markup.callbackButton(
+                                            `👍`,
+                                            `like:${card_id}`,
+                                        ),
+                                        Markup.callbackButton(
+                                            `👎`,
+                                            `dislike:${card_id}`,
+                                        ),
+                                    ],
+                                    { columns: 2 },
                                 ),
-                            }
+                            },
                         )
                         .then((response) => {
-                            Card.updateOne({ card_id: card_id }, { $set: { chatMessageId: response.message_id } }, () => {});
-                            ctx.telegram.pinChatMessage('@' + config.chat, response.message_id, { disable_notification: true });
+                            Card.updateOne(
+                                { card_id: card_id },
+                                {
+                                    $set: {
+                                        chatMessageId: response.message_id,
+                                    },
+                                },
+                                () => {},
+                            );
+                            ctx.telegram.pinChatMessage(
+                                "@" + config.chat,
+                                response.message_id,
+                                { disable_notification: true },
+                            );
                         });
                 });
             });
@@ -108,12 +168,19 @@ module.exports = () => async (ctx) => {
                 author: ctx.from.id,
                 message_id: msg_id,
                 language: user.language,
-                authorName: ctx.from.username === undefined ? ctx.from.first_name : '@' + ctx.from.username,
+                authorName:
+                    ctx.from.username === undefined
+                        ? ctx.from.first_name
+                        : "@" + ctx.from.username,
             };
             const newCard = new Queue(cardData);
-            newCard.save().then(() => console.log(`${ctx.from.id}: new card queued.`));
+            newCard
+                .save()
+                .then(() => console.log(`${ctx.from.id}: new card queued.`));
 
-            ctx.editMessageText(ctx.i18n.t('newSuggestion.queue'), { parse_mode: 'Markdown' });
+            ctx.editMessageText(ctx.i18n.t("newSuggestion.queue"), {
+                parse_mode: "Markdown",
+            });
         }
 
         ctx.answerCbQuery();

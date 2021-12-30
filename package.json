@@ -1,31 +1,31 @@
 {
-  "name": "newsuggestion-bot",
-  "version": "3.8.10",
-  "description": "A Telegram bot that allows you to create suggestion cards on bugs.telegram.org in-app.",
-  "main": "index.js",
-  "repository": "https://github.com/s0ftik3/newsuggestion-bot",
-  "bugs": "https://github.com/s0ftik3/newsuggestion-bot/issues",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "keywords": [
-    "telegram",
-    "bot",
-    "telegram-bot"
-  ],
-  "author": "Vyacheslav",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "cheerio": "^1.0.0-rc.5",
-    "form-data": "^3.0.0",
-    "languagedetect": "^2.0.0",
-    "moment": "^2.29.1",
-    "mongoose": "^5.11.15",
-    "puppeteer": "^7.0.4",
-    "telegraf": "^3.38.0",
-    "telegraf-i18n": "^6.6.0",
-    "telegraf-ratelimit": "^2.0.0",
-    "translatte": "^3.0.0"
-  }
+    "name": "newsuggestion-bot",
+    "version": "3.8.11",
+    "description": "A Telegram bot that allows you to create suggestion cards on bugs.telegram.org in-app.",
+    "main": "index.js",
+    "repository": "https://github.com/s0ftik3/newsuggestion-bot",
+    "bugs": "https://github.com/s0ftik3/newsuggestion-bot/issues",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "keywords": [
+        "telegram",
+        "bot",
+        "telegram-bot"
+    ],
+    "author": "Vyacheslav",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "cheerio": "^1.0.0-rc.5",
+        "form-data": "^3.0.0",
+        "languagedetect": "^2.0.0",
+        "moment": "^2.29.1",
+        "mongoose": "^5.11.15",
+        "puppeteer": "^7.0.4",
+        "telegraf": "^3.38.0",
+        "telegraf-i18n": "^6.6.0",
+        "telegraf-ratelimit": "^2.0.0",
+        "translatte": "^3.0.0"
+    }
 }
