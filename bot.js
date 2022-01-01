@@ -21,7 +21,7 @@ const i18n = new TelegrafI18n({
 // const queueWorker = require('./src/scripts/queueWorker');
 // const commentsChecker = require('./src/scripts/commentsChecker.js');
 
-// const connect = require('./src/database/connect');
+const connect = require("./src/database/connect");
 
 const {
     handleStart,
@@ -138,7 +138,7 @@ bot.start(handleStart());
 
 bot.launch().then(async () => {
     console.log("The bot has been started.");
-    // connect();
+    connect();
     // setInterval(async () => {
     //     if (!commentChecking) {
     //         commentChecking = true;
