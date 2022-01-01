@@ -1,7 +1,10 @@
 language: 🇺🇦 Український
 
 service:
-    greeting: Unfortunately the bot is not maintained anymore. It has been banned on the platform due to people who sent spam on the platform via the bot. After the holidays the bot will be turned off forever. It's been good time, thanks to everyone and Happy New Year!
+    greeting: |
+        Unfortunately, the bot is not maintained anymore. It has been banned on the platform due to people who sent spam on the platform via the bot. 
+
+        After the holidays the bot will be turned off forever. It's been good time, thanks to everyone and Happy New Year!
     changeLang: Щоб змінити мову інтерфейсу, виберіть один з доступних мов нижче.
     changedLang: Ви успішно змінили мову інтерфейсу!
     suggestLanguage: |

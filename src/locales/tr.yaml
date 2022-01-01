@@ -1,7 +1,10 @@
 language: 🇹🇷 Türkçe
 
 service:
-    greeting: Unfortunately the bot is not maintained anymore. It has been banned on the platform due to people who sent spam on the platform via the bot. After the holidays the bot will be turned off forever. It's been good time, thanks to everyone and Happy New Year!
+    greeting: |
+        Unfortunately, the bot is not maintained anymore. It has been banned on the platform due to people who sent spam on the platform via the bot. 
+
+        After the holidays the bot will be turned off forever. It's been good time, thanks to everyone and Happy New Year!
     changeLang: Arayüz dilini değiştirmek için, aşağıdaki kullanılabilir dillerden birini seçin.
     changedLang: Arayüz dilini başarıyla değiştirdiniz!
     suggestLanguage: |
