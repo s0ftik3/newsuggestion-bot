@@ -1,149 +1,146 @@
 language: 🇹🇷 Türkçe
 
 service:
-  greeting: |
-    Hoş geldin, *${name}*!
+    greeting: Unfortunately the bot is not maintained anymore. It has been banned on the platform due to people who sent spam on the platform via the bot. After the holidays the bot will be turned off forever. It's been good time, thanks to everyone and Happy New Year!
+    changeLang: Arayüz dilini değiştirmek için, aşağıdaki kullanılabilir dillerden birini seçin.
+    changedLang: Arayüz dilini başarıyla değiştirdiniz!
+    suggestLanguage: |
+        Ayarlar'daki kullanılabilir diller listesini yavaş yavaş genişletiyoruz. Daha fazla dil bulmak ya da Telegram'ı çevirmemize yardımcı olmak için *Çeviri Platformu*'nu kontrol edebilirsiniz: translations.telegram.org
 
-    Direkt uygulama üzerinden bugs.telegram.org'a kartlar oluşturun.[ᅠ](https://i.ibb.co/yk0PMp5/preview.png)
-  changeLang: Arayüz dilini değiştirmek için, aşağıdaki kullanılabilir dillerden birini seçin.
-  changedLang: Arayüz dilini başarıyla değiştirdiniz!
-  suggestLanguage: |
-    Ayarlar'daki kullanılabilir diller listesini yavaş yavaş genişletiyoruz. Daha fazla dil bulmak ya da Telegram'ı çevirmemize yardımcı olmak için *Çeviri Platformu*'nu kontrol edebilirsiniz: translations.telegram.org
+        Aramayı açmak için sol menüdeki _Other languages_'a tıklayın. Dilinizi orada bulamıyorsanız, özel bir çeviri ekleyebilirsiniz: aramanın altındaki _Add a new language_'e tıklayın.
+    cardDeleted: |
+        😔 Ne yazık ki, «${title}» kartınız platformdan kaldırıldı.
 
-    Aramayı açmak için sol menüdeki _Other languages_'a tıklayın. Dilinizi orada bulamıyorsanız, özel bir çeviri ekleyebilirsiniz: aramanın altındaki _Add a new language_'e tıklayın.
-  cardDeleted: |
-    😔 Ne yazık ki, «${title}» kartınız platformdan kaldırıldı.
+        *Sebep:* ${reason}
+    settings: Burada kullanıcı tercihlerinizi değiştirebilirsiniz.
+    autoTranslateWarning: Otomatik çeviri etkin. Lütfen çevirinin her zaman doğru olmadığını unutmayın. Eğer öneriniz anlaşılmayan açıklama nedeniyle silinmişse, İngilizce öğrenin.
 
-    *Sebep:* ${reason}
-  settings: Burada kullanıcı tercihlerinizi değiştirebilirsiniz.
-  autoTranslateWarning: Otomatik çeviri etkin. Lütfen çevirinin her zaman doğru olmadığını unutmayın. Eğer öneriniz anlaşılmayan açıklama nedeniyle silinmişse, İngilizce öğrenin.
-  
 newSuggestion:
-  chooseApp: Hangi uygulamayı geliştirmemizi istersiniz?
-  description: |
-    Lütfen önerinizi aşağıya İngilizce olarak açıklayın 👇
+    chooseApp: Hangi uygulamayı geliştirmemizi istersiniz?
+    description: |
+        Lütfen önerinizi aşağıya İngilizce olarak açıklayın 👇
 
-    _Örneğin:_
-    _An option to translate particular chat messages using the context menu of the app._
+        _Örneğin:_
+        _An option to translate particular chat messages using the context menu of the app._
 
-    Başka bir dilde öneri göndermek için, lütfen destek ekibimiz ile iletişime geçin: _Ayarlar_ > _Bir Soru Sor._
-  media: |
-    Lütfen önerdiğiniz uygulamanın demo ekran görüntüsünü ya da videosunu gönderin. (Tek fotoğraf veya video dosyası)
+        Başka bir dilde öneri göndermek için, lütfen destek ekibimiz ile iletişime geçin: _Ayarlar_ > _Bir Soru Sor._
+    media: |
+        Lütfen önerdiğiniz uygulamanın demo ekran görüntüsünü ya da videosunu gönderin. (Tek fotoğraf veya video dosyası)
 
-    *Uyarı:* Özellik öneriniz herkese açık olacak, diğer kullanıcılar eklediğiniz tüm video ve ekran görüntülerini görebilecek. Lütfen herhangi bir özel bilgiyi göstermediklerinden emin olun – ya da diğerleriyle paylaşmak istemediğiniz şeyleri bulanıklaştırın/gizleyin.
+        *Uyarı:* Özellik öneriniz herkese açık olacak, diğer kullanıcılar eklediğiniz tüm video ve ekran görüntülerini görebilecek. Lütfen herhangi bir özel bilgiyi göstermediklerinden emin olun – ya da diğerleriyle paylaşmak istemediğiniz şeyleri bulanıklaştırın/gizleyin.
 
-    https://t.me/designers kanalında diğer Telegram kullanıcıları tarafından önerilen özellik uygulamalarını görmek isteyebilirsiniz.
-  title: Lütfen özellik öneriniz için başlık girin (250 karaktere kadar).
-  similar: Öneri tekrarlarından kaçınmak için, lütfen aşağıdaki benzer olanları kontrol edin.
-  see_similar: Benzer öneriler görüyor musunuz?
-  preview: |
-    <b>Başlık:</b> <code>${title}</code>
-    
-    <b>Açıklama:</b>
-    <code>${description}</code>
+        https://t.me/designers kanalında diğer Telegram kullanıcıları tarafından önerilen özellik uygulamalarını görmek isteyebilirsiniz.
+    title: Lütfen özellik öneriniz için başlık girin (250 karaktere kadar).
+    similar: Öneri tekrarlarından kaçınmak için, lütfen aşağıdaki benzer olanları kontrol edin.
+    see_similar: Benzer öneriler görüyor musunuz?
+    preview: |
+        <b>Başlık:</b> <code>${title}</code>
 
-    <b>Etiketler:</b> ${app}
+        <b>Açıklama:</b>
+        <code>${description}</code>
 
-    Bu öneri gönderilsin mi?
-  cancel: 👌 TAMAM! Yeni bir öneri yapmak için /new komutunu kullanın.
-  standby: 🕓 _Öneriniz platforma gönderiliyor..._
-  queue: 🐌 _Öneriniz sıraya alındı. Lütfen bekleyin..._
-  published: 🥳 [«${title}»](${url}) öneriniz platformda yayınlandı!
-  joinChat: Ayrıca sizin ve diğerlerinin önerilerini tartışmak için [grup sohbetimize](https://t.me/SuggestFeature) katılabilirsiniz.
-  notPublished: 😔 «${title}» öneriniz platformda yayınlanmadı.
+        <b>Etiketler:</b> ${app}
+
+        Bu öneri gönderilsin mi?
+    cancel: 👌 TAMAM! Yeni bir öneri yapmak için /new komutunu kullanın.
+    standby: 🕓 _Öneriniz platforma gönderiliyor..._
+    queue: 🐌 _Öneriniz sıraya alındı. Lütfen bekleyin..._
+    published: 🥳 [«${title}»](${url}) öneriniz platformda yayınlandı!
+    joinChat: Ayrıca sizin ve diğerlerinin önerilerini tartışmak için [grup sohbetimize](https://t.me/SuggestFeature) katılabilirsiniz.
+    notPublished: 😔 «${title}» öneriniz platformda yayınlanmadı.
 
 me:
-  info: |
-    Hakkında, düzenleme veya silme bilgisini görmek istediğiniz bir kart seçin.
+    info: |
+        Hakkında, düzenleme veya silme bilgisini görmek istediğiniz bir kart seçin.
 
-    *Not:* Sadece 24 saat ya da daha önce oluşturduğunuz kartları düzenleyebilir veya silebilirsiniz.
-  preview: |
-    <b>Başlık:</b> <i>${title}</i>
-    
-    <b>Açıklama:</b>
-    <i>${description}</i>
+        *Not:* Sadece 24 saat ya da daha önce oluşturduğunuz kartları düzenleyebilir veya silebilirsiniz.
+    preview: |
+        <b>Başlık:</b> <i>${title}</i>
 
-    <i>👍 ${like} 👎 ${dislike} 💬 ${comments}</i> • <i>${date}</i>
-  noDescription: Belirtilmemiş.
-  noCards: Hiç kart göndermediniz.
-  edit: "Düzenlemek istediğiniz şeyi seçin:"
-  startEditTitle: |
-    👌 TAMAM! Bana yeni bir başlık gönderin.
+        <b>Açıklama:</b>
+        <i>${description}</i>
 
-    <b>Şu anki başlığınız:</b> <code>${title}</code>
-  startEditDescription: |
-    👌 TAMAM! Bana yeni bir açıklama gönderin.
+        <i>👍 ${like} 👎 ${dislike} 💬 ${comments}</i> • <i>${date}</i>
+    noDescription: Belirtilmemiş.
+    noCards: Hiç kart göndermediniz.
+    edit: "Düzenlemek istediğiniz şeyi seçin:"
+    startEditTitle: |
+        👌 TAMAM! Bana yeni bir başlık gönderin.
 
-    <b>Şu anki açıklamanız:</b>
-    <code>${description}</code>
-  titleEdited: Başlık düzenlendi. Güncellenmiş kartlarınızı görmek için /me komutunu kullanın.
-  descriptionEdited: Açıklama düzenlendi. Güncellenmiş kartlarınızı görmek için /me komutunu kullanın.
-  deleteCard: Bu kartı gerçekten silmek istiyor musunuz? *Kartı geri kurtaramayacaksınız.*
-  cardDeleted: Kart silindi.
-  newComment: |
-    <b>${author}</b>, «<a href="${url}">${cardName}</a>» kartınıza bir yorum bıraktı:
+        <b>Şu anki başlığınız:</b> <code>${title}</code>
+    startEditDescription: |
+        👌 TAMAM! Bana yeni bir açıklama gönderin.
 
-    <i>${text}</i>
-  shareSuggestion: "Merhaba! bugs.telegram.org'daki [önerime](${url}) göz atın:"
+        <b>Şu anki açıklamanız:</b>
+        <code>${description}</code>
+    titleEdited: Başlık düzenlendi. Güncellenmiş kartlarınızı görmek için /me komutunu kullanın.
+    descriptionEdited: Açıklama düzenlendi. Güncellenmiş kartlarınızı görmek için /me komutunu kullanın.
+    deleteCard: Bu kartı gerçekten silmek istiyor musunuz? *Kartı geri kurtaramayacaksınız.*
+    cardDeleted: Kart silindi.
+    newComment: |
+        <b>${author}</b>, «<a href="${url}">${cardName}</a>» kartınıza bir yorum bıraktı:
+
+        <i>${text}</i>
+    shareSuggestion: "Merhaba! bugs.telegram.org'daki [önerime](${url}) göz atın:"
 
 suggestion:
-  retractVote: İlk önce oyunuzu geri çekin.
-  retracted: Oyunuzu geri çektiniz.
+    retractVote: İlk önce oyunuzu geri çekin.
+    retracted: Oyunuzu geri çektiniz.
 
-error: 
-  default: 😔 Ne yazık ki, bir şeyler ters gitti. Lütfen tekrar /new komutunu kullanın.
-  title_too_long: Önerinizin başlığı 250 karakterden daha az olmalı.
-  mediaGroup: Albüm göndermeyin. Sadece tek fotoğraf ya da video dosyası gönderin.
-  wrongMedia: Desteklenmeyen medya dosyası. Sadece tek fotoğraf ya da video dosyası gönderin.
-  maxSize: Maksimum dosya boyutu aşıldı. Lütfen 15Mb'a kadar medya dosyası gönderin.
-  noText: Lütfen tek fotoğraf ya da video dosyası gönderin.
-  descritpionWrongLanguage: Açıklama, İngilizce olmalı. Otomatik çeviriyi açmak ister misiniz?
-  titleWrongLanguage: Başlık, İngilizce olmalı. Otomatik çeviriyi açmak ister misiniz?
-  titleTheSame: Başlık, şu anki ile aynı. Lütfen farklı başlık gönderin.
-  descriptionTheSame: Açıklama, şu anki ile aynı. Lütfen farklı açıklama gönderin.
-  titleNotEdited: Başlık düzenlenmedi. Muhtemelen oluşturulması 24 saati geçti.
-  descriptionNotEdited: Açıklama düzenlenmedi. Muhtemelen oluşturulması 24 saati geçti.
-  cardNotDeleted: Bir şeyler ters gitti. Kart silinmedi. Daha sonra tekrar deneyin.
-  description_too_short: |
-    Lütfen önerinizi daha iyi açıklayın.
+error:
+    default: 😔 Ne yazık ki, bir şeyler ters gitti. Lütfen tekrar /new komutunu kullanın.
+    title_too_long: Önerinizin başlığı 250 karakterden daha az olmalı.
+    mediaGroup: Albüm göndermeyin. Sadece tek fotoğraf ya da video dosyası gönderin.
+    wrongMedia: Desteklenmeyen medya dosyası. Sadece tek fotoğraf ya da video dosyası gönderin.
+    maxSize: Maksimum dosya boyutu aşıldı. Lütfen 15Mb'a kadar medya dosyası gönderin.
+    noText: Lütfen tek fotoğraf ya da video dosyası gönderin.
+    descritpionWrongLanguage: Açıklama, İngilizce olmalı. Otomatik çeviriyi açmak ister misiniz?
+    titleWrongLanguage: Başlık, İngilizce olmalı. Otomatik çeviriyi açmak ister misiniz?
+    titleTheSame: Başlık, şu anki ile aynı. Lütfen farklı başlık gönderin.
+    descriptionTheSame: Açıklama, şu anki ile aynı. Lütfen farklı açıklama gönderin.
+    titleNotEdited: Başlık düzenlenmedi. Muhtemelen oluşturulması 24 saati geçti.
+    descriptionNotEdited: Açıklama düzenlenmedi. Muhtemelen oluşturulması 24 saati geçti.
+    cardNotDeleted: Bir şeyler ters gitti. Kart silinmedi. Daha sonra tekrar deneyin.
+    description_too_short: |
+        Lütfen önerinizi daha iyi açıklayın.
 
-    *Boş ya da hiçbir anlamı olmayan öneriler oluşturmayın. Bunları oluşturmaya devam ederseniz, engelleneceksiniz.*
-  sendDescription: Lütfen önerinizi açıklayın.
-  sendTitle: Lütfen özellik öneriniz için başlık girin.
-  limit_exceeded: 👮🏻 Acele etmeyin!
-  banned: Kalıcı olarak yasaklandınız ve artık kart oluşturamayacaksınız.
-  autoTranslateFailed: Varsayılan diliniz İngilizce ve İngilizce öneriler beklenir. Otomatik çeviriyi etkinleştirmek isterseniz, arayüz dilini değiştirin.
+        *Boş ya da hiçbir anlamı olmayan öneriler oluşturmayın. Bunları oluşturmaya devam ederseniz, engelleneceksiniz.*
+    sendDescription: Lütfen önerinizi açıklayın.
+    sendTitle: Lütfen özellik öneriniz için başlık girin.
+    limit_exceeded: 👮🏻 Acele etmeyin!
+    banned: Kalıcı olarak yasaklandınız ve artık kart oluşturamayacaksınız.
+    autoTranslateFailed: Varsayılan diliniz İngilizce ve İngilizce öneriler beklenir. Otomatik çeviriyi etkinleştirmek isterseniz, arayüz dilini değiştirin.
 
 button:
-  sFeature: Uygulamalar için bir özellik önerin
-  sLanguage: Bir dil önerin
-  language: Dili değiştirin
-  back: « Geri
-  cancel: İptal
-  submit: Gönder
-  yes: Evet
-  no: Hayır
-  skip: Bu adımı atla »
-  edit: Düzenle
-  delete: Sil
-  viewOnPlatform: Gör
-  editTitle: Başlık
-  editDescription: Açıklama
-  yesDelete: Evet, bu kartı sil
-  showComment: Yorumu göster
-  neverAskMedia: Asla medya sorma ${condition}
-  autoTranslate: Otomatik çeviri ${condition}
-  reportBug: Bildir
-  settings: Ayarlar
-  share: Paylaş
+    sFeature: Uygulamalar için bir özellik önerin
+    sLanguage: Bir dil önerin
+    language: Dili değiştirin
+    back: « Geri
+    cancel: İptal
+    submit: Gönder
+    yes: Evet
+    no: Hayır
+    skip: Bu adımı atla »
+    edit: Düzenle
+    delete: Sil
+    viewOnPlatform: Gör
+    editTitle: Başlık
+    editDescription: Açıklama
+    yesDelete: Evet, bu kartı sil
+    showComment: Yorumu göster
+    neverAskMedia: Asla medya sorma ${condition}
+    autoTranslate: Otomatik çeviri ${condition}
+    reportBug: Bildir
+    settings: Ayarlar
+    share: Paylaş
 
 application:
-  tgdroid: Android için Telegram
-  tgios: iOS için Telegram
-  tgdesk: Telegram Masaüstü
-  tgmac: Yerel macOS uygulaması
-  tgx: Android için Telegram X
-  tgweb: Telegram Web
-  tgwebk: Telegram Web (K version)
-  tgwebz: Telegram Web (Z version)
-  ddapp: Uygulamaya bağlı değil
+    tgdroid: Android için Telegram
+    tgios: iOS için Telegram
+    tgdesk: Telegram Masaüstü
+    tgmac: Yerel macOS uygulaması
+    tgx: Android için Telegram X
+    tgweb: Telegram Web
+    tgwebk: Telegram Web (K version)
+    tgwebz: Telegram Web (Z version)
+    ddapp: Uygulamaya bağlı değil
